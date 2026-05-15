@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-playfair: 'Playfair Display', Georgia, serif;
+  --font-inter: 'Inter', system-ui, sans-serif;
+  --font-noto: 'Noto Sans JP', sans-serif;
+
+  --navy: #0B1D2D;
+  --charcoal: #1E2329;
+  --offwhite: #F5F4F0;
+  --gold: #C8A46E;
+  --gold-light: #D4B882;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--navy);
+  color: var(--offwhite);
+  font-family: var(--font-inter);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Typography ─── */
+.font-display {
+  font-family: var(--font-playfair);
+}
+
+.font-jp {
+  font-family: var(--font-noto);
+}
+
+/* ─── Gold Divider ─── */
+.gold-line {
+  display: block;
+  width: 40px;
+  height: 1px;
+  background-color: var(--gold);
+  opacity: 0.7;
+}
+
+/* ─── Section padding ─── */
+.section-pad {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
+@media (max-width: 768px) {
+  .section-pad {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+}
+
+/* ─── Fade-in animation ─── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.delay-1 { animation-delay: 0.15s; }
+.delay-2 { animation-delay: 0.3s; }
+.delay-3 { animation-delay: 0.45s; }
+.delay-4 { animation-delay: 0.6s; }
+.delay-5 { animation-delay: 0.75s; }
+
+/* ─── Monogram SVG ─── */
+.monogram-path {
+  fill: var(--gold);
+}
+
+/* ─── Nav ─── */
+.nav-link {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(245, 244, 240, 0.6);
+  transition: color 0.2s;
+  font-family: var(--font-inter);
+  font-weight: 400;
+}
+
+.nav-link:hover {
+  color: var(--gold-light);
+}
+
+/* ─── CTA Button ─── */
+.btn-gold {
+  display: inline-block;
+  padding: 0.85rem 2.2rem;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-family: var(--font-inter);
+  font-weight: 400;
+  transition: background-color 0.25s, color 0.25s;
+  text-decoration: none;
+}
+
+.btn-gold:hover {
+  background-color: var(--gold);
+  color: var(--navy);
+}
+
+.btn-ghost {
+  display: inline-block;
+  padding: 0.85rem 2.2rem;
+  border: 1px solid rgba(245, 244, 240, 0.25);
+  color: rgba(245, 244, 240, 0.7);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-family: var(--font-inter);
+  font-weight: 400;
+  transition: border-color 0.25s, color 0.25s;
+  text-decoration: none;
+}
+
+.btn-ghost:hover {
+  border-color: rgba(245, 244, 240, 0.5);
+  color: var(--offwhite);
+}
+
+/* ─── Product card ─── */
+.product-card {
+  border: 1px solid rgba(200, 164, 110, 0.15);
+  background: rgba(30, 35, 41, 0.4);
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.product-card:hover {
+  border-color: rgba(200, 164, 110, 0.35);
+  background: rgba(30, 35, 41, 0.65);
+}
+
+/* ─── Brand structure ─── */
+.brand-node {
+  border: 1px solid rgba(200, 164, 110, 0.25);
+  background: rgba(18, 37, 57, 0.8);
+}
+
+/* ─── Horizontal rule ─── */
+.rule-subtle {
+  border: none;
+  border-top: 1px solid rgba(245, 244, 240, 0.08);
+}
+
+/* ─── Footer ─── */
+footer {
+  border-top: 1px solid rgba(200, 164, 110, 0.12);
+}
