@@ -159,7 +159,7 @@ function Hero() {
             marginBottom: "2rem",
           }}
         >
-          Est. 2025 · Tokyo
+          Tokyo
         </p>
 
         {/* Main heading */}
@@ -762,7 +762,7 @@ function Footer() {
         }}
       >
         <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", color: "rgba(245,244,240,0.15)", letterSpacing: "0.04em" }}>
-          © 2025 Dexter & Co. All rights reserved.
+          © Dexter & Co. All rights reserved.
         </p>
         <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", color: "rgba(245,244,240,0.15)", letterSpacing: "0.04em" }}>
           Built by DexTech.
