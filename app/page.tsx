@@ -180,40 +180,24 @@ function Hero() {
           <em style={{ fontStyle: "italic", color: "var(--gold)" }}>to Product.</em>
         </h1>
 
-        {/* Japanese tagline */}
-        <p
-          className="fade-up delay-2 font-jp"
-          style={{
-            fontSize: "1.05rem",
-            color: "rgba(245,244,240,0.55)",
-            marginBottom: "2.5rem",
-            fontWeight: 300,
-            letterSpacing: "0.05em",
-          }}
-        >
-          課題を見つけ、価値を形にする。
-        </p>
-
         {/* Divider */}
-        <span className="gold-line fade-up delay-2" style={{ marginBottom: "2.5rem" }} />
+        <span className="gold-line fade-up delay-2" style={{ marginBottom: "3rem" }} />
 
-        {/* Description */}
+        {/* Description — simplified */}
         <p
-          className="fade-up delay-3 font-jp"
+          className="fade-up delay-3"
           style={{
-            maxWidth: "560px",
-            fontSize: "0.95rem",
-            lineHeight: 2,
-            color: "rgba(245,244,240,0.55)",
+            maxWidth: "520px",
+            fontSize: "1rem",
+            lineHeight: 1.9,
+            color: "rgba(245,244,240,0.5)",
             fontWeight: 300,
-            marginBottom: "3rem",
+            fontFamily: "var(--font-inter)",
+            letterSpacing: "0.02em",
+            marginBottom: "4rem",
           }}
         >
-          私たちは、ビジネスとライフスタイルに潜む本質的な課題を見つけ出し、
-          <br className="hidden md:block" />
-          コンサルティングの知見とテクノロジーの力で、
-          <br className="hidden md:block" />
-          実際に役立つプロダクトへと昇華させます。
+          We identify problems and turn them into working products.
         </p>
 
         {/* CTAs */}
@@ -233,7 +217,7 @@ function About() {
       id="about"
       className="section-pad"
       style={{
-        padding: "7rem 2.5rem",
+        padding: "10rem 2.5rem",
         borderTop: "1px solid rgba(245,244,240,0.06)",
         background: "rgba(18,37,57,0.35)",
       }}
@@ -287,7 +271,7 @@ function BrandStructure() {
   return (
     <section
       className="section-pad"
-      style={{ padding: "7rem 2.5rem", borderTop: "1px solid rgba(245,244,240,0.06)" }}
+      style={{ padding: "10rem 2.5rem", borderTop: "1px solid rgba(245,244,240,0.06)" }}
     >
       <div style={{ maxWidth: "900px", margin: "0 auto" }}>
         <SectionLabel>Brand Structure</SectionLabel>
@@ -297,7 +281,7 @@ function BrandStructure() {
             fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)",
             fontWeight: 500,
             color: "var(--offwhite)",
-            marginBottom: "3.5rem",
+            marginBottom: "4.5rem",
           }}
         >
           One Vision, Two Engines.
@@ -307,151 +291,57 @@ function BrandStructure() {
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-            gap: "0",
-            alignItems: "stretch",
+            gap: "2rem",
           }}
         >
-          {/* Dexter & Co. node */}
-          <div
-            className="brand-node"
-            style={{
-              padding: "2.5rem 2rem",
-              display: "flex",
-              flexDirection: "column",
-              gap: "1rem",
-            }}
-          >
-            <p
-              style={{
-                fontFamily: "var(--font-playfair)",
-                fontSize: "1.35rem",
-                color: "var(--offwhite)",
-                fontWeight: 500,
-                letterSpacing: "0.04em",
-              }}
-            >
+          {/* Dexter & Co. */}
+          <div className="brand-node" style={{ padding: "3rem 2.5rem", display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.65rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.7 }}>
+              The Company
+            </p>
+            <p style={{ fontFamily: "var(--font-playfair)", fontSize: "1.4rem", color: "var(--offwhite)", fontWeight: 500, letterSpacing: "0.04em" }}>
               DEXTER <span style={{ color: "var(--gold)" }}>&</span> Co.
             </p>
             <span className="gold-line" />
-            <p
-              className="font-jp"
-              style={{ fontSize: "0.8rem", color: "rgba(245,244,240,0.45)", lineHeight: 2, fontWeight: 300 }}
-            >
-              コンサルティング<br />課題発見<br />戦略設計<br />ブランド全体の母体
+            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.82rem", color: "rgba(245,244,240,0.5)", lineHeight: 2, fontWeight: 300 }}>
+              → Problem Solving<br />
+              → Consulting<br />
+              → Strategy
             </p>
           </div>
 
-          {/* Arrow */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              padding: "1.5rem 1rem",
-            }}
-          >
-            <div style={{ textAlign: "center" }}>
-              <p
-                style={{
-                  fontFamily: "var(--font-inter)",
-                  fontSize: "0.65rem",
-                  letterSpacing: "0.2em",
-                  textTransform: "uppercase",
-                  color: "var(--gold)",
-                  opacity: 0.7,
-                  marginBottom: "0.5rem",
-                }}
-              >
-                開発・実装
-              </p>
-              <svg width="48" height="16" viewBox="0 0 48 16" fill="none" aria-hidden>
-                <path d="M0 8h44M38 2l6 6-6 6" stroke="#C8A46E" strokeWidth="1" strokeOpacity="0.6" />
-              </svg>
-            </div>
-          </div>
-
-          {/* DexTech node */}
-          <div
-            className="brand-node"
-            style={{
-              padding: "2.5rem 2rem",
-              display: "flex",
-              flexDirection: "column",
-              gap: "1rem",
-            }}
-          >
-            <p
-              style={{
-                fontFamily: "var(--font-playfair)",
-                fontSize: "1.35rem",
-                color: "var(--offwhite)",
-                fontWeight: 500,
-                letterSpacing: "0.04em",
-              }}
-            >
+          {/* DexTech */}
+          <div className="brand-node" style={{ padding: "3rem 2.5rem", display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.65rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.7 }}>
+              The Dev Brand
+            </p>
+            <p style={{ fontFamily: "var(--font-playfair)", fontSize: "1.4rem", color: "var(--offwhite)", fontWeight: 500, letterSpacing: "0.04em" }}>
               Dex<span style={{ color: "var(--gold)" }}>Tech</span>
             </p>
             <span className="gold-line" />
-            <p
-              className="font-jp"
-              style={{ fontSize: "0.8rem", color: "rgba(245,244,240,0.45)", lineHeight: 2, fontWeight: 300 }}
-            >
-              アプリ開発<br />AIツール開発<br />業務改善システム<br />プロダクト化
+            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.82rem", color: "rgba(245,244,240,0.5)", lineHeight: 2, fontWeight: 300 }}>
+              → Product Building<br />
+              → App Development<br />
+              → AI Tools
             </p>
           </div>
 
-          {/* Arrow 2 */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              padding: "1.5rem 1rem",
-            }}
-          >
-            <svg width="48" height="16" viewBox="0 0 48 16" fill="none" aria-hidden>
-              <path d="M0 8h44M38 2l6 6-6 6" stroke="#C8A46E" strokeWidth="1" strokeOpacity="0.4" />
-            </svg>
-          </div>
-
-          {/* Products mini list */}
-          <div
-            className="brand-node"
-            style={{
-              padding: "2.5rem 2rem",
-              display: "flex",
-              flexDirection: "column",
-              gap: "0.8rem",
-            }}
-          >
-            <p
-              style={{
-                fontFamily: "var(--font-inter)",
-                fontSize: "0.65rem",
-                letterSpacing: "0.22em",
-                textTransform: "uppercase",
-                color: "var(--gold)",
-                opacity: 0.7,
-                marginBottom: "0.5rem",
-              }}
-            >
+          {/* Products */}
+          <div className="brand-node" style={{ padding: "3rem 2.5rem", display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.65rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.7 }}>
               Products
             </p>
-            {["Lily Series", "Silent", "TabiLog"].map((p) => (
-              <p
-                key={p}
-                style={{
-                  fontFamily: "var(--font-playfair)",
-                  fontSize: "1rem",
-                  color: "rgba(245,244,240,0.65)",
-                  fontWeight: 400,
-                  borderBottom: "1px solid rgba(200,164,110,0.1)",
-                  paddingBottom: "0.6rem",
-                }}
-              >
-                {p}
-              </p>
-            ))}
+            <p style={{ fontFamily: "var(--font-playfair)", fontSize: "1.4rem", color: "var(--offwhite)", fontWeight: 500 }}>
+              Our Work
+            </p>
+            <span className="gold-line" />
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.7rem" }}>
+              {["Lily Series", "Silent", "TabiLog"].map((p) => (
+                <p key={p} style={{ fontFamily: "var(--font-inter)", fontSize: "0.82rem", color: "rgba(245,244,240,0.5)", fontWeight: 300, borderBottom: "1px solid rgba(200,164,110,0.08)", paddingBottom: "0.65rem" }}>
+                  → {p}
+                </p>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -490,7 +380,7 @@ function Products() {
       id="products"
       className="section-pad"
       style={{
-        padding: "7rem 2.5rem",
+        padding: "10rem 2.5rem",
         borderTop: "1px solid rgba(245,244,240,0.06)",
         background: "rgba(18,37,57,0.25)",
       }}
@@ -503,10 +393,10 @@ function Products() {
             fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)",
             fontWeight: 500,
             color: "var(--offwhite)",
-            marginBottom: "3.5rem",
+            marginBottom: "4.5rem",
           }}
         >
-          Built under DexTech.
+          Products built by DexTech.
         </h2>
 
         <div
@@ -642,7 +532,7 @@ function Contact() {
     <section
       id="contact"
       style={{
-        padding: "7rem 2.5rem",
+        padding: "10rem 2.5rem",
         borderTop: "1px solid rgba(245,244,240,0.06)",
         background: "rgba(7,15,24,0.5)",
       }}
