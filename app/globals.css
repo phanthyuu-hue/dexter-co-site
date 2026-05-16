@@ -174,3 +174,14 @@ body {
 footer {
   border-top: 1px solid rgba(200, 164, 110, 0.12);
 }
+
+/* ─── Nav brand text (hidden on mobile) ─── */
+.nav-brand-text {
+  display: inline;
+}
+
+@media (max-width: 640px) {
+  .nav-brand-text {
+    display: none;
+  }
+}

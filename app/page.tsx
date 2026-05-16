@@ -47,7 +47,7 @@ function Nav() {
       }}
     >
       {/* Logo */}
-      <a href="#" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
+      <a href="#" style={{ display: "flex", alignItems: "center", gap: "0.75rem", textDecoration: "none" }}>
         <Image
           src="/logo-dark.png"
           alt="Dexter & Co."
@@ -55,6 +55,19 @@ function Nav() {
           height={36}
           style={{ height: "36px", width: "auto", objectFit: "contain" }}
         />
+        <span
+          style={{
+            fontFamily: "var(--font-playfair)",
+            fontSize: "0.95rem",
+            fontWeight: 500,
+            color: "rgba(245,244,240,0.82)",
+            letterSpacing: "0.14em",
+            whiteSpace: "nowrap",
+          }}
+          className="nav-brand-text"
+        >
+          DEXTER <span style={{ color: "var(--gold)" }}>&</span> Co.
+        </span>
       </a>
 
       {/* Links */}
@@ -674,19 +687,35 @@ function Footer() {
           gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
           gap: "3rem",
           marginBottom: "3rem",
+          alignItems: "start",
         }}
       >
         {/* Brand */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "1.2rem" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "1rem", alignItems: "flex-start" }}>
           <Image
             src="/footer-logo.png"
             alt="Dexter & Co."
-            width={300}
-            height={44}
-            style={{ height: "44px", width: "auto", objectFit: "contain", opacity: 0.85 }}
+            width={280}
+            height={56}
+            style={{ width: "clamp(200px, 22vw, 280px)", height: "auto", objectFit: "contain", opacity: 0.88 }}
           />
-          <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.78rem", color: "rgba(245,244,240,0.4)", letterSpacing: "0.08em", lineHeight: 1.8 }}>
+          <p style={{
+            fontFamily: "var(--font-inter)",
+            fontSize: "0.75rem",
+            color: "rgba(245,244,240,0.45)",
+            letterSpacing: "0.1em",
+            lineHeight: 1.6,
+          }}>
             Tokyo / Remote
+          </p>
+          <p style={{
+            fontFamily: "var(--font-playfair)",
+            fontSize: "0.72rem",
+            fontStyle: "italic",
+            color: "rgba(200,164,110,0.45)",
+            letterSpacing: "0.06em",
+          }}>
+            From Problem to Product.
           </p>
         </div>
 
