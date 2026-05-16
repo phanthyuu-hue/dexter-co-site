@@ -101,114 +101,76 @@ function Hero() {
         style={{
           position: "absolute",
           inset: 0,
-          background: "rgba(5,12,22,0.65)",
+          background: "rgba(5,12,22,0.68)",
         }}
       />
 
-      {/* コンテンツ */}
+      {/* コンテンツ — テキスト中心・やや左寄せ */}
       <div
         style={{
           position: "relative",
-          padding: "10rem 2.5rem 6rem",
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          gap: "5rem",
-          maxWidth: "1100px",
-          flexWrap: "wrap",
+          padding: "12rem 2.5rem 7rem",
+          maxWidth: "860px",
         }}
       >
-        {/* 左：hero-logo */}
-        <div className="fade-up" style={{ flexShrink: 0 }}>
-          <Image
-            src="/hero-logo.png"
-            alt="Dexter & Co."
-            width={260}
-            height={260}
-            style={{
-              width: "clamp(160px, 20vw, 260px)",
-              height: "auto",
-              objectFit: "contain",
-            }}
-          />
-        </div>
+        {/* Brand name — small */}
+        <p
+          className="fade-up"
+          style={{
+            fontFamily: "var(--font-inter)",
+            fontSize: "0.72rem",
+            letterSpacing: "0.32em",
+            textTransform: "uppercase",
+            color: "var(--gold)",
+            opacity: 0.8,
+            marginBottom: "2rem",
+          }}
+        >
+          DEXTER &amp; Co.
+        </p>
 
-        {/* 右：テキスト */}
-        <div style={{ flex: 1, minWidth: "260px" }}>
-          {/* eyebrow */}
-          <p
-            className="fade-up"
-            style={{
-              fontFamily: "var(--font-inter)",
-              fontSize: "0.7rem",
-              letterSpacing: "0.32em",
-              textTransform: "uppercase",
-              color: "var(--gold)",
-              opacity: 0.85,
-              marginBottom: "1.5rem",
-            }}
-          >
-            Tokyo
-          </p>
+        {/* Main heading */}
+        <h1
+          className="fade-up delay-1"
+          style={{
+            fontFamily: "var(--font-playfair)",
+            fontSize: "clamp(2.8rem, 7vw, 6.5rem)",
+            fontWeight: 500,
+            lineHeight: 1.06,
+            color: "var(--offwhite)",
+            marginBottom: "2.5rem",
+            letterSpacing: "-0.01em",
+          }}
+        >
+          From Problem
+          <br />
+          <em style={{ fontStyle: "italic", color: "var(--gold)" }}>to Product.</em>
+        </h1>
 
-          {/* Brand name */}
-          <p
-            className="fade-up delay-1"
-            style={{
-              fontFamily: "var(--font-playfair)",
-              fontSize: "clamp(1rem, 2.5vw, 1.4rem)",
-              fontWeight: 500,
-              color: "var(--offwhite)",
-              letterSpacing: "0.18em",
-              marginBottom: "1rem",
-            }}
-          >
-            DEXTER & Co.
-          </p>
+        {/* Divider */}
+        <span className="gold-line fade-up delay-2" style={{ marginBottom: "2.5rem" }} />
 
-          {/* Main heading */}
-          <h1
-            className="fade-up delay-1"
-            style={{
-              fontFamily: "var(--font-playfair)",
-              fontSize: "clamp(2.4rem, 6vw, 5.5rem)",
-              fontWeight: 500,
-              lineHeight: 1.08,
-              color: "var(--offwhite)",
-              marginBottom: "2rem",
-              letterSpacing: "-0.01em",
-            }}
-          >
-            From Problem
-            <br />
-            <em style={{ fontStyle: "italic", color: "var(--gold)" }}>to Product.</em>
-          </h1>
+        {/* Description */}
+        <p
+          className="fade-up delay-3"
+          style={{
+            maxWidth: "480px",
+            fontSize: "1rem",
+            lineHeight: 1.9,
+            color: "rgba(245,244,240,0.5)",
+            fontWeight: 300,
+            fontFamily: "var(--font-inter)",
+            letterSpacing: "0.02em",
+            marginBottom: "4rem",
+          }}
+        >
+          We identify problems and turn them into working products.
+        </p>
 
-          {/* Divider */}
-          <span className="gold-line fade-up delay-2" style={{ marginBottom: "2.5rem" }} />
-
-          {/* Description */}
-          <p
-            className="fade-up delay-3"
-            style={{
-              maxWidth: "480px",
-              fontSize: "1rem",
-              lineHeight: 1.9,
-              color: "rgba(245,244,240,0.5)",
-              fontWeight: 300,
-              fontFamily: "var(--font-inter)",
-              letterSpacing: "0.02em",
-              marginBottom: "3.5rem",
-            }}
-          >
-            We identify problems and turn them into working products.
-          </p>
-
-          {/* CTAs */}
-          <div className="fade-up delay-4" style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-            <a href="#products" className="btn-gold">Our Products</a>
-            <a href="#contact" className="btn-ghost">Contact</a>
-          </div>
+        {/* CTAs */}
+        <div className="fade-up delay-4" style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+          <a href="#products" className="btn-gold">Our Products</a>
+          <a href="#contact" className="btn-ghost">Contact</a>
         </div>
       </div>
     </section>
@@ -715,30 +677,29 @@ function Footer() {
         }}
       >
         {/* Brand */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "1.2rem" }}>
           <Image
             src="/footer-logo.png"
             alt="Dexter & Co."
-            width={200}
-            height={28}
-            style={{ height: "28px", width: "auto", objectFit: "contain", opacity: 0.7 }}
+            width={300}
+            height={44}
+            style={{ height: "44px", width: "auto", objectFit: "contain", opacity: 0.85 }}
           />
-          <span className="gold-line" />
-          <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.75rem", color: "rgba(245,244,240,0.25)", letterSpacing: "0.06em", lineHeight: 1.8 }}>
+          <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.78rem", color: "rgba(245,244,240,0.4)", letterSpacing: "0.08em", lineHeight: 1.8 }}>
             Tokyo / Remote
           </p>
         </div>
 
         {/* Contact */}
         <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-          <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.65rem", letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.5, marginBottom: "0.25rem" }}>
+          <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.65rem", letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.65, marginBottom: "0.25rem" }}>
             Contact
           </p>
           <a
             href="mailto:hello@dexter-co.jp"
-            style={{ fontFamily: "var(--font-inter)", fontSize: "0.78rem", color: "rgba(245,244,240,0.3)", letterSpacing: "0.04em", textDecoration: "none", transition: "color 0.2s" }}
+            style={{ fontFamily: "var(--font-inter)", fontSize: "0.78rem", color: "rgba(245,244,240,0.45)", letterSpacing: "0.04em", textDecoration: "none", transition: "color 0.2s" }}
             onMouseEnter={(e) => (e.currentTarget.style.color = "var(--gold)")}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(245,244,240,0.3)")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(245,244,240,0.45)")}
           >
             hello@dexter-co.jp
           </a>
@@ -746,11 +707,11 @@ function Footer() {
 
         {/* Products */}
         <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-          <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.65rem", letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.5, marginBottom: "0.25rem" }}>
+          <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.65rem", letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.65, marginBottom: "0.25rem" }}>
             Products
           </p>
           {["Lily Series", "Silent", "TabiLog"].map((p) => (
-            <p key={p} style={{ fontFamily: "var(--font-inter)", fontSize: "0.78rem", color: "rgba(245,244,240,0.25)", letterSpacing: "0.04em" }}>
+            <p key={p} style={{ fontFamily: "var(--font-inter)", fontSize: "0.78rem", color: "rgba(245,244,240,0.4)", letterSpacing: "0.04em" }}>
               {p}
             </p>
           ))}
@@ -770,10 +731,10 @@ function Footer() {
           gap: "0.5rem",
         }}
       >
-        <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", color: "rgba(245,244,240,0.15)", letterSpacing: "0.04em" }}>
+        <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", color: "rgba(245,244,240,0.25)", letterSpacing: "0.04em" }}>
           © Dexter & Co. All rights reserved.
         </p>
-        <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", color: "rgba(245,244,240,0.15)", letterSpacing: "0.04em" }}>
+        <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", color: "rgba(245,244,240,0.25)", letterSpacing: "0.04em" }}>
           Built by DexTech.
         </p>
       </div>
