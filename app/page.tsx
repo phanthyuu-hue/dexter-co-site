@@ -678,7 +678,7 @@ function Contact() {
 /* ─── Footer ─── */
 function Footer() {
   return (
-    <footer style={{ padding: "4rem 2.5rem 3rem", borderTop: "1px solid rgba(200,164,110,0.12)" }}>
+    <footer style={{ padding: "2.5rem 2.5rem 2rem", borderTop: "1px solid rgba(200,164,110,0.12)" }}>
       <div
         style={{
           maxWidth: "900px",
@@ -686,34 +686,45 @@ function Footer() {
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
           gap: "3rem",
-          marginBottom: "3rem",
+          marginBottom: "2rem",
           alignItems: "start",
         }}
       >
-        {/* Brand */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "1rem", alignItems: "flex-start" }}>
-          <Image
-            src="/footer-logo.png"
-            alt="Dexter & Co."
-            width={280}
-            height={56}
-            style={{ width: "clamp(200px, 22vw, 280px)", height: "auto", objectFit: "contain", opacity: 0.88 }}
-          />
+        {/* Brand — B案：アイコン＋テキストで再構成 */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem", alignItems: "flex-start" }}>
+          {/* ロゴ行：logo-dark.png（小） + DEXTER & Co. */}
+          <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", marginBottom: "0.25rem" }}>
+            <Image
+              src="/logo-dark.png"
+              alt="Dexter & Co."
+              width={28}
+              height={28}
+              style={{ width: "28px", height: "28px", objectFit: "contain", opacity: 0.75 }}
+            />
+            <span style={{
+              fontFamily: "var(--font-playfair)",
+              fontSize: "0.9rem",
+              fontWeight: 500,
+              color: "rgba(245,244,240,0.55)",
+              letterSpacing: "0.12em",
+            }}>
+              DEXTER <span style={{ color: "var(--gold)", opacity: 0.7 }}>&</span> Co.
+            </span>
+          </div>
           <p style={{
             fontFamily: "var(--font-inter)",
-            fontSize: "0.75rem",
-            color: "rgba(245,244,240,0.45)",
-            letterSpacing: "0.1em",
-            lineHeight: 1.6,
+            fontSize: "0.72rem",
+            color: "rgba(245,244,240,0.35)",
+            letterSpacing: "0.08em",
           }}>
             Tokyo / Remote
           </p>
           <p style={{
             fontFamily: "var(--font-playfair)",
-            fontSize: "0.72rem",
+            fontSize: "0.7rem",
             fontStyle: "italic",
-            color: "rgba(200,164,110,0.45)",
-            letterSpacing: "0.06em",
+            color: "rgba(200,164,110,0.4)",
+            letterSpacing: "0.05em",
           }}>
             From Problem to Product.
           </p>
@@ -753,7 +764,7 @@ function Footer() {
           maxWidth: "900px",
           margin: "0 auto",
           borderTop: "1px solid rgba(245,244,240,0.05)",
-          paddingTop: "1.5rem",
+          paddingTop: "1rem",
           display: "flex",
           justifyContent: "space-between",
           flexWrap: "wrap",
