@@ -1,5 +1,28 @@
 import type { Metadata } from "next";
+import { Playfair_Display, Inter, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-playfair",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const noto = Noto_Sans_JP({
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  variable: "--font-noto",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Dexter & Co. | From Problem to Product.",
@@ -11,15 +34,23 @@ export const metadata: Metadata = {
     title: "Dexter & Co. | From Problem to Product.",
     description:
       "課題を見つけ、価値を形にする。コンサルティングの知見とテクノロジーで、本質的な課題をプロダクトへ。",
-    url: "https://dexter-co.vercel.app",
+    url: "https://dexter-co-site.vercel.app",
     siteName: "Dexter & Co.",
     locale: "ja_JP",
     type: "website",
+    images: [
+      {
+        url: "/ogp.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Dexter & Co. | From Problem to Product.",
     description: "課題を見つけ、価値を形にする。",
+    images: ["/ogp.png"],
   },
   robots: {
     index: true,
@@ -33,15 +64,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html lang="ja" className={`${playfair.variable} ${inter.variable} ${noto.variable}`}>
       <body>{children}</body>
     </html>
   );
