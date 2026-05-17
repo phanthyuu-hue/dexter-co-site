@@ -73,7 +73,7 @@ function Nav() {
       {/* Links */}
       <div style={{ display: "flex", gap: "2.5rem" }}>
         <a href="/about" className="nav-link">About</a>
-        <a href="#products" className="nav-link">Products</a>
+        <a href="/products" className="nav-link">Products</a>
         <a href="#contact" className="nav-link">Contact</a>
       </div>
     </nav>
