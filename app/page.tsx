@@ -165,17 +165,32 @@ function Hero() {
         <p
           className="fade-up delay-3"
           style={{
-            maxWidth: "480px",
+            maxWidth: "540px",
             fontSize: "1rem",
             lineHeight: 1.9,
-            color: "rgba(245,244,240,0.5)",
+            color: "rgba(245,244,240,0.7)",
             fontWeight: 300,
             fontFamily: "var(--font-inter)",
             letterSpacing: "0.02em",
+            marginBottom: "1rem",
+          }}
+        >
+          We design and build AI-powered tools, business systems, and digital products from real-world problems.
+        </p>
+        <p
+          className="fade-up delay-3"
+          style={{
+            maxWidth: "540px",
+            fontSize: "0.82rem",
+            lineHeight: 1.9,
+            color: "rgba(200,164,110,0.65)",
+            fontWeight: 300,
+            fontFamily: "var(--font-noto)",
+            letterSpacing: "0.05em",
             marginBottom: "4rem",
           }}
         >
-          We identify problems and turn them into working products.
+          現場の課題から、AIツール・業務システム・デジタルプロダクトをつくる会社です。
         </p>
 
         {/* CTAs */}
@@ -238,6 +253,27 @@ function About() {
             コンサルティングの思考と、エンジニアリングの実行力。
             その両輪で、本質的な価値を生み出します。
           </p>
+        </div>
+
+        {/* What we build chips */}
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "0.6rem", marginTop: "2.5rem" }}>
+          {["AI tools", "Business systems", "Workflow automation", "Digital products"].map((item) => (
+            <span
+              key={item}
+              style={{
+                fontFamily: "var(--font-inter)",
+                fontSize: "0.68rem",
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                color: "var(--gold)",
+                border: "1px solid rgba(200,164,110,0.25)",
+                padding: "0.3rem 0.85rem",
+                opacity: 0.8,
+              }}
+            >
+              {item}
+            </span>
+          ))}
         </div>
       </div>
     </section>

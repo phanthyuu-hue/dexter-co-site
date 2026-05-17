@@ -149,8 +149,19 @@ function Hero() {
           fontWeight: 300,
           maxWidth: "600px",
           letterSpacing: "0.02em",
+          marginBottom: "0.85rem",
         }}>
-          DexTech builds practical tools that turn real problems into working products.
+          DexTech builds AI tools, business systems, and productized solutions for real-world workflows.
+        </p>
+        <p style={{
+          fontFamily: "var(--font-noto)",
+          fontSize: "0.82rem",
+          color: "rgba(200,164,110,0.65)",
+          letterSpacing: "0.05em",
+          fontWeight: 300,
+          lineHeight: 1.9,
+        }}>
+          DexTechは、実際の業務や生活の課題をもとに、使えるツールとして形にする開発ブランドです。
         </p>
       </div>
     </section>
