@@ -155,7 +155,7 @@ function Hero() {
   return (
     <section
       style={{
-        paddingTop: "14rem",
+        paddingTop: "18rem",
         paddingBottom: "8rem",
         paddingLeft: "2.5rem",
         paddingRight: "2.5rem",
@@ -181,10 +181,10 @@ function Hero() {
         </h1>
         <p style={{
           fontFamily: "var(--font-noto)",
-          fontSize: "0.82rem",
-          color: "rgba(200,164,110,0.55)",
+          fontSize: "0.85rem",
+          color: "rgba(200,164,110,0.75)",
           letterSpacing: "0.06em",
-          marginBottom: "2rem",
+          marginBottom: "2.5rem",
           fontWeight: 300,
         }}>
           現場の課題を見つけ、実際に使われるプロダクトへ。
@@ -204,10 +204,11 @@ function Hero() {
             fontFamily: "var(--font-inter)",
             fontSize: "1.05rem",
             lineHeight: 1.9,
-            color: "rgba(245,244,240,0.5)",
+            color: "rgba(245,244,240,0.7)",
             fontWeight: 300,
             maxWidth: "600px",
             letterSpacing: "0.02em",
+            marginBottom: "0.85rem",
           }}
         >
           Dexter & Co. is a product-driven company focused on identifying
@@ -215,10 +216,9 @@ function Hero() {
         </p>
         <p style={{
           fontFamily: "var(--font-noto)",
-          fontSize: "0.8rem",
-          color: "rgba(245,244,240,0.3)",
+          fontSize: "0.82rem",
+          color: "rgba(245,244,240,0.45)",
           letterSpacing: "0.04em",
-          marginTop: "1rem",
           fontWeight: 300,
           lineHeight: 1.9,
         }}>
@@ -259,12 +259,12 @@ function WhatWeDo() {
         </h2>
         <p style={{
           fontFamily: "var(--font-noto)",
-          fontSize: "0.8rem",
-          color: "rgba(245,244,240,0.3)",
+          fontSize: "0.82rem",
+          color: "rgba(245,244,240,0.42)",
           letterSpacing: "0.05em",
           marginBottom: "3rem",
           fontWeight: 300,
-          marginTop: "-2.5rem",
+          marginTop: "-2rem",
         }}>
           私たちが提供すること
         </p>
@@ -343,12 +343,12 @@ function Philosophy() {
         </h2>
         <p style={{
           fontFamily: "var(--font-noto)",
-          fontSize: "0.8rem",
-          color: "rgba(245,244,240,0.3)",
+          fontSize: "0.82rem",
+          color: "rgba(200,164,110,0.65)",
           letterSpacing: "0.05em",
           marginBottom: "3rem",
           fontWeight: 300,
-          marginTop: "-2.5rem",
+          marginTop: "-2rem",
         }}>
           アイデアではなく、課題から始める。
         </p>
@@ -381,7 +381,7 @@ function Philosophy() {
                   fontFamily: "var(--font-inter)",
                   fontSize: "1rem",
                   fontWeight: 300,
-                  color: "rgba(245,244,240,0.55)",
+                  color: "rgba(245,244,240,0.68)",
                   lineHeight: 1.9,
                   letterSpacing: "0.02em",
                 }}
@@ -442,12 +442,12 @@ function Products() {
         </h2>
         <p style={{
           fontFamily: "var(--font-noto)",
-          fontSize: "0.8rem",
-          color: "rgba(245,244,240,0.3)",
+          fontSize: "0.82rem",
+          color: "rgba(245,244,240,0.42)",
           letterSpacing: "0.05em",
           marginBottom: "3rem",
           fontWeight: 300,
-          marginTop: "-2.5rem",
+          marginTop: "-2rem",
         }}>
           DexTechによって生まれたプロダクト群。
         </p>
@@ -507,7 +507,7 @@ function Products() {
                     fontFamily: "var(--font-inter)",
                     fontSize: "0.9rem",
                     lineHeight: 1.8,
-                    color: "rgba(245,244,240,0.45)",
+                    color: "rgba(245,244,240,0.62)",
                     fontWeight: 300,
                     maxWidth: "560px",
                   }}
