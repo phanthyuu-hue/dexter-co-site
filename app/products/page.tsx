@@ -323,18 +323,27 @@ function DexTechSection() {
     }}>
       <div style={{ maxWidth: "800px", margin: "0 auto" }}>
         <SectionLabel>DexTech</SectionLabel>
-        {/* DexTech テキストロゴ */}
-        <p style={{
-          fontFamily: "var(--font-inter)",
-          fontSize: "clamp(2rem, 5vw, 3.5rem)",
-          fontWeight: 300,
-          color: "var(--offwhite)",
-          letterSpacing: "0.08em",
-          marginBottom: "0.5rem",
-          lineHeight: 1,
-        }}>
-          DexTech
-        </p>
+        {/* DexTech テキストロゴ — シンボル＋テキスト横並び */}
+        <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "0.5rem" }}>
+          <Image
+            src="/dextech-symbol.png"
+            alt=""
+            width={22}
+            height={22}
+            aria-hidden
+            style={{ width: "22px", height: "22px", objectFit: "contain", opacity: 0.65 }}
+          />
+          <p style={{
+            fontFamily: "var(--font-inter)",
+            fontSize: "clamp(2rem, 5vw, 3.5rem)",
+            fontWeight: 300,
+            color: "var(--offwhite)",
+            letterSpacing: "0.08em",
+            lineHeight: 1,
+          }}>
+            DexTech
+          </p>
+        </div>
         <p style={{
           fontFamily: "var(--font-inter)",
           fontSize: "0.72rem",
