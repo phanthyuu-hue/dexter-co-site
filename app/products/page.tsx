@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 /* ── Section label ── */
 function SectionLabel({ children }: { children: React.ReactNode }) {
@@ -22,6 +23,12 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 
 /* ─── Nav ─── */
 function Nav() {
+  const pathname = usePathname();
+  const links = [
+    { label: "About", href: "/about" },
+    { label: "Products", href: "/products" },
+    { label: "Contact", href: "/contact" },
+  ];
   return (
     <nav style={{
       position: "fixed",
@@ -50,9 +57,16 @@ function Nav() {
         </span>
       </Link>
       <div style={{ display: "flex", gap: "2.5rem" }}>
-        <Link href="/about" className="nav-link">About</Link>
-        <Link href="/products" className="nav-link" style={{ color: "var(--gold)" }}>Products</Link>
-        <Link href="/#contact" className="nav-link">Contact</Link>
+        {links.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            className="nav-link"
+            style={pathname === link.href ? { color: "var(--gold)", opacity: 1 } : {}}
+          >
+            {link.label}
+          </Link>
+        ))}
       </div>
     </nav>
   );

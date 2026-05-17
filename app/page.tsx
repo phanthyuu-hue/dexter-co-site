@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 /* ─────────────────────────────────────────────
    Dexter & Co. Brand Site — MVP
@@ -29,13 +31,17 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 
 /* ─── Nav ─── */
 function Nav() {
+  const pathname = usePathname();
+  const links = [
+    { label: "About", href: "/about" },
+    { label: "Products", href: "/products" },
+    { label: "Contact", href: "/contact" },
+  ];
   return (
     <nav
       style={{
         position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
+        top: 0, left: 0, right: 0,
         zIndex: 50,
         display: "flex",
         alignItems: "center",
@@ -46,35 +52,31 @@ function Nav() {
         borderBottom: "1px solid rgba(200,164,110,0.1)",
       }}
     >
-      {/* Logo */}
-      <a href="#" style={{ display: "flex", alignItems: "center", gap: "0.75rem", textDecoration: "none" }}>
-        <Image
-          src="/logo-dark.png"
-          alt="Dexter & Co."
-          width={160}
-          height={36}
-          style={{ height: "36px", width: "auto", objectFit: "contain" }}
-        />
-        <span
-          style={{
-            fontFamily: "var(--font-playfair)",
-            fontSize: "0.95rem",
-            fontWeight: 500,
-            color: "rgba(245,244,240,0.82)",
-            letterSpacing: "0.14em",
-            whiteSpace: "nowrap",
-          }}
-          className="nav-brand-text"
-        >
+      <Link href="/" style={{ display: "flex", alignItems: "center", gap: "0.75rem", textDecoration: "none" }}>
+        <Image src="/logo-dark.png" alt="Dexter & Co." width={160} height={36}
+          style={{ height: "36px", width: "auto", objectFit: "contain" }} />
+        <span className="nav-brand-text" style={{
+          fontFamily: "var(--font-playfair)",
+          fontSize: "0.95rem",
+          fontWeight: 500,
+          color: "rgba(245,244,240,0.82)",
+          letterSpacing: "0.14em",
+          whiteSpace: "nowrap",
+        }}>
           DEXTER <span style={{ color: "var(--gold)" }}>&</span> Co.
         </span>
-      </a>
-
-      {/* Links */}
+      </Link>
       <div style={{ display: "flex", gap: "2.5rem" }}>
-        <a href="/about" className="nav-link">About</a>
-        <a href="/products" className="nav-link">Products</a>
-        <a href="#contact" className="nav-link">Contact</a>
+        {links.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            className="nav-link"
+            style={pathname === link.href ? { color: "var(--gold)", opacity: 1 } : {}}
+          >
+            {link.label}
+          </Link>
+        ))}
       </div>
     </nav>
   );
@@ -256,7 +258,10 @@ function About() {
         </div>
 
         {/* What we build chips */}
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "0.6rem", marginTop: "2.5rem" }}>
+        <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.78rem", color: "rgba(245,244,240,0.35)", letterSpacing: "0.05em", fontWeight: 300, marginTop: "2.5rem", marginBottom: "0.75rem" }}>
+          私たちがつくるもの
+        </p>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "0.6rem" }}>
           {["AI tools", "Business systems", "Workflow automation", "Digital products"].map((item) => (
             <span
               key={item}
@@ -308,13 +313,10 @@ function WhatWeDo() {
         >
           What we do.
         </h2>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-            gap: "2rem",
-          }}
-        >
+        <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.82rem", color: "rgba(245,244,240,0.38)", letterSpacing: "0.05em", fontWeight: 300, marginTop: "-3rem", marginBottom: "3rem" }}>
+          私たちが提供すること
+        </p>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "2rem" }}>
           {items.map((item) => (
             <div
               key={item.num}
@@ -369,6 +371,9 @@ function WhoWeWorkWith() {
         >
           Who we work with.
         </h2>
+        <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.82rem", color: "rgba(245,244,240,0.38)", letterSpacing: "0.05em", fontWeight: 300, marginTop: "-3rem", marginBottom: "3rem" }}>
+          私たちが支援する人たち
+        </p>
         <div style={{ display: "flex", flexDirection: "column" }}>
           {items.map((item, i) => (
             <div
