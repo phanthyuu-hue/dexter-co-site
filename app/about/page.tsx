@@ -179,6 +179,16 @@ function Hero() {
           <br />
           <em style={{ fontStyle: "italic", color: "var(--gold)" }}>from real problems.</em>
         </h1>
+        <p style={{
+          fontFamily: "var(--font-noto)",
+          fontSize: "0.82rem",
+          color: "rgba(200,164,110,0.55)",
+          letterSpacing: "0.06em",
+          marginBottom: "2rem",
+          fontWeight: 300,
+        }}>
+          現場の課題を見つけ、実際に使われるプロダクトへ。
+        </p>
         <span
           style={{
             display: "block",
@@ -202,6 +212,17 @@ function Hero() {
         >
           Dexter & Co. is a product-driven company focused on identifying
           real-world problems and turning them into scalable solutions.
+        </p>
+        <p style={{
+          fontFamily: "var(--font-noto)",
+          fontSize: "0.8rem",
+          color: "rgba(245,244,240,0.3)",
+          letterSpacing: "0.04em",
+          marginTop: "1rem",
+          fontWeight: 300,
+          lineHeight: 1.9,
+        }}>
+          Dexter & Co. は、課題発見からプロダクト化までを一貫して行う課題解決型ブランドです。
         </p>
       </div>
     </section>
@@ -236,6 +257,17 @@ function WhatWeDo() {
         >
           What we do.
         </h2>
+        <p style={{
+          fontFamily: "var(--font-noto)",
+          fontSize: "0.8rem",
+          color: "rgba(245,244,240,0.3)",
+          letterSpacing: "0.05em",
+          marginBottom: "3rem",
+          fontWeight: 300,
+          marginTop: "-2.5rem",
+        }}>
+          私たちが提供すること
+        </p>
         <div style={{ display: "flex", flexDirection: "column" }}>
           {items.map((item, i) => (
             <div
@@ -309,6 +341,17 @@ function Philosophy() {
         >
           From Problem to Product.
         </h2>
+        <p style={{
+          fontFamily: "var(--font-noto)",
+          fontSize: "0.8rem",
+          color: "rgba(245,244,240,0.3)",
+          letterSpacing: "0.05em",
+          marginBottom: "3rem",
+          fontWeight: 300,
+          marginTop: "-2.5rem",
+        }}>
+          アイデアではなく、課題から始める。
+        </p>
         <div style={{ display: "flex", flexDirection: "column" }}>
           {items.map((item, i) => (
             <div
@@ -397,6 +440,17 @@ function Products() {
         >
           Products built by DexTech.
         </h2>
+        <p style={{
+          fontFamily: "var(--font-noto)",
+          fontSize: "0.8rem",
+          color: "rgba(245,244,240,0.3)",
+          letterSpacing: "0.05em",
+          marginBottom: "3rem",
+          fontWeight: 300,
+          marginTop: "-2.5rem",
+        }}>
+          DexTechによって生まれたプロダクト群。
+        </p>
         <div style={{ display: "flex", flexDirection: "column" }}>
           {products.map((product) => (
             <div
