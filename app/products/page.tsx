@@ -324,14 +324,14 @@ function DexTechSection() {
       <div style={{ maxWidth: "800px", margin: "0 auto" }}>
         <SectionLabel>DexTech</SectionLabel>
         {/* DexTech テキストロゴ — シンボル＋テキスト横並び */}
-        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "0.5rem" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "0.5rem" }}>
           <Image
             src="/dextech-symbol.png"
             alt=""
-            width={30}
-            height={30}
+            width={38}
+            height={38}
             aria-hidden
-            style={{ width: "30px", height: "30px", objectFit: "contain", opacity: 0.8 }}
+            style={{ width: "38px", height: "38px", objectFit: "contain", opacity: 0.9 }}
           />
           <p style={{
             fontFamily: "var(--font-inter)",
