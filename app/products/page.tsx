@@ -328,14 +328,14 @@ function DexTechSection() {
           <Image
             src="/dextech-symbol.png"
             alt=""
-            width={38}
-            height={38}
+            width={42}
+            height={42}
             aria-hidden
-            style={{ width: "38px", height: "38px", objectFit: "contain", opacity: 0.9 }}
+            style={{ width: "42px", height: "42px", objectFit: "contain", opacity: 0.9 }}
           />
           <p style={{
             fontFamily: "var(--font-inter)",
-            fontSize: "clamp(2rem, 5vw, 3.5rem)",
+            fontSize: "clamp(1.92rem, 4.8vw, 3.36rem)",
             fontWeight: 300,
             color: "var(--offwhite)",
             letterSpacing: "0.08em",
