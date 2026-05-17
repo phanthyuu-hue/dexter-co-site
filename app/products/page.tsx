@@ -117,16 +117,6 @@ function Hero() {
       borderBottom: "1px solid rgba(245,244,240,0.06)",
     }}>
       <div style={{ maxWidth: "800px" }}>
-        {/* DexTech ロゴ — 控えめに上部配置 */}
-        <div style={{ marginBottom: "2.5rem" }}>
-          <Image
-            src="/dextech-logo.png"
-            alt="DexTech"
-            width={180}
-            height={40}
-            style={{ height: "36px", width: "auto", objectFit: "contain", opacity: 0.6 }}
-          />
-        </div>
         <SectionLabel>Products</SectionLabel>
         <h1 style={{
           fontFamily: "var(--font-playfair)",
@@ -333,26 +323,29 @@ function DexTechSection() {
     }}>
       <div style={{ maxWidth: "800px", margin: "0 auto" }}>
         <SectionLabel>DexTech</SectionLabel>
-        {/* DexTech Wordmark */}
-        <div style={{ marginBottom: "2.5rem" }}>
-          <Image
-            src="/dextech-wordmark.png"
-            alt="DexTech — Build. Solve. Scale."
-            width={360}
-            height={80}
-            style={{ width: "clamp(200px, 35vw, 360px)", height: "auto", objectFit: "contain", opacity: 0.85 }}
-          />
-        </div>
-        <h2 style={{
-          fontFamily: "var(--font-playfair)",
-          fontSize: "clamp(1.8rem, 4vw, 3rem)",
-          fontWeight: 500,
+        {/* DexTech テキストロゴ */}
+        <p style={{
+          fontFamily: "var(--font-inter)",
+          fontSize: "clamp(2rem, 5vw, 3.5rem)",
+          fontWeight: 300,
           color: "var(--offwhite)",
-          marginBottom: "2rem",
-          letterSpacing: "0.02em",
+          letterSpacing: "0.08em",
+          marginBottom: "0.5rem",
+          lineHeight: 1,
+        }}>
+          DexTech
+        </p>
+        <p style={{
+          fontFamily: "var(--font-inter)",
+          fontSize: "0.72rem",
+          letterSpacing: "0.28em",
+          textTransform: "uppercase",
+          color: "var(--gold)",
+          opacity: 0.7,
+          marginBottom: "3rem",
         }}>
           Build. Solve. Scale.
-        </h2>
+        </p>
         <span style={{ display: "block", width: "40px", height: "1px", backgroundColor: "var(--gold)", opacity: 0.7, marginBottom: "2.5rem" }} />
         <p style={{
           fontFamily: "var(--font-inter)",
