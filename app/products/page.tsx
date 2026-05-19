@@ -141,8 +141,10 @@ function Hero() {
           marginBottom: "1.5rem",
           letterSpacing: "-0.01em",
         }}>
-          Products built by{" "}
-          <em style={{ fontStyle: "italic", color: "var(--gold)" }}>DexTech.</em>
+          DexTechが開発したプロダクト
+          <span style={{ display: "block", fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.18em", color: "rgba(200,164,110,0.45)", marginTop: "0.75rem", fontWeight: 300 }}>
+            Products built by DexTech.
+          </span>
         </h1>
         <p style={{
           fontFamily: "var(--font-noto)",
@@ -163,20 +165,8 @@ function Hero() {
           fontWeight: 300,
           maxWidth: "580px",
           letterSpacing: "0.04em",
-          marginBottom: "0.75rem",
         }}>
           DexTechは、実際の業務や生活の課題をもとに、使えるツールとして形にする開発ブランドです。
-        </p>
-        <p style={{
-          fontFamily: "var(--font-inter)",
-          fontSize: "0.88rem",
-          lineHeight: 1.8,
-          color: "rgba(245,244,240,0.42)",
-          fontWeight: 300,
-          maxWidth: "580px",
-          letterSpacing: "0.02em",
-        }}>
-          DexTech builds AI tools, business systems, and productized solutions for real-world workflows.
         </p>
       </div>
     </section>
@@ -393,7 +383,8 @@ function DexTechSection() {
           opacity: 0.7,
           marginBottom: "3rem",
         }}>
-          Build. Solve. Scale.
+          つくる。解く。スケールさせる。
+          <span style={{ display: "block", fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.18em", color: "rgba(200,164,110,0.45)", marginTop: "0.5rem", fontWeight: 300 }}>Build. Solve. Scale.</span>
         </p>
         <span style={{ display: "block", width: "40px", height: "1px", backgroundColor: "var(--gold)", opacity: 0.7, marginBottom: "2.5rem" }} />
         <p style={{

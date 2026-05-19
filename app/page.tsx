@@ -244,7 +244,10 @@ function About() {
             lineHeight: 1.2,
           }}
         >
-          We solve before<br />we build.
+          つくる前に、<br />課題を見つける。
+          <span style={{ display: "block", fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.18em", color: "rgba(200,164,110,0.5)", marginTop: "0.75rem", fontWeight: 300 }}>
+            We solve before we build.
+          </span>
         </h2>
         <span className="gold-line" style={{ marginBottom: "2.5rem" }} />
         <div
@@ -326,7 +329,10 @@ function WhatWeDo() {
             marginBottom: "1rem",
           }}
         >
-          What we do.
+          私たちがやっていること
+          <span style={{ display: "block", fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.18em", color: "rgba(200,164,110,0.45)", marginTop: "0.5rem", fontWeight: 300 }}>
+            What we do
+          </span>
         </h2>
         <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.82rem", color: "rgba(245,244,240,0.55)", letterSpacing: "0.05em", fontWeight: 300, marginBottom: "1rem" }}>
           私たちが提供すること
@@ -390,7 +396,10 @@ function WhoWeWorkWith() {
             marginBottom: "4.5rem",
           }}
         >
-          Who we work with.
+          一緒に取り組む方々
+          <span style={{ display: "block", fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.18em", color: "rgba(200,164,110,0.45)", marginTop: "0.5rem", fontWeight: 300 }}>
+            Who we work with
+          </span>
         </h2>
         <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.82rem", color: "rgba(245,244,240,0.55)", letterSpacing: "0.05em", fontWeight: 300, marginTop: "-3rem", marginBottom: "3rem" }}>
           私たちが支援する人たち
@@ -460,7 +469,10 @@ function ForWhom() {
           color: "var(--offwhite)",
           marginBottom: "4rem",
         }}>
-          Who we help.
+          こんな方に選ばれています
+          <span style={{ display: "block", fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.18em", color: "rgba(200,164,110,0.45)", marginTop: "0.5rem", fontWeight: 300 }}>
+            Who we help
+          </span>
         </h2>
         <div style={{ display: "flex", flexDirection: "column" }}>
           {items.map((item, i) => (
@@ -504,6 +516,134 @@ function ForWhom() {
               }}>
                 {item.desc}
               </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─── 導入事例 ─── */
+function UseCases() {
+  const cases = [
+    {
+      title: "店舗運営者の業務改善",
+      before: ["シフト管理がバラバラ", "売上管理が手作業", "LINE対応が属人化"],
+      after: ["シフト／売上／顧客管理を一元化", "AIでLINE返信を自動化", "管理コストを大幅削減"],
+      result: "管理工数 約50%削減",
+    },
+    {
+      title: "業務の効率化・自動化",
+      before: ["請求書や顧客管理が手作業", "ツールが分散している"],
+      after: ["業務を一つのツールに集約", "自動化で手作業を削減"],
+      result: "作業時間を大幅短縮",
+    },
+    {
+      title: "AI活用による業務改善",
+      before: ["AIをどう使えばいいか分からない", "業務に組み込めていない"],
+      after: ["実務に合わせたAI設計", "日常業務に自然に組み込み"],
+      result: "生産性向上＋人件費削減",
+    },
+  ];
+
+  return (
+    <section style={{
+      padding: "8.5rem 2.5rem",
+      borderTop: "1px solid rgba(200,164,110,0.12)",
+      background: "rgba(5,12,22,0.4)",
+    }}>
+      <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
+        <SectionLabel>導入事例</SectionLabel>
+        <h2 style={{
+          fontFamily: "var(--font-playfair)",
+          fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)",
+          fontWeight: 500,
+          color: "var(--offwhite)",
+          marginBottom: "0.75rem",
+        }}>
+          こんな課題を解決しています
+        </h2>
+        <p style={{
+          fontFamily: "var(--font-noto)",
+          fontSize: "0.88rem",
+          color: "rgba(245,244,240,0.5)",
+          letterSpacing: "0.04em",
+          fontWeight: 300,
+          marginBottom: "4rem",
+          lineHeight: 1.8,
+        }}>
+          現場のリアルな課題に対して、実際にこういった形で解決しています。
+        </p>
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+          gap: "1.5rem",
+        }}>
+          {cases.map((c, i) => (
+            <div
+              key={i}
+              style={{
+                border: "1px solid rgba(255,255,255,0.1)",
+                background: "rgba(255,255,255,0.02)",
+                padding: "2.5rem 2rem",
+                display: "flex",
+                flexDirection: "column",
+                gap: "1.5rem",
+                transition: "transform 0.25s, box-shadow 0.25s, border-color 0.25s",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translateY(-4px)";
+                e.currentTarget.style.boxShadow = "0 16px 40px rgba(0,0,0,0.3)";
+                e.currentTarget.style.borderColor = "rgba(200,164,110,0.3)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "none";
+                e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+              }}
+            >
+              <p style={{ fontFamily: "var(--font-noto)", fontSize: "1rem", fontWeight: 500, color: "var(--offwhite)", letterSpacing: "0.03em" }}>
+                {c.title}
+              </p>
+
+              {/* Before */}
+              <div>
+                <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.62rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(245,244,240,0.3)", marginBottom: "0.6rem" }}>
+                  Before
+                </p>
+                <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem" }}>
+                  {c.before.map((b, j) => (
+                    <p key={j} style={{ fontFamily: "var(--font-noto)", fontSize: "0.82rem", color: "rgba(245,244,240,0.35)", fontWeight: 300, lineHeight: 1.6 }}>
+                      ・{b}
+                    </p>
+                  ))}
+                </div>
+              </div>
+
+              {/* Arrow */}
+              <div style={{ borderTop: "1px solid rgba(200,164,110,0.15)" }} />
+
+              {/* After */}
+              <div>
+                <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.62rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.7, marginBottom: "0.6rem" }}>
+                  After
+                </p>
+                <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem" }}>
+                  {c.after.map((a, j) => (
+                    <p key={j} style={{ fontFamily: "var(--font-noto)", fontSize: "0.85rem", color: "rgba(245,244,240,0.72)", fontWeight: 400, lineHeight: 1.6 }}>
+                      ✓ {a}
+                    </p>
+                  ))}
+                </div>
+              </div>
+
+              {/* Result */}
+              <div style={{ borderTop: "1px solid rgba(200,164,110,0.2)", paddingTop: "1rem" }}>
+                <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.9rem", fontWeight: 500, color: "var(--gold)", letterSpacing: "0.04em" }}>
+                  → {c.result}
+                </p>
+              </div>
             </div>
           ))}
         </div>
@@ -642,7 +782,10 @@ function Products() {
             marginBottom: "4.5rem",
           }}
         >
-          Products built by DexTech.
+          DexTechが開発したプロダクト
+          <span style={{ display: "block", fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.18em", color: "rgba(200,164,110,0.45)", marginTop: "0.5rem", fontWeight: 300 }}>
+            Products built by DexTech
+          </span>
         </h2>
 
         <div
@@ -747,7 +890,10 @@ function Philosophy() {
             lineHeight: 1.25,
           }}
         >
-          Quietly useful.<br />Deeply practical.
+          静かに、深く、実用的に。
+          <span style={{ display: "block", fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.16em", color: "rgba(200,164,110,0.45)", marginTop: "0.5rem", fontWeight: 300 }}>
+            Quietly useful. Deeply practical.
+          </span>
         </h2>
         <span className="gold-line" style={{ margin: "0 auto 2.5rem" }} />
         <p
@@ -795,7 +941,10 @@ function Contact() {
             lineHeight: 1.2,
           }}
         >
-          Let&apos;s turn problems<br />into products.
+          課題を、プロダクトへ。
+          <span style={{ display: "block", fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.16em", color: "rgba(200,164,110,0.45)", marginTop: "0.75rem", fontWeight: 300 }}>
+            Let&apos;s turn problems into products.
+          </span>
         </h2>
         <span className="gold-line" style={{ marginBottom: "2.5rem" }} />
         <p
@@ -811,14 +960,14 @@ function Contact() {
         >
           We help businesses and individuals identify real problems
           <br />
-          and turn them into working solutions.
+          業務改善、AI活用、アプリ開発など、お気軽にご相談ください。
         </p>
         <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
           <a href="https://line.me/ti/p/~hello-dexter" className="btn-gold">
-            Talk on LINE
+            LINEで相談する
           </a>
           <a href="mailto:hello@dexter-co.jp" className="btn-ghost">
-            Send an Email
+            メールで相談する
           </a>
         </div>
       </div>
@@ -944,6 +1093,7 @@ export default function Home() {
         <WhatWeDo />
         <WhoWeWorkWith />
         <ForWhom />
+        <UseCases />
         <BrandStructure />
         <Products />
         <Philosophy />

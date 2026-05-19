@@ -204,20 +204,6 @@ function Hero() {
         >
           Dexter & Co. は、課題発見からプロダクト化までを一貫して行う課題解決型ブランドです。
         </p>
-        <p
-          style={{
-            fontFamily: "var(--font-inter)",
-            fontSize: "0.88rem",
-            lineHeight: 1.8,
-            color: "rgba(245,244,240,0.42)",
-            fontWeight: 300,
-            maxWidth: "600px",
-            letterSpacing: "0.02em",
-            marginBottom: "0.85rem",
-          }}
-        >
-          Dexter & Co. は、課題発見からプロダクト化までを一貫して行う課題解決型ブランドです。
-        </p>
         <p style={{
           fontFamily: "var(--font-noto)",
           fontSize: "0.95rem",
@@ -260,7 +246,8 @@ function WhatWeDo() {
             marginBottom: "4rem",
           }}
         >
-          What we do.
+          私たちのアプローチ
+          <span style={{ display: "block", fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.18em", color: "rgba(200,164,110,0.45)", marginTop: "0.5rem", fontWeight: 300 }}>What we do</span>
         </h2>
         <p style={{
           fontFamily: "var(--font-noto)",
@@ -345,7 +332,8 @@ function Philosophy() {
             marginBottom: "4rem",
           }}
         >
-          From Problem to Product.
+          課題から始める。
+          <span style={{ display: "block", fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.18em", color: "rgba(200,164,110,0.45)", marginTop: "0.5rem", fontWeight: 300, fontStyle: "normal" }}>From Problem to Product.</span>
         </h2>
         <p style={{
           fontFamily: "var(--font-noto)",
@@ -456,7 +444,8 @@ function Products() {
             marginBottom: "4rem",
           }}
         >
-          Products built by DexTech.
+          DexTechが開発したプロダクト
+          <span style={{ display: "block", fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.18em", color: "rgba(200,164,110,0.45)", marginTop: "0.5rem", fontWeight: 300 }}>Products built by DexTech.</span>
         </h2>
         <p style={{
           fontFamily: "var(--font-noto)",

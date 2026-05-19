@@ -165,18 +165,6 @@ function Hero() {
         }}>
           業務改善、AI活用、アプリ開発、ブランド設計など、課題を形にする相談を受け付けています。
         </p>
-        <p style={{
-          fontFamily: "var(--font-inter)",
-          fontSize: "0.88rem",
-          lineHeight: 1.8,
-          color: "rgba(245,244,240,0.42)",
-          fontWeight: 300,
-          maxWidth: "560px",
-          letterSpacing: "0.02em",
-          marginBottom: "2.5rem",
-        }}>
-          We help businesses and individuals identify real problems and turn them into working solutions.
-        </p>
 
         {/* How we can help */}
         <div style={{ marginBottom: "2.5rem" }}>
@@ -221,19 +209,11 @@ function Hero() {
         </div>
 
         <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-          <a
-            href="https://line.me/ti/p/~hello-dexter"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-gold"
-          >
-            Talk on LINE
+          <a href="https://line.me/ti/p/~hello-dexter" target="_blank" rel="noopener noreferrer" className="btn-gold">
+            LINEで相談する
           </a>
-          <a
-            href="mailto:hello@dexter-co.jp"
-            className="btn-ghost"
-          >
-            Send an Email
+          <a href="mailto:hello@dexter-co.jp" className="btn-ghost">
+            メールで相談する
           </a>
         </div>
       </div>
