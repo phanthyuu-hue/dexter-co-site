@@ -740,23 +740,32 @@ const products = [
   {
     name: "Lily Series",
     tag: "Store Operations",
-    description:
-      "店舗運営をスムーズにするオールインワン・プラットフォーム。シフト管理、売上管理、予約返信、AI文章生成など、現場の負担を軽減するツール群。",
+    description: "店舗運営をスムーズにするオールインワン・プラットフォーム。シフト管理、売上管理、予約返信、AI文章生成など、現場の負担を軽減するツール群。",
     index: "01",
+    ctas: [
+      { label: "デモを見る", href: "https://lily-os.vercel.app/", external: true, primary: true },
+      { label: "LINEで相談する", href: "https://line.me/ti/p/~hello-dexter", external: true, primary: false },
+    ],
   },
   {
     name: "Silent",
     tag: "Privacy AI",
-    description:
-      "履歴を残さず、安心して相談できるプライバシー重視のAIチャット。日常の相談から業務利用まで、静かに使えるAIアシスタント。",
+    description: "履歴を残さず、安心して相談できるプライバシー重視のAIチャット。日常の相談から業務利用まで、静かに使えるAIアシスタント。",
     index: "02",
+    ctas: [
+      { label: "今すぐ使う", href: "#", external: false, primary: true },
+      { label: "コンセプトを見る", href: "#", external: false, primary: false },
+    ],
   },
   {
     name: "TabiLog",
     tag: "Travel & Life",
-    description:
-      "旅の支出、記録、思い出をまとめるトラベルログアプリ。支出管理、旅の記録、AIによる振り返りや提案を通じて、旅をより豊かにする。",
+    description: "旅の支出、記録、思い出をまとめるトラベルログアプリ。支出管理、旅の記録、AIによる振り返りや提案を通じて、旅をより豊かにする。",
     index: "03",
+    ctas: [
+      { label: "アプリを見る", href: "#", external: false, primary: true },
+      { label: "詳細を見る", href: "#", external: false, primary: false },
+    ],
   },
 ];
 
@@ -858,6 +867,41 @@ function Products() {
               >
                 {product.description}
               </p>
+              {/* CTAs */}
+              <div style={{ display: "flex", gap: "0.65rem", flexWrap: "wrap", marginTop: "0.25rem" }}>
+                {product.ctas.map((btn, j) => (
+                  <a
+                    key={j}
+                    href={btn.href}
+                    target={btn.external ? "_blank" : undefined}
+                    rel={btn.external ? "noopener noreferrer" : undefined}
+                    style={{
+                      display: "inline-block",
+                      padding: "0.6rem 1.4rem",
+                      fontFamily: "var(--font-noto)",
+                      fontSize: "0.76rem",
+                      fontWeight: 400,
+                      letterSpacing: "0.04em",
+                      textDecoration: "none",
+                      transition: "all 0.25s",
+                      ...(btn.primary
+                        ? { backgroundColor: "var(--gold)", color: "var(--navy)" }
+                        : { border: "1px solid rgba(200,164,110,0.4)", color: "var(--gold)" }
+                      ),
+                    }}
+                    onMouseEnter={(e) => {
+                      if (btn.primary) e.currentTarget.style.opacity = "0.85";
+                      else e.currentTarget.style.borderColor = "rgba(200,164,110,0.8)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.opacity = "1";
+                      if (!btn.primary) e.currentTarget.style.borderColor = "rgba(200,164,110,0.4)";
+                    }}
+                  >
+                    {btn.label}
+                  </a>
+                ))}
+              </div>
             </div>
           ))}
         </div>

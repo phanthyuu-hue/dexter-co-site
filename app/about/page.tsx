@@ -240,10 +240,10 @@ function WhatWeDo() {
         <h2
           style={{
             fontFamily: "var(--font-playfair)",
-            fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)",
+            fontSize: "clamp(1.35rem, 2.8vw, 2rem)",
             fontWeight: 500,
             color: "var(--offwhite)",
-            marginBottom: "4rem",
+            marginBottom: "3rem",
           }}
         >
           私たちのアプローチ
@@ -254,9 +254,9 @@ function WhatWeDo() {
           fontSize: "0.82rem",
           color: "rgba(245,244,240,0.42)",
           letterSpacing: "0.05em",
-          marginBottom: "3rem",
+          marginBottom: "2rem",
           fontWeight: 300,
-          marginTop: "-2rem",
+          marginTop: "-1.5rem",
         }}>
           私たちが提供すること
         </p>
@@ -287,12 +287,12 @@ function WhatWeDo() {
               </span>
               <p
                 style={{
-                  fontFamily: "var(--font-playfair)",
-                  fontSize: "clamp(1.1rem, 2.5vw, 1.5rem)",
-                  fontWeight: 400,
-                  color: "rgba(245,244,240,0.75)",
-                  lineHeight: 1.5,
-                  letterSpacing: "0.01em",
+                  fontFamily: "var(--font-noto)",
+                  fontSize: "clamp(1rem, 2.5vw, 1.35rem)",
+                  fontWeight: 500,
+                  color: "rgba(245,244,240,0.85)",
+                  lineHeight: 1.7,
+                  letterSpacing: "0.03em",
                 }}
               >
                 {item}
@@ -409,18 +409,30 @@ const products = [
     tag: "Store Operations",
     description: "店舗運営に必要な管理を一つにまとめた業務プラットフォーム。シフト管理・売上管理・予約対応・LINE返信までを一元化し、運用負担を大幅に削減します。",
     index: "01",
+    cta: [
+      { label: "デモを見る", href: "https://lily-os.vercel.app/", primary: true },
+      { label: "LINEで相談する", href: "https://line.me/ti/p/~hello-dexter", primary: false },
+    ],
   },
   {
     name: "Silent",
     tag: "Privacy AI",
     description: "履歴を残さない、プライバシー重視のAIチャット。日常の判断や業務のちょっとした意思決定を、安心してサポートします。",
     index: "02",
+    cta: [
+      { label: "今すぐ使う", href: "#", primary: true },
+      { label: "コンセプトを見る", href: "#", primary: false },
+    ],
   },
   {
     name: "TabiLog",
     tag: "Travel & Life",
     description: "旅の記録と振り返りをまとめて管理できるアプリ。支出・思い出・移動履歴を一元化し、AIが旅の気づきや振り返りをサポートします。",
     index: "03",
+    cta: [
+      { label: "アプリを見る", href: "#", primary: true },
+      { label: "詳細を見る", href: "#", primary: false },
+    ],
   },
 ];
 
@@ -522,6 +534,40 @@ function Products() {
                 >
                   {product.description}
                 </p>
+                <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap", marginTop: "0.5rem" }}>
+                  {product.cta.map((btn, j) => (
+                    <a
+                      key={j}
+                      href={btn.href}
+                      target={btn.href.startsWith("http") ? "_blank" : undefined}
+                      rel={btn.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                      style={{
+                        display: "inline-block",
+                        padding: "0.65rem 1.6rem",
+                        fontFamily: "var(--font-noto)",
+                        fontSize: "0.78rem",
+                        fontWeight: 400,
+                        letterSpacing: "0.05em",
+                        textDecoration: "none",
+                        transition: "all 0.25s",
+                        ...(btn.primary
+                          ? { backgroundColor: "var(--gold)", color: "var(--navy)" }
+                          : { border: "1px solid rgba(200,164,110,0.4)", color: "var(--gold)" }
+                        ),
+                      }}
+                      onMouseEnter={(e) => {
+                        if (btn.primary) e.currentTarget.style.opacity = "0.85";
+                        else e.currentTarget.style.borderColor = "rgba(200,164,110,0.8)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.opacity = "1";
+                        if (!btn.primary) e.currentTarget.style.borderColor = "rgba(200,164,110,0.4)";
+                      }}
+                    >
+                      {btn.label}
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           ))}

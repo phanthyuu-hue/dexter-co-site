@@ -179,27 +179,33 @@ const products = [
     name: "Lily Series",
     tags: ["Business Operations", "AI Tools"],
     descJa: "店舗運営をスムーズにするオールインワン・プラットフォーム。シフト管理、売上管理、予約返信、AI文章生成など、現場の負担を軽減するツール群。",
-    descEn: null,
     status: "Live",
-    cta: { label: "View Product", href: "https://lily-os.vercel.app/", external: true },
+    ctas: [
+      { label: "デモを見る", href: "https://lily-os.vercel.app/", external: true, primary: true },
+      { label: "LINEで相談する", href: "https://line.me/ti/p/~hello-dexter", external: true, primary: false },
+    ],
     featured: true,
   },
   {
     name: "Silent",
     tags: ["Privacy AI", "Communication"],
     descJa: "履歴を残さず、安心して相談できるプライバシー重視のAIチャット。日常の相談から業務利用まで、静かに使えるAIアシスタント。",
-    descEn: null,
     status: "Coming Soon",
-    cta: null,
+    ctas: [
+      { label: "今すぐ使う", href: "#", external: false, primary: true },
+      { label: "コンセプトを見る", href: "#", external: false, primary: false },
+    ],
     featured: false,
   },
   {
     name: "TabiLog",
     tags: ["Travel", "Personal OS"],
     descJa: "旅の支出、記録、思い出をまとめるトラベルログアプリ。支出管理、旅の記録、AIによる振り返りや提案を通じて、旅をより豊かにする。",
-    descEn: null,
     status: "Coming Soon",
-    cta: null,
+    ctas: [
+      { label: "アプリを見る", href: "#", external: false, primary: true },
+      { label: "詳細を見る", href: "#", external: false, primary: false },
+    ],
     featured: false,
   },
 ];
@@ -223,7 +229,7 @@ function ProductCards() {
                 : "rgba(30,35,41,0.3)",
               padding: product.featured ? "3.5rem 3rem" : "3rem 2.5rem",
               transition: "border-color 0.3s, transform 0.25s, box-shadow 0.25s",
-              cursor: product.cta ? "pointer" : "default",
+              cursor: product.ctas.length > 0 ? "pointer" : "default",
               boxShadow: product.featured ? "0 4px 32px rgba(200,164,110,0.08)" : "none",
             }}
             onMouseEnter={(e) => {
@@ -294,48 +300,46 @@ function ProductCards() {
               color: "rgba(245,244,240,0.62)",
               fontWeight: 300,
               maxWidth: "580px",
-              marginBottom: product.cta ? "2rem" : "0",
+              marginBottom: product.ctas.length > 0 ? "2rem" : "0",
             }}>
               {product.descJa}
             </p>
 
-            {/* CTA */}
-            {product.cta && (
-              <a
-                href={product.cta.href}
-                target={product.cta.external ? "_blank" : undefined}
-                rel={product.cta.external ? "noopener noreferrer" : undefined}
-                style={{
-                  display: "inline-block",
-                  padding: "0.9rem 2.4rem",
-                  backgroundColor: "var(--gold)",
-                  color: "var(--navy)",
-                  fontFamily: "var(--font-inter)",
-                  fontSize: "0.75rem",
-                  letterSpacing: "0.2em",
-                  textTransform: "uppercase",
-                  fontWeight: 500,
-                  textDecoration: "none",
-                  transition: "background-color 0.25s, opacity 0.25s",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
-                onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
-              >
-                {product.cta.label} →
-              </a>
-            )}
-            {product.status === "Coming Soon" && !product.cta && (
-              <p style={{
-                fontFamily: "var(--font-inter)",
-                fontSize: "0.72rem",
-                letterSpacing: "0.18em",
-                color: "rgba(245,244,240,0.25)",
-                textTransform: "uppercase",
-                marginTop: "1.5rem",
-              }}>
-                — Coming Soon —
-              </p>
-            )}
+            {/* CTAs */}
+            <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
+              {product.ctas.map((btn, j) => (
+                <a
+                  key={j}
+                  href={btn.href}
+                  target={btn.external ? "_blank" : undefined}
+                  rel={btn.external ? "noopener noreferrer" : undefined}
+                  style={{
+                    display: "inline-block",
+                    padding: "0.75rem 1.8rem",
+                    fontFamily: "var(--font-noto)",
+                    fontSize: "0.82rem",
+                    fontWeight: 400,
+                    letterSpacing: "0.05em",
+                    textDecoration: "none",
+                    transition: "all 0.25s",
+                    ...(btn.primary
+                      ? { backgroundColor: "var(--gold)", color: "var(--navy)" }
+                      : { border: "1px solid rgba(200,164,110,0.4)", color: "var(--gold)" }
+                    ),
+                  }}
+                  onMouseEnter={(e) => {
+                    if (btn.primary) e.currentTarget.style.opacity = "0.85";
+                    else e.currentTarget.style.borderColor = "rgba(200,164,110,0.8)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.opacity = "1";
+                    if (!btn.primary) e.currentTarget.style.borderColor = "rgba(200,164,110,0.4)";
+                  }}
+                >
+                  {btn.label}
+                </a>
+              ))}
+            </div>
           </div>
         ))}
       </div>
