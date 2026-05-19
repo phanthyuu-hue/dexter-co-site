@@ -289,11 +289,11 @@ function WhatWeDo() {
               <p
                 style={{
                   fontFamily: "var(--font-noto)",
-                  fontSize: "clamp(1rem, 2.5vw, 1.35rem)",
-                  fontWeight: 500,
-                  color: "rgba(245,244,240,0.85)",
-                  lineHeight: 1.7,
-                  letterSpacing: "0.03em",
+                  fontSize: "1rem",
+                  fontWeight: 300,
+                  color: "rgba(245,244,240,0.68)",
+                  lineHeight: 1.9,
+                  letterSpacing: "0.02em",
                 }}
               >
                 {item}
