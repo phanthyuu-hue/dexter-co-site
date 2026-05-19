@@ -163,42 +163,57 @@ function Hero() {
         {/* Divider */}
         <span className="gold-line fade-up delay-2" style={{ marginBottom: "2.5rem" }} />
 
-        {/* Description */}
+        {/* 事業内容タグ */}
+        <div className="fade-up delay-2" style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", marginBottom: "2rem" }}>
+          {["AIツール開発", "業務システム", "アプリ開発", "課題解決コンサル"].map((tag) => (
+            <span key={tag} style={{
+              fontFamily: "var(--font-noto)",
+              fontSize: "0.72rem",
+              letterSpacing: "0.06em",
+              color: "var(--gold)",
+              border: "1px solid rgba(200,164,110,0.3)",
+              padding: "0.25rem 0.8rem",
+              fontWeight: 300,
+            }}>{tag}</span>
+          ))}
+        </div>
+
+        {/* 日本語主役説明 */}
         <p
           className="fade-up delay-3"
           style={{
-            maxWidth: "540px",
-            fontSize: "1rem",
-            lineHeight: 1.9,
-            color: "rgba(245,244,240,0.7)",
-            fontWeight: 300,
-            fontFamily: "var(--font-inter)",
-            letterSpacing: "0.02em",
-            marginBottom: "1rem",
-          }}
-        >
-          We design and build AI-powered tools, business systems, and digital products from real-world problems.
-        </p>
-        <p
-          className="fade-up delay-3"
-          style={{
-            maxWidth: "540px",
-            fontSize: "0.82rem",
-            lineHeight: 1.9,
-            color: "rgba(200,164,110,0.65)",
+            maxWidth: "560px",
+            fontSize: "1.05rem",
+            lineHeight: 2,
+            color: "rgba(245,244,240,0.82)",
             fontWeight: 300,
             fontFamily: "var(--font-noto)",
-            letterSpacing: "0.05em",
-            marginBottom: "4rem",
+            letterSpacing: "0.04em",
+            marginBottom: "0.75rem",
           }}
         >
           現場の課題から、AIツール・業務システム・デジタルプロダクトをつくる会社です。
         </p>
+        <p
+          className="fade-up delay-3"
+          style={{
+            maxWidth: "540px",
+            fontSize: "0.88rem",
+            lineHeight: 1.8,
+            color: "rgba(245,244,240,0.45)",
+            fontWeight: 300,
+            fontFamily: "var(--font-inter)",
+            letterSpacing: "0.02em",
+            marginBottom: "3.5rem",
+          }}
+        >
+          We design and build AI-powered tools, business systems, and digital products from real-world problems.
+        </p>
 
         {/* CTAs */}
         <div className="fade-up delay-4" style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-          <a href="#products" className="btn-gold">Our Products</a>
-          <a href="#contact" className="btn-ghost">Contact</a>
+          <Link href="/products" className="btn-gold">Our Products</Link>
+          <Link href="/contact" className="btn-ghost">Contact</Link>
         </div>
       </div>
     </section>
@@ -213,7 +228,7 @@ function About() {
       className="section-pad"
       style={{
         padding: "10rem 2.5rem",
-        borderTop: "1px solid rgba(245,244,240,0.06)",
+        borderTop: "1px solid rgba(200,164,110,0.15)",
         background: "rgba(18,37,57,0.35)",
       }}
     >
@@ -406,6 +421,92 @@ function WhoWeWorkWith() {
                   {item.desc}
                 </p>
               </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─── For Whom ─── */
+function ForWhom() {
+  const items = [
+    {
+      target: "店舗運営者の方へ",
+      en: "For store operators",
+      desc: "シフト管理・売上管理・予約対応など、現場の煩雑な業務をまとめて効率化します。",
+    },
+    {
+      target: "個人事業主・フリーランスの方へ",
+      en: "For freelancers & small businesses",
+      desc: "日常業務の自動化・AI活用・業務ツールの設計・構築をサポートします。",
+    },
+    {
+      target: "AI導入を検討している企業へ",
+      en: "For teams exploring AI",
+      desc: "実際の業務フローに合わせたAIツールの設計・開発・導入を支援します。",
+    },
+  ];
+  return (
+    <section style={{
+      padding: "8.5rem 2.5rem",
+      borderTop: "1px solid rgba(200,164,110,0.12)",
+      background: "rgba(7,15,24,0.35)",
+    }}>
+      <div style={{ maxWidth: "900px", margin: "0 auto" }}>
+        <SectionLabel>こんな方へ</SectionLabel>
+        <h2 style={{
+          fontFamily: "var(--font-playfair)",
+          fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)",
+          fontWeight: 500,
+          color: "var(--offwhite)",
+          marginBottom: "4rem",
+        }}>
+          Who we help.
+        </h2>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          {items.map((item, i) => (
+            <div key={i} style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 2fr",
+              gap: "2rem",
+              padding: "2rem 0",
+              borderBottom: "1px solid rgba(200,164,110,0.12)",
+              alignItems: "start",
+            }}>
+              <div>
+                <p style={{
+                  fontFamily: "var(--font-noto)",
+                  fontSize: "0.95rem",
+                  fontWeight: 400,
+                  color: "rgba(245,244,240,0.82)",
+                  letterSpacing: "0.04em",
+                  lineHeight: 1.6,
+                  marginBottom: "0.35rem",
+                }}>
+                  {item.target}
+                </p>
+                <p style={{
+                  fontFamily: "var(--font-inter)",
+                  fontSize: "0.7rem",
+                  color: "rgba(200,164,110,0.55)",
+                  letterSpacing: "0.08em",
+                  fontWeight: 300,
+                }}>
+                  {item.en}
+                </p>
+              </div>
+              <p style={{
+                fontFamily: "var(--font-noto)",
+                fontSize: "0.88rem",
+                fontWeight: 300,
+                color: "rgba(245,244,240,0.6)",
+                lineHeight: 1.9,
+                letterSpacing: "0.03em",
+              }}>
+                {item.desc}
+              </p>
             </div>
           ))}
         </div>
@@ -845,6 +946,7 @@ export default function Home() {
         <About />
         <WhatWeDo />
         <WhoWeWorkWith />
+        <ForWhom />
         <BrandStructure />
         <Products />
         <Philosophy />

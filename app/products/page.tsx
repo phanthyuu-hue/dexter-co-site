@@ -156,26 +156,27 @@ function Hero() {
         </p>
         <span style={{ display: "block", width: "40px", height: "1px", backgroundColor: "var(--gold)", opacity: 0.7, marginBottom: "2.5rem" }} />
         <p style={{
-          fontFamily: "var(--font-inter)",
-          fontSize: "1.05rem",
-          lineHeight: 1.9,
-          color: "rgba(245,244,240,0.7)",
-          fontWeight: 300,
-          maxWidth: "600px",
-          letterSpacing: "0.02em",
-          marginBottom: "0.85rem",
-        }}>
-          DexTech builds AI tools, business systems, and productized solutions for real-world workflows.
-        </p>
-        <p style={{
           fontFamily: "var(--font-noto)",
-          fontSize: "0.82rem",
-          color: "rgba(200,164,110,0.65)",
-          letterSpacing: "0.05em",
+          fontSize: "1.05rem",
+          lineHeight: 2,
+          color: "rgba(245,244,240,0.78)",
           fontWeight: 300,
-          lineHeight: 1.9,
+          maxWidth: "580px",
+          letterSpacing: "0.04em",
+          marginBottom: "0.75rem",
         }}>
           DexTechは、実際の業務や生活の課題をもとに、使えるツールとして形にする開発ブランドです。
+        </p>
+        <p style={{
+          fontFamily: "var(--font-inter)",
+          fontSize: "0.88rem",
+          lineHeight: 1.8,
+          color: "rgba(245,244,240,0.42)",
+          fontWeight: 300,
+          maxWidth: "580px",
+          letterSpacing: "0.02em",
+        }}>
+          DexTech builds AI tools, business systems, and productized solutions for real-world workflows.
         </p>
       </div>
     </section>

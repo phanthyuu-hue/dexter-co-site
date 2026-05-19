@@ -154,29 +154,28 @@ function Hero() {
         <span style={{ display: "block", width: "40px", height: "1px", backgroundColor: "var(--gold)", opacity: 0.7, marginBottom: "2.5rem" }} />
 
         <p style={{
-          fontFamily: "var(--font-inter)",
-          fontSize: "1rem",
-          lineHeight: 1.9,
-          color: "rgba(245,244,240,0.7)",
-          fontWeight: 300,
-          maxWidth: "560px",
-          letterSpacing: "0.02em",
-          marginBottom: "0.85rem",
-        }}>
-          We help businesses and individuals identify real problems and turn them into working solutions.
-        </p>
-
-        <p style={{
           fontFamily: "var(--font-noto)",
-          fontSize: "0.85rem",
-          lineHeight: 1.9,
-          color: "rgba(245,244,240,0.45)",
+          fontSize: "1.05rem",
+          lineHeight: 2,
+          color: "rgba(245,244,240,0.78)",
           fontWeight: 300,
           maxWidth: "560px",
           letterSpacing: "0.04em",
-          marginBottom: "2.5rem",
+          marginBottom: "0.75rem",
         }}>
           業務改善、AI活用、アプリ開発、ブランド設計など、課題を形にする相談を受け付けています。
+        </p>
+        <p style={{
+          fontFamily: "var(--font-inter)",
+          fontSize: "0.88rem",
+          lineHeight: 1.8,
+          color: "rgba(245,244,240,0.42)",
+          fontWeight: 300,
+          maxWidth: "560px",
+          letterSpacing: "0.02em",
+          marginBottom: "2.5rem",
+        }}>
+          We help businesses and individuals identify real problems and turn them into working solutions.
         </p>
 
         {/* How we can help */}

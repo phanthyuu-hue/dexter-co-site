@@ -192,10 +192,24 @@ function Hero() {
         />
         <p
           style={{
-            fontFamily: "var(--font-inter)",
+            fontFamily: "var(--font-noto)",
             fontSize: "1.05rem",
-            lineHeight: 1.9,
-            color: "rgba(245,244,240,0.7)",
+            lineHeight: 2,
+            color: "rgba(245,244,240,0.78)",
+            fontWeight: 300,
+            maxWidth: "600px",
+            letterSpacing: "0.04em",
+            marginBottom: "0.75rem",
+          }}
+        >
+          Dexter & Co. は、課題発見からプロダクト化までを一貫して行う課題解決型ブランドです。
+        </p>
+        <p
+          style={{
+            fontFamily: "var(--font-inter)",
+            fontSize: "0.88rem",
+            lineHeight: 1.8,
+            color: "rgba(245,244,240,0.42)",
             fontWeight: 300,
             maxWidth: "600px",
             letterSpacing: "0.02em",
@@ -204,17 +218,6 @@ function Hero() {
         >
           Dexter & Co. is a product-driven company focused on identifying
           real-world problems and turning them into scalable solutions.
-        </p>
-        <p style={{
-          fontFamily: "var(--font-noto)",
-          fontSize: "0.82rem",
-          color: "rgba(245,244,240,0.45)",
-          letterSpacing: "0.04em",
-          fontWeight: 300,
-          lineHeight: 1.9,
-          marginBottom: "1.5rem",
-        }}>
-          Dexter & Co. は、課題発見からプロダクト化までを一貫して行う課題解決型ブランドです。
         </p>
         <p style={{
           fontFamily: "var(--font-inter)",
