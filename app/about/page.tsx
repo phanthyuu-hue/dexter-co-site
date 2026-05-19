@@ -239,16 +239,16 @@ function WhatWeDo() {
         <SectionLabel>What we do</SectionLabel>
         <h2
           style={{
-            fontFamily: "var(--font-noto)",
-            fontSize: "clamp(1.15rem, 2.2vw, 1.65rem)",
-            fontWeight: 600,
+            fontFamily: "var(--font-playfair)",
+            fontSize: "clamp(1.35rem, 2.8vw, 2rem)",
+            fontWeight: 500,
             color: "var(--offwhite)",
             marginBottom: "3rem",
-            letterSpacing: "0.04em",
+            letterSpacing: "0.02em",
           }}
         >
           私たちのアプローチ
-          <span style={{ display: "block", fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.18em", color: "rgba(200,164,110,0.45)", marginTop: "0.5rem", fontWeight: 300 }}>What we do</span>
+          <span style={{ display: "block", fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.18em", color: "rgba(200,164,110,0.5)", marginTop: "0.5rem", fontWeight: 300 }}>What we do</span>
         </h2>
         <p style={{
           fontFamily: "var(--font-noto)",
@@ -421,7 +421,7 @@ const products = [
     description: "履歴を残さない、プライバシー重視のAIチャット。日常の判断や業務のちょっとした意思決定を、安心してサポートします。",
     index: "02",
     cta: [
-      { label: "コンセプトについて相談する", href: "/contact", primary: true },
+      { label: "今すぐ使う", href: "https://www.silent-ai.jp", primary: true },
     ],
   },
   {
@@ -430,7 +430,7 @@ const products = [
     description: "旅の記録と振り返りをまとめて管理できるアプリ。支出・思い出・移動履歴を一元化し、AIが旅の気づきや振り返りをサポートします。",
     index: "03",
     cta: [
-      { label: "開発状況を相談する", href: "/contact", primary: true },
+      { label: "アプリを見る", href: "https://tabilog.app", primary: true },
     ],
   },
 ];
