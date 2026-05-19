@@ -296,7 +296,7 @@ function WhatWeDo() {
   return (
     <section
       style={{
-        padding: "10rem 2.5rem",
+        padding: "8.5rem 2.5rem",
         borderTop: "1px solid rgba(245,244,240,0.06)",
       }}
     >
@@ -313,7 +313,7 @@ function WhatWeDo() {
         >
           What we do.
         </h2>
-        <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.82rem", color: "rgba(245,244,240,0.38)", letterSpacing: "0.05em", fontWeight: 300, marginBottom: "1rem" }}>
+        <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.82rem", color: "rgba(245,244,240,0.55)", letterSpacing: "0.05em", fontWeight: 300, marginBottom: "1rem" }}>
           私たちが提供すること
         </p>
         <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.95rem", lineHeight: 1.8, color: "rgba(245,244,240,0.55)", fontWeight: 300, maxWidth: "560px", marginBottom: "3.5rem" }}>
@@ -362,7 +362,7 @@ function WhoWeWorkWith() {
   return (
     <section
       style={{
-        padding: "10rem 2.5rem",
+        padding: "8.5rem 2.5rem",
         borderTop: "1px solid rgba(245,244,240,0.06)",
         background: "rgba(18,37,57,0.3)",
       }}
@@ -380,7 +380,7 @@ function WhoWeWorkWith() {
         >
           Who we work with.
         </h2>
-        <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.82rem", color: "rgba(245,244,240,0.38)", letterSpacing: "0.05em", fontWeight: 300, marginTop: "-3rem", marginBottom: "3rem" }}>
+        <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.82rem", color: "rgba(245,244,240,0.55)", letterSpacing: "0.05em", fontWeight: 300, marginTop: "-3rem", marginBottom: "3rem" }}>
           私たちが支援する人たち
         </p>
         <div style={{ display: "flex", flexDirection: "column" }}>
@@ -402,7 +402,7 @@ function WhoWeWorkWith() {
                 <p style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(1rem, 2.5vw, 1.25rem)", fontWeight: 400, color: "rgba(245,244,240,0.75)", letterSpacing: "0.02em" }}>
                   {item.label}
                 </p>
-                <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.82rem", fontWeight: 300, color: "rgba(245,244,240,0.42)", lineHeight: 1.7 }}>
+                <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.82rem", fontWeight: 300, color: "rgba(245,244,240,0.58)", lineHeight: 1.7 }}>
                   {item.desc}
                 </p>
               </div>

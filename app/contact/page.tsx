@@ -107,8 +107,8 @@ function Footer() {
 function Hero() {
   return (
     <section style={{
-      paddingTop: "18rem",
-      paddingBottom: "8rem",
+      paddingTop: "16rem",
+      paddingBottom: "7rem",
       paddingLeft: "2.5rem",
       paddingRight: "2.5rem",
       borderBottom: "1px solid rgba(245,244,240,0.06)",
@@ -174,13 +174,13 @@ function Hero() {
           fontWeight: 300,
           maxWidth: "560px",
           letterSpacing: "0.04em",
-          marginBottom: "3.5rem",
+          marginBottom: "2.5rem",
         }}>
           業務改善、AI活用、アプリ開発、ブランド設計など、課題を形にする相談を受け付けています。
         </p>
 
         {/* How we can help */}
-        <div style={{ marginBottom: "3.5rem" }}>
+        <div style={{ marginBottom: "2.5rem" }}>
           <p style={{
             fontFamily: "var(--font-inter)",
             fontSize: "0.7rem",

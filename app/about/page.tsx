@@ -147,7 +147,7 @@ function Hero() {
     <section
       style={{
         paddingTop: "18rem",
-        paddingBottom: "8rem",
+        paddingBottom: "7rem",
         paddingLeft: "2.5rem",
         paddingRight: "2.5rem",
         borderBottom: "1px solid rgba(245,244,240,0.06)",

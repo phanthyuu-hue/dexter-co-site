@@ -124,7 +124,7 @@ function Footer() {
 function Hero() {
   return (
     <section style={{
-      paddingTop: "18rem",
+      paddingTop: "16rem",
       paddingBottom: "8rem",
       paddingLeft: "2.5rem",
       paddingRight: "2.5rem",
