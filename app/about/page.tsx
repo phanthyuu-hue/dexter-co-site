@@ -407,19 +407,19 @@ const products = [
   {
     name: "Lily Series",
     tag: "Store Operations",
-    description: "Store management platform for operations and communication — shifts, sales, reservations, and AI-assisted messaging.",
+    description: "店舗運営に必要な管理を一つにまとめた業務プラットフォーム。シフト管理・売上管理・予約対応・LINE返信までを一元化し、運用負担を大幅に削減します。",
     index: "01",
   },
   {
     name: "Silent",
     tag: "Privacy AI",
-    description: "Privacy-first AI chat with no history. Quietly useful for daily decisions and business tasks.",
+    description: "履歴を残さない、プライバシー重視のAIチャット。日常の判断や業務のちょっとした意思決定を、安心してサポートします。",
     index: "02",
   },
   {
     name: "TabiLog",
     tag: "Travel & Life",
-    description: "Travel logging and reflection app — track expenses, memories, and get AI-powered trip insights.",
+    description: "旅の記録と振り返りをまとめて管理できるアプリ。支出・思い出・移動履歴を一元化し、AIが旅の気づきや振り返りをサポートします。",
     index: "03",
   },
 ];
@@ -511,12 +511,13 @@ function Products() {
                 </div>
                 <p
                   style={{
-                    fontFamily: "var(--font-inter)",
+                    fontFamily: "var(--font-noto)",
                     fontSize: "0.9rem",
-                    lineHeight: 1.8,
-                    color: "rgba(245,244,240,0.62)",
+                    lineHeight: 1.9,
+                    color: "rgba(245,244,240,0.68)",
                     fontWeight: 300,
                     maxWidth: "560px",
+                    letterSpacing: "0.03em",
                   }}
                 >
                   {product.description}
