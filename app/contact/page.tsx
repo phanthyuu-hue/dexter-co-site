@@ -179,6 +179,48 @@ function Hero() {
           業務改善、AI活用、アプリ開発、ブランド設計など、課題を形にする相談を受け付けています。
         </p>
 
+        {/* How we can help */}
+        <div style={{ marginBottom: "3.5rem" }}>
+          <p style={{
+            fontFamily: "var(--font-inter)",
+            fontSize: "0.7rem",
+            letterSpacing: "0.22em",
+            textTransform: "uppercase",
+            color: "var(--gold)",
+            opacity: 0.7,
+            marginBottom: "1.5rem",
+          }}>
+            How we can help
+          </p>
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            {[
+              "AI tool planning",
+              "Business workflow design",
+              "Custom app development",
+              "Product strategy",
+            ].map((item, i) => (
+              <div key={i} style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "1rem",
+                padding: "1rem 0",
+                borderBottom: "1px solid rgba(245,244,240,0.05)",
+              }}>
+                <span style={{ width: "4px", height: "4px", borderRadius: "50%", backgroundColor: "var(--gold)", opacity: 0.5, flexShrink: 0 }} />
+                <p style={{
+                  fontFamily: "var(--font-inter)",
+                  fontSize: "0.9rem",
+                  fontWeight: 300,
+                  color: "rgba(245,244,240,0.6)",
+                  letterSpacing: "0.02em",
+                }}>
+                  {item}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
           <a
             href="https://line.me/ti/p/~hello-dexter"

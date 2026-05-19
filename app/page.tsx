@@ -288,10 +288,10 @@ function About() {
 /* ─── What we do ─── */
 function WhatWeDo() {
   const items = [
-    { num: "01", text: "Business problem analysis" },
-    { num: "02", text: "Workflow optimization" },
-    { num: "03", text: "AI / automation design" },
-    { num: "04", text: "Custom app development" },
+    { num: "01", text: "Problem discovery", desc: "Identifying the real issue before building anything." },
+    { num: "02", text: "Workflow design", desc: "Mapping and restructuring how work actually gets done." },
+    { num: "03", text: "AI tools & automation", desc: "Building practical AI into everyday business workflows." },
+    { num: "04", text: "Custom product development", desc: "Shipping products that solve specific, real-world problems." },
   ];
   return (
     <section
@@ -308,13 +308,19 @@ function WhatWeDo() {
             fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)",
             fontWeight: 500,
             color: "var(--offwhite)",
-            marginBottom: "4.5rem",
+            marginBottom: "1rem",
           }}
         >
           What we do.
         </h2>
-        <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.82rem", color: "rgba(245,244,240,0.38)", letterSpacing: "0.05em", fontWeight: 300, marginTop: "-3rem", marginBottom: "3rem" }}>
+        <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.82rem", color: "rgba(245,244,240,0.38)", letterSpacing: "0.05em", fontWeight: 300, marginBottom: "1rem" }}>
           私たちが提供すること
+        </p>
+        <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.95rem", lineHeight: 1.8, color: "rgba(245,244,240,0.55)", fontWeight: 300, maxWidth: "560px", marginBottom: "3.5rem" }}>
+          We build practical tools for real business and lifestyle workflows.
+        </p>
+        <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.8rem", color: "rgba(245,244,240,0.32)", letterSpacing: "0.04em", fontWeight: 300, marginBottom: "3rem", marginTop: "-2rem" }}>
+          業務や日常の課題を、実際に使えるツールとして形にします。
         </p>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "2rem" }}>
           {items.map((item) => (
@@ -325,14 +331,17 @@ function WhatWeDo() {
                 paddingTop: "1.75rem",
                 display: "flex",
                 flexDirection: "column",
-                gap: "1rem",
+                gap: "0.75rem",
               }}
             >
               <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.65rem", letterSpacing: "0.25em", color: "var(--gold)", opacity: 0.6 }}>
                 {item.num}
               </p>
-              <p style={{ fontFamily: "var(--font-playfair)", fontSize: "1.1rem", fontWeight: 500, color: "var(--offwhite)", lineHeight: 1.4 }}>
+              <p style={{ fontFamily: "var(--font-playfair)", fontSize: "1.05rem", fontWeight: 500, color: "var(--offwhite)", lineHeight: 1.4 }}>
                 {item.text}
+              </p>
+              <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.8rem", fontWeight: 300, color: "rgba(245,244,240,0.45)", lineHeight: 1.7 }}>
+                {item.desc}
               </p>
             </div>
           ))}
@@ -345,10 +354,10 @@ function WhatWeDo() {
 /* ─── Who we work with ─── */
 function WhoWeWorkWith() {
   const items = [
-    "Small business owners",
-    "Store operators",
-    "Individuals seeking efficiency",
-    "Teams exploring AI adoption",
+    { label: "Small business owners", desc: "Building lean tools for daily operations." },
+    { label: "Store operators", desc: "Simplifying schedules, sales, and communication." },
+    { label: "Individuals seeking efficiency", desc: "Turning personal workflows into simple products." },
+    { label: "Teams exploring AI adoption", desc: "Helping teams use AI in practical ways." },
   ];
   return (
     <section
@@ -380,18 +389,23 @@ function WhoWeWorkWith() {
               key={i}
               style={{
                 display: "flex",
-                alignItems: "center",
+                alignItems: "flex-start",
                 gap: "1.5rem",
                 padding: "1.75rem 0",
                 borderBottom: "1px solid rgba(245,244,240,0.06)",
               }}
             >
-              <span style={{ fontFamily: "var(--font-inter)", fontSize: "0.65rem", letterSpacing: "0.2em", color: "var(--gold)", opacity: 0.5, minWidth: "2rem" }}>
+              <span style={{ fontFamily: "var(--font-inter)", fontSize: "0.65rem", letterSpacing: "0.2em", color: "var(--gold)", opacity: 0.5, minWidth: "2rem", paddingTop: "0.3rem" }}>
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <p style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(1rem, 2.5vw, 1.35rem)", fontWeight: 400, color: "rgba(245,244,240,0.75)", letterSpacing: "0.02em" }}>
-                {item}
-              </p>
+              <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem" }}>
+                <p style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(1rem, 2.5vw, 1.25rem)", fontWeight: 400, color: "rgba(245,244,240,0.75)", letterSpacing: "0.02em" }}>
+                  {item.label}
+                </p>
+                <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.82rem", fontWeight: 300, color: "rgba(245,244,240,0.42)", lineHeight: 1.7 }}>
+                  {item.desc}
+                </p>
+              </div>
             </div>
           ))}
         </div>

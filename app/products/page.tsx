@@ -225,14 +225,15 @@ function ProductCards() {
             key={product.name}
             style={{
               border: product.featured
-                ? "1px solid rgba(200,164,110,0.35)"
+                ? "1px solid rgba(200,164,110,0.5)"
                 : "1px solid rgba(200,164,110,0.15)",
               background: product.featured
-                ? "rgba(30,35,41,0.55)"
+                ? "rgba(30,35,41,0.7)"
                 : "rgba(30,35,41,0.3)",
-              padding: "3rem 2.5rem",
+              padding: product.featured ? "3.5rem 3rem" : "3rem 2.5rem",
               transition: "border-color 0.3s, transform 0.25s, box-shadow 0.25s",
               cursor: product.cta ? "pointer" : "default",
+              boxShadow: product.featured ? "0 4px 32px rgba(200,164,110,0.08)" : "none",
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = "translateY(-3px)";
@@ -313,10 +314,23 @@ function ProductCards() {
                 href={product.cta.href}
                 target={product.cta.external ? "_blank" : undefined}
                 rel={product.cta.external ? "noopener noreferrer" : undefined}
-                className="btn-gold"
-                style={{ display: "inline-block" }}
+                style={{
+                  display: "inline-block",
+                  padding: "0.9rem 2.4rem",
+                  backgroundColor: "var(--gold)",
+                  color: "var(--navy)",
+                  fontFamily: "var(--font-inter)",
+                  fontSize: "0.75rem",
+                  letterSpacing: "0.2em",
+                  textTransform: "uppercase",
+                  fontWeight: 500,
+                  textDecoration: "none",
+                  transition: "background-color 0.25s, opacity 0.25s",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
+                onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
               >
-                {product.cta.label}
+                {product.cta.label} →
               </a>
             )}
             {product.status === "Coming Soon" && !product.cta && (

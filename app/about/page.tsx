@@ -212,8 +212,31 @@ function Hero() {
           letterSpacing: "0.04em",
           fontWeight: 300,
           lineHeight: 1.9,
+          marginBottom: "1.5rem",
         }}>
           Dexter & Co. は、課題発見からプロダクト化までを一貫して行う課題解決型ブランドです。
+        </p>
+        <p style={{
+          fontFamily: "var(--font-inter)",
+          fontSize: "0.95rem",
+          lineHeight: 1.9,
+          color: "rgba(245,244,240,0.55)",
+          fontWeight: 300,
+          maxWidth: "560px",
+          letterSpacing: "0.02em",
+          marginBottom: "0.6rem",
+        }}>
+          We design and build practical tools for real-world business and daily workflows.
+        </p>
+        <p style={{
+          fontFamily: "var(--font-noto)",
+          fontSize: "0.8rem",
+          color: "rgba(245,244,240,0.35)",
+          letterSpacing: "0.04em",
+          fontWeight: 300,
+          lineHeight: 1.9,
+        }}>
+          実際の業務や日常の課題から、使えるツールを設計・開発しています。
         </p>
       </div>
     </section>
@@ -223,8 +246,8 @@ function Hero() {
 /* ─── Section 2: What we do ─── */
 function WhatWeDo() {
   const items = [
-    "We design, build, and launch digital products.",
-    "We focus on speed, simplicity, and real usability.",
+    "We design and build tools for real workflows.",
+    "We focus on speed, simplicity, and practical usability.",
   ];
 
   return (
@@ -309,6 +332,7 @@ function Philosophy() {
   const items = [
     "Many products fail because they don't solve real problems.",
     "We start from the problem, not the idea.",
+    "We believe good products come from real, observed problems.",
   ];
 
   return (
@@ -342,6 +366,18 @@ function Philosophy() {
           marginTop: "-2rem",
         }}>
           アイデアではなく、課題から始める。
+        </p>
+        <p style={{
+          fontFamily: "var(--font-noto)",
+          fontSize: "0.8rem",
+          color: "rgba(245,244,240,0.32)",
+          letterSpacing: "0.04em",
+          fontWeight: 300,
+          marginBottom: "2.5rem",
+          marginTop: "-2rem",
+          lineHeight: 1.8,
+        }}>
+          良いプロダクトは、実際の課題からしか生まれないと考えています。
         </p>
         <div style={{ display: "flex", flexDirection: "column" }}>
           {items.map((item, i) => (
@@ -392,19 +428,19 @@ const products = [
   {
     name: "Lily Series",
     tag: "Store Operations",
-    description: "An all-in-one platform for store management — shifts, sales, reservations, and AI-assisted messaging.",
+    description: "Store management platform for operations and communication — shifts, sales, reservations, and AI-assisted messaging.",
     index: "01",
   },
   {
     name: "Silent",
     tag: "Privacy AI",
-    description: "A privacy-first AI chat that leaves no history. Quietly useful for daily decisions and work.",
+    description: "Privacy-first AI chat with no history. Quietly useful for daily decisions and business tasks.",
     index: "02",
   },
   {
     name: "TabiLog",
     tag: "Travel & Life",
-    description: "A travel log app for tracking expenses, memories, and AI-powered trip reflections.",
+    description: "Travel logging and reflection app — track expenses, memories, and get AI-powered trip insights.",
     index: "03",
   },
 ];
