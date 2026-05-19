@@ -192,8 +192,7 @@ const products = [
     descJa: "履歴を残さず、安心して相談できるプライバシー重視のAIチャット。日常の相談から業務利用まで、静かに使えるAIアシスタント。",
     status: "Coming Soon",
     ctas: [
-      { label: "今すぐ使う", href: "#", external: false, primary: true },
-      { label: "コンセプトを見る", href: "#", external: false, primary: false },
+      { label: "コンセプトについて相談する", href: "/contact", external: false, primary: true },
     ],
     featured: false,
   },
@@ -203,8 +202,7 @@ const products = [
     descJa: "旅の支出、記録、思い出をまとめるトラベルログアプリ。支出管理、旅の記録、AIによる振り返りや提案を通じて、旅をより豊かにする。",
     status: "Coming Soon",
     ctas: [
-      { label: "アプリを見る", href: "#", external: false, primary: true },
-      { label: "詳細を見る", href: "#", external: false, primary: false },
+      { label: "開発状況を相談する", href: "/contact", external: false, primary: true },
     ],
     featured: false,
   },

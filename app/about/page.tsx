@@ -239,11 +239,12 @@ function WhatWeDo() {
         <SectionLabel>What we do</SectionLabel>
         <h2
           style={{
-            fontFamily: "var(--font-playfair)",
-            fontSize: "clamp(1.35rem, 2.8vw, 2rem)",
-            fontWeight: 500,
+            fontFamily: "var(--font-noto)",
+            fontSize: "clamp(1.15rem, 2.2vw, 1.65rem)",
+            fontWeight: 600,
             color: "var(--offwhite)",
             marginBottom: "3rem",
+            letterSpacing: "0.04em",
           }}
         >
           私たちのアプローチ
@@ -420,8 +421,7 @@ const products = [
     description: "履歴を残さない、プライバシー重視のAIチャット。日常の判断や業務のちょっとした意思決定を、安心してサポートします。",
     index: "02",
     cta: [
-      { label: "今すぐ使う", href: "#", primary: true },
-      { label: "コンセプトを見る", href: "#", primary: false },
+      { label: "コンセプトについて相談する", href: "/contact", primary: true },
     ],
   },
   {
@@ -430,8 +430,7 @@ const products = [
     description: "旅の記録と振り返りをまとめて管理できるアプリ。支出・思い出・移動履歴を一元化し、AIが旅の気づきや振り返りをサポートします。",
     index: "03",
     cta: [
-      { label: "アプリを見る", href: "#", primary: true },
-      { label: "詳細を見る", href: "#", primary: false },
+      { label: "開発状況を相談する", href: "/contact", primary: true },
     ],
   },
 ];
