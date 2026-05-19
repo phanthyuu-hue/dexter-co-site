@@ -193,10 +193,10 @@ function Hero() {
           </p>
           <div style={{ display: "flex", flexDirection: "column" }}>
             {[
-              "AI tool planning",
-              "Business workflow design",
-              "Custom app development",
-              "Product strategy",
+              "AIツールの設計・開発",
+              "業務フローの改善・自動化",
+              "カスタムアプリの開発",
+              "プロダクト戦略の立案",
             ].map((item, i) => (
               <div key={i} style={{
                 display: "flex",
@@ -207,11 +207,11 @@ function Hero() {
               }}>
                 <span style={{ width: "4px", height: "4px", borderRadius: "50%", backgroundColor: "var(--gold)", opacity: 0.5, flexShrink: 0 }} />
                 <p style={{
-                  fontFamily: "var(--font-inter)",
-                  fontSize: "0.9rem",
+                  fontFamily: "var(--font-noto)",
+                  fontSize: "0.92rem",
                   fontWeight: 300,
-                  color: "rgba(245,244,240,0.6)",
-                  letterSpacing: "0.02em",
+                  color: "rgba(245,244,240,0.68)",
+                  letterSpacing: "0.03em",
                 }}>
                   {item}
                 </p>

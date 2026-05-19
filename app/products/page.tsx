@@ -397,26 +397,16 @@ function DexTechSection() {
         </p>
         <span style={{ display: "block", width: "40px", height: "1px", backgroundColor: "var(--gold)", opacity: 0.7, marginBottom: "2.5rem" }} />
         <p style={{
-          fontFamily: "var(--font-inter)",
+          fontFamily: "var(--font-noto)",
           fontSize: "1rem",
-          lineHeight: 1.9,
-          color: "rgba(245,244,240,0.68)",
+          lineHeight: 2,
+          color: "rgba(245,244,240,0.72)",
           fontWeight: 300,
           maxWidth: "580px",
-          letterSpacing: "0.02em",
-          marginBottom: "0.85rem",
-        }}>
-          DexTech is the product development arm of Dexter & Co., focused on building practical tools powered by technology and AI.
-        </p>
-        <p style={{
-          fontFamily: "var(--font-noto)",
-          fontSize: "0.82rem",
-          color: "rgba(245,244,240,0.4)",
           letterSpacing: "0.04em",
-          fontWeight: 300,
-          lineHeight: 1.9,
+          marginBottom: "0.75rem",
         }}>
-          DexTechは、Dexter & Co.の開発ブランドです。
+          DexTechは、Dexter & Co.の開発ブランドです。テクノロジーとAIを活用し、実際の業務・生活の課題をプロダクトとして形にします。
         </p>
       </div>
     </section>

@@ -216,28 +216,16 @@ function Hero() {
             marginBottom: "0.85rem",
           }}
         >
-          Dexter & Co. is a product-driven company focused on identifying
-          real-world problems and turning them into scalable solutions.
-        </p>
-        <p style={{
-          fontFamily: "var(--font-inter)",
-          fontSize: "0.95rem",
-          lineHeight: 1.9,
-          color: "rgba(245,244,240,0.55)",
-          fontWeight: 300,
-          maxWidth: "560px",
-          letterSpacing: "0.02em",
-          marginBottom: "0.6rem",
-        }}>
-          We design and build practical tools for real-world business and daily workflows.
+          Dexter & Co. は、課題発見からプロダクト化までを一貫して行う課題解決型ブランドです。
         </p>
         <p style={{
           fontFamily: "var(--font-noto)",
-          fontSize: "0.8rem",
-          color: "rgba(245,244,240,0.35)",
-          letterSpacing: "0.04em",
-          fontWeight: 300,
+          fontSize: "0.95rem",
           lineHeight: 1.9,
+          color: "rgba(245,244,240,0.62)",
+          fontWeight: 300,
+          maxWidth: "560px",
+          letterSpacing: "0.04em",
         }}>
           実際の業務や日常の課題から、使えるツールを設計・開発しています。
         </p>
@@ -249,8 +237,8 @@ function Hero() {
 /* ─── Section 2: What we do ─── */
 function WhatWeDo() {
   const items = [
-    "We design and build tools for real workflows.",
-    "We focus on speed, simplicity, and practical usability.",
+    "実際の業務フローに合ったツールを設計・開発します。",
+    "スピード・シンプルさ・実用性を重視して構築します。",
   ];
 
   return (
@@ -333,9 +321,9 @@ function WhatWeDo() {
 /* ─── Section 3: Philosophy ─── */
 function Philosophy() {
   const items = [
-    "Many products fail because they don't solve real problems.",
-    "We start from the problem, not the idea.",
-    "We believe good products come from real, observed problems.",
+    "多くのプロダクトは、本質的な課題を解決していないから失敗します。",
+    "私たちはアイデアではなく、課題から始めます。",
+    "良いプロダクトは、実際に観察された課題からしか生まれません。",
   ];
 
   return (
@@ -408,7 +396,7 @@ function Philosophy() {
               />
               <p
                 style={{
-                  fontFamily: "var(--font-inter)",
+                  fontFamily: "var(--font-noto)",
                   fontSize: "1rem",
                   fontWeight: 300,
                   color: "rgba(245,244,240,0.68)",

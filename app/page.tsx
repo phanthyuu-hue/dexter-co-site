@@ -303,10 +303,10 @@ function About() {
 /* ─── What we do ─── */
 function WhatWeDo() {
   const items = [
-    { num: "01", text: "Problem discovery", desc: "Identifying the real issue before building anything." },
-    { num: "02", text: "Workflow design", desc: "Mapping and restructuring how work actually gets done." },
-    { num: "03", text: "AI tools & automation", desc: "Building practical AI into everyday business workflows." },
-    { num: "04", text: "Custom product development", desc: "Shipping products that solve specific, real-world problems." },
+    { num: "01", text: "Problem discovery", desc: "つくる前に、本質的な課題を特定します。" },
+    { num: "02", text: "Workflow design", desc: "実際の業務フローを整理・再設計します。" },
+    { num: "03", text: "AI tools & automation", desc: "日常業務に組み込める実用的なAIを構築します。" },
+    { num: "04", text: "Custom product development", desc: "現場の課題を解決するプロダクトを開発・リリースします。" },
   ];
   return (
     <section
@@ -331,10 +331,7 @@ function WhatWeDo() {
         <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.82rem", color: "rgba(245,244,240,0.55)", letterSpacing: "0.05em", fontWeight: 300, marginBottom: "1rem" }}>
           私たちが提供すること
         </p>
-        <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.95rem", lineHeight: 1.8, color: "rgba(245,244,240,0.55)", fontWeight: 300, maxWidth: "560px", marginBottom: "3.5rem" }}>
-          We build practical tools for real business and lifestyle workflows.
-        </p>
-        <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.8rem", color: "rgba(245,244,240,0.32)", letterSpacing: "0.04em", fontWeight: 300, marginBottom: "3rem", marginTop: "-2rem" }}>
+        <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.95rem", lineHeight: 1.9, color: "rgba(245,244,240,0.65)", fontWeight: 300, maxWidth: "560px", marginBottom: "3.5rem", letterSpacing: "0.04em" }}>
           業務や日常の課題を、実際に使えるツールとして形にします。
         </p>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "2rem" }}>
@@ -355,7 +352,7 @@ function WhatWeDo() {
               <p style={{ fontFamily: "var(--font-playfair)", fontSize: "1.05rem", fontWeight: 500, color: "var(--offwhite)", lineHeight: 1.4 }}>
                 {item.text}
               </p>
-              <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.8rem", fontWeight: 300, color: "rgba(245,244,240,0.45)", lineHeight: 1.7 }}>
+              <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.8rem", fontWeight: 300, color: "rgba(245,244,240,0.55)", lineHeight: 1.8, letterSpacing: "0.03em" }}>
                 {item.desc}
               </p>
             </div>
@@ -369,10 +366,10 @@ function WhatWeDo() {
 /* ─── Who we work with ─── */
 function WhoWeWorkWith() {
   const items = [
-    { label: "Small business owners", desc: "Building lean tools for daily operations." },
-    { label: "Store operators", desc: "Simplifying schedules, sales, and communication." },
-    { label: "Individuals seeking efficiency", desc: "Turning personal workflows into simple products." },
-    { label: "Teams exploring AI adoption", desc: "Helping teams use AI in practical ways." },
+    { label: "店舗オーナー・運営者", desc: "シフト管理・売上・予約対応など、現場業務をまとめて効率化します。" },
+    { label: "個人事業主・フリーランス", desc: "日常業務の自動化・AIツール活用・業務改善をサポートします。" },
+    { label: "効率化を求める個人", desc: "個人のワークフローをシンプルなツールとして形にします。" },
+    { label: "AI活用を検討している企業・チーム", desc: "実務に合わせたAIツールの設計・導入を支援します。" },
   ];
   return (
     <section
@@ -417,7 +414,7 @@ function WhoWeWorkWith() {
                 <p style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(1rem, 2.5vw, 1.25rem)", fontWeight: 400, color: "rgba(245,244,240,0.75)", letterSpacing: "0.02em" }}>
                   {item.label}
                 </p>
-                <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.82rem", fontWeight: 300, color: "rgba(245,244,240,0.58)", lineHeight: 1.7 }}>
+                <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.88rem", fontWeight: 300, color: "rgba(245,244,240,0.62)", lineHeight: 1.9, letterSpacing: "0.03em" }}>
                   {item.desc}
                 </p>
               </div>
