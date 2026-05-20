@@ -1005,7 +1005,7 @@ function Contact() {
           業務改善、AI活用、アプリ開発など、お気軽にご相談ください。
         </p>
         <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-          <a href="https://line.me/ti/p/~hello-dexter" className="btn-gold">
+          <a href="https://line.me/ti/p/~hello-dexter" target="_blank" rel="noopener noreferrer" className="btn-gold">
             LINEで相談する
           </a>
           <a href="mailto:hello@dexter-co.jp" className="btn-ghost">
