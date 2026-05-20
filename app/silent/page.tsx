@@ -96,9 +96,17 @@ function Hero() {
           fontFamily: "var(--font-noto)", fontSize: "1.1rem",
           lineHeight: 1.9, color: "#C8A96A",
           fontWeight: 300, letterSpacing: "0.04em",
-          marginBottom: "2rem",
+          marginBottom: "1rem",
         }}>
           誰にも残らないから、本音で使える。
+        </p>
+        <p style={{
+          fontFamily: "var(--font-noto)", fontSize: "0.95rem",
+          lineHeight: 1.9, color: "rgba(250,248,243,0.5)",
+          fontWeight: 300, letterSpacing: "0.04em",
+          marginBottom: "2rem",
+        }}>
+          その前提が変わると、人はここまで話せる。
         </p>
         <span style={{ display: "block", width: "40px", height: "1px", background: "#C8A96A", opacity: 0.55, marginBottom: "2rem" }} />
         <p style={{
@@ -378,19 +386,19 @@ function HowItWorks() {
 function UseCases() {
   const cases = [
     {
-      title: "誰にも言えない相談",
-      quote: "「これ、人に話していい内容なのか分からない…」",
-      detail: "答えが欲しいけど、誰かに相談するのが憚られる。そういう時のために、Silentはある。",
+      title: "上司に言えない転職の相談",
+      quote: "「今の会社、正直もう限界かもしれない…」",
+      detail: "誰かに話したい。でも社内では絶対に言えない。友人に言うのも気が引ける。そういう時、Silentに話す。",
     },
     {
-      title: "仕事の判断・意思決定",
-      quote: "「この判断、リスクないか整理したい」",
-      detail: "社内では言いにくい。でも一人で考えると詰まる。AIに壁打ちしながら、自分の考えを整理する。",
+      title: "恋人・家族との関係の悩み",
+      quote: "「これって私が悪いのかな…整理したい」",
+      detail: "感情が混乱している時ほど、誰かに聞かれたくない。ログも履歴も残らないから、本音のまま吐き出せる。",
     },
     {
-      title: "人に聞きづらいこと",
-      quote: "「誰にも聞けないけど、答えが欲しい」",
-      detail: "「こんなこと聞いていいのか」という躊躇がなくなる。履歴が残らないから、本音で聞ける。",
+      title: "グレーな判断・これやっていい？",
+      quote: "「これって法的にどうなんだろう…聞きにくいけど」",
+      detail: "専門家に相談するほどでもない。でも自分だけでは判断できない。記録に残さず、整理したい時のために。",
     },
   ];
   return (
@@ -562,6 +570,65 @@ function Features() {
 }
 
 /* ══════════════════════════════════════
+   WHY — 思想レイヤー（黒背景）
+══════════════════════════════════════ */
+function Why() {
+  return (
+    <section style={{
+      background: "#0B1C2C",
+      padding: "12rem 2.5rem",
+      borderTop: "2px solid #C8A96A",
+    }}>
+      <div style={{ maxWidth: "760px" }}>
+        <p style={{
+          fontFamily: "var(--font-inter)", fontSize: "0.7rem",
+          letterSpacing: "0.28em", textTransform: "uppercase",
+          color: "#C8A96A", opacity: 0.75, marginBottom: "2.5rem",
+        }}>
+          Insight
+        </p>
+        <h2 style={{
+          fontFamily: "var(--font-playfair)",
+          fontSize: "clamp(1.8rem, 4vw, 3rem)",
+          fontWeight: 500, color: "#FAF8F3",
+          marginBottom: "3rem", lineHeight: 1.2,
+        }}>
+          人は「残る前提」では、<br />本音を話さない。
+        </h2>
+        <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem", maxWidth: "580px" }}>
+          <p style={{
+            fontFamily: "var(--font-noto)", fontSize: "1rem",
+            lineHeight: 2.1, color: "rgba(250,248,243,0.65)",
+            fontWeight: 300, letterSpacing: "0.04em",
+          }}>
+            SNSも、チャットも、AIも。<br />
+            すべては「記録される前提」で設計されている。
+          </p>
+          <p style={{
+            fontFamily: "var(--font-noto)", fontSize: "1rem",
+            lineHeight: 2.1, color: "rgba(250,248,243,0.65)",
+            fontWeight: 300, letterSpacing: "0.04em",
+          }}>
+            だから人は、<br />
+            無意識に言葉を選び、<br />
+            本音を削り、<br />
+            安全な範囲でしか使えない。
+          </p>
+          <p style={{
+            fontFamily: "var(--font-playfair)", fontSize: "1.15rem",
+            lineHeight: 1.9, color: "#C8A96A",
+            fontWeight: 500, letterSpacing: "0.03em",
+            fontStyle: "italic",
+          }}>
+            Silentは、その前提を壊した。
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ══════════════════════════════════════
    ⑦ TRUST — クリーム
 ══════════════════════════════════════ */
 function Trust() {
@@ -633,10 +700,35 @@ function FinalCTA() {
     <section style={{
       background: "#0B1C2C",
       padding: "12rem 2.5rem",
-      textAlign: "center",
-      borderTop: "3px solid #C8A96A",
+      borderTop: "2px solid #C8A96A",
     }}>
-      <div style={{ maxWidth: "600px", margin: "0 auto" }}>
+      <div style={{ maxWidth: "680px", margin: "0 auto", textAlign: "center" }}>
+
+        {/* 恐怖→解放ブロック */}
+        <div style={{ marginBottom: "6rem", textAlign: "left" }}>
+          <p style={{
+            fontFamily: "var(--font-noto)", fontSize: "0.95rem",
+            lineHeight: 2.2, color: "rgba(250,248,243,0.5)",
+            fontWeight: 300, letterSpacing: "0.04em",
+            marginBottom: "2.5rem",
+          }}>
+            もしこのまま、<br />
+            「誰かに見られるかもしれない」前提で<br />
+            AIを使い続けるなら、<br /><br />
+            あなたは一生、<br />
+            「安全な使い方」しかできない。
+          </p>
+          <p style={{
+            fontFamily: "var(--font-playfair)", fontSize: "1.1rem",
+            lineHeight: 1.9, color: "#C8A96A",
+            fontWeight: 500, letterSpacing: "0.03em",
+            fontStyle: "italic",
+          }}>
+            Silentなら、その制限はなくなる。
+          </p>
+        </div>
+
+        {/* CTA本体 */}
         <p style={{
           fontFamily: "var(--font-inter)", fontSize: "0.7rem",
           letterSpacing: "0.28em", textTransform: "uppercase",
@@ -693,6 +785,7 @@ export default function SilentPage() {
         <HowItWorks />
         <UseCases />
         <Features />
+        <Why />
         <Trust />
         <FinalCTA />
       </main>
