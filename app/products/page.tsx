@@ -192,7 +192,7 @@ const products = [
     descJa: "履歴を残さず、安心して相談できるプライバシー重視のAIチャット。日常の相談から業務利用まで、静かに使えるAIアシスタント。",
     status: "Coming Soon",
     ctas: [
-      { label: "今すぐ使う", href: "https://www.silent-ai.jp", external: true, primary: true },
+      { label: "今すぐ使う", href: "/silent", external: false, primary: true },
     ],
     featured: false,
   },

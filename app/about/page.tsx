@@ -421,7 +421,7 @@ const products = [
     description: "履歴を残さない、プライバシー重視のAIチャット。日常の判断や業務のちょっとした意思決定を、安心してサポートします。",
     index: "02",
     cta: [
-      { label: "今すぐ使う", href: "https://www.silent-ai.jp", primary: true },
+      { label: "今すぐ使う", href: "/silent", primary: true },
     ],
   },
   {
