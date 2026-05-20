@@ -147,11 +147,25 @@ function Hero() {
    ② PROBLEM — 白クリーム（Silent）
 ══════════════════════════════════════ */
 function Problem() {
+  const items = [
+    {
+      main: "この相談、どこかに残るんじゃないか",
+      sub: "AIサービスは通常、会話をサーバーに記録している。気になって当然だ。",
+    },
+    {
+      main: "後から見られるんじゃないか",
+      sub: "運営側・開発側・広告目的——誰かが読んでいるかもしれないという不安は消えない。",
+    },
+    {
+      main: "履歴として残したくない",
+      sub: "アカウントに紐付いた会話は、積み重なって「自分の記録」になってしまう。",
+    },
+  ];
   return (
     <section style={{
       background: "#FAF8F3",
       padding: "10rem 2.5rem",
-      borderTop: "3px solid #C8A96A",
+      borderTop: "2px solid #C8A96A",
     }}>
       <div style={{ maxWidth: "760px" }}>
         <p style={{
@@ -165,41 +179,55 @@ function Problem() {
           fontFamily: "var(--font-playfair)",
           fontSize: "clamp(1.8rem, 4vw, 3rem)",
           fontWeight: 500, color: "#1A1A1A",
-          marginBottom: "3.5rem", lineHeight: 1.25,
+          marginBottom: "1.5rem", lineHeight: 1.25,
         }}>
           AIは便利なのに、なぜ<br />本音で使えないのか？
         </h2>
-        <div style={{ display: "flex", flexDirection: "column", marginBottom: "3rem" }}>
-          {[
-            "この相談、どこかに残るんじゃないか",
-            "後から見られるんじゃないか",
-            "履歴として残したくない",
-          ].map((item, i) => (
+        <p style={{
+          fontFamily: "var(--font-noto)", fontSize: "0.95rem",
+          lineHeight: 2, color: "rgba(0,0,0,0.55)",
+          fontWeight: 300, letterSpacing: "0.03em",
+          marginBottom: "3.5rem",
+        }}>
+          使ってみると気づく。「便利だけど、本音では使えない」という感覚に。
+          その正体は、記録への不安だ。
+        </p>
+        <div style={{ display: "flex", flexDirection: "column", marginBottom: "4rem" }}>
+          {items.map((item, i) => (
             <div key={i} style={{
-              display: "flex", alignItems: "flex-start", gap: "1.25rem",
-              padding: "1.25rem 0",
+              padding: "2rem 0",
               borderBottom: "1px solid rgba(0,0,0,0.08)",
             }}>
-              <span style={{ color: "#C8A96A", fontSize: "0.85rem", paddingTop: "0.1rem", flexShrink: 0 }}>・</span>
+              <div style={{ display: "flex", alignItems: "flex-start", gap: "1.25rem", marginBottom: "0.75rem" }}>
+                <span style={{ color: "#C8A96A", fontSize: "0.85rem", paddingTop: "0.15rem", flexShrink: 0 }}>・</span>
+                <p style={{
+                  fontFamily: "var(--font-noto)", fontSize: "1.05rem",
+                  fontWeight: 500, color: "#1A1A1A",
+                  lineHeight: 1.7, letterSpacing: "0.03em",
+                }}>
+                  {item.main}
+                </p>
+              </div>
               <p style={{
-                fontFamily: "var(--font-noto)", fontSize: "1rem",
-                fontWeight: 300, color: "rgba(0,0,0,0.72)",
-                lineHeight: 1.8, letterSpacing: "0.03em",
+                fontFamily: "var(--font-noto)", fontSize: "0.9rem",
+                fontWeight: 300, color: "rgba(0,0,0,0.55)",
+                lineHeight: 1.9, letterSpacing: "0.03em",
+                paddingLeft: "1.75rem",
               }}>
-                {item}
+                {item.sub}
               </p>
             </div>
           ))}
         </div>
         <p style={{
           fontFamily: "var(--font-noto)", fontSize: "1rem",
-          lineHeight: 2, color: "rgba(0,0,0,0.55)",
-          fontWeight: 300, letterSpacing: "0.03em",
-          borderLeft: "2px solid #C8A96A",
+          lineHeight: 2.1, color: "rgba(0,0,0,0.65)",
+          fontWeight: 400, letterSpacing: "0.03em",
+          borderLeft: "3px solid #C8A96A",
           paddingLeft: "1.5rem",
         }}>
-          だから、多くの人は<br />
-          「当たり障りのない使い方」しかできていない。
+          だから多くの人は、<br />
+          <strong style={{ fontWeight: 600, color: "#1A1A1A" }}>「本音を隠した使い方」しかできていない。</strong>
         </p>
       </div>
     </section>
@@ -211,7 +239,7 @@ function Problem() {
 ══════════════════════════════════════ */
 function Solution() {
   return (
-    <section style={{ background: "#F7F4ED", padding: "10rem 2.5rem" }}>
+    <section style={{ background: "#F7F4ED", padding: "10rem 2.5rem", borderTop: "2px solid #C8A96A" }}>
       <div style={{ maxWidth: "760px" }}>
         <p style={{
           fontFamily: "var(--font-inter)", fontSize: "0.7rem",
@@ -224,29 +252,47 @@ function Solution() {
           fontFamily: "var(--font-playfair)",
           fontSize: "clamp(1.8rem, 4vw, 3rem)",
           fontWeight: 500, color: "#1A1A1A",
-          marginBottom: "3.5rem", lineHeight: 1.3,
+          marginBottom: "1.5rem", lineHeight: 1.3,
         }}>
           Silentは、<br />
           &ldquo;残らない前提&rdquo;で使えるAIです
         </h2>
+        <p style={{
+          fontFamily: "var(--font-noto)", fontSize: "0.95rem",
+          lineHeight: 2, color: "rgba(0,0,0,0.55)",
+          fontWeight: 300, letterSpacing: "0.03em",
+          marginBottom: "3.5rem",
+        }}>
+          「残したくない」という前提で設計されたAIは、今まで存在しなかった。
+          Silentはその空白を埋めるために作られました。
+        </p>
         <div style={{ display: "flex", flexDirection: "column" }}>
           {[
-            "会話は保存されません",
-            "閉じると消えます",
-            "必要な時だけ、一時保存を選べます",
+            { main: "会話は保存されません", sub: "やりとりの内容は、Silentのサーバーには一切記録されません。" },
+            { main: "閉じると消えます", sub: "ページを閉じた瞬間、会話は完全に消去されます。キャッシュにも残りません。" },
+            { main: "必要な時だけ、一時保存を選べます", sub: "保存したい場合はユーザー自身が選択します。デフォルトは「保存しない」です。" },
           ].map((item, i) => (
             <div key={i} style={{
-              display: "flex", alignItems: "center", gap: "1.25rem",
-              padding: "1.25rem 0",
+              padding: "2rem 0",
               borderBottom: "1px solid rgba(0,0,0,0.08)",
             }}>
-              <span style={{ color: "#C8A96A", fontSize: "1rem", flexShrink: 0 }}>✓</span>
+              <div style={{ display: "flex", alignItems: "center", gap: "1.25rem", marginBottom: "0.65rem" }}>
+                <span style={{ color: "#C8A96A", fontSize: "1rem", flexShrink: 0 }}>✓</span>
+                <p style={{
+                  fontFamily: "var(--font-noto)", fontSize: "1.05rem",
+                  fontWeight: 500, color: "#1A1A1A",
+                  lineHeight: 1.7, letterSpacing: "0.03em",
+                }}>
+                  {item.main}
+                </p>
+              </div>
               <p style={{
-                fontFamily: "var(--font-noto)", fontSize: "1rem",
-                fontWeight: 400, color: "#1A1A1A",
-                lineHeight: 1.8, letterSpacing: "0.03em",
+                fontFamily: "var(--font-noto)", fontSize: "0.9rem",
+                fontWeight: 300, color: "rgba(0,0,0,0.55)",
+                lineHeight: 1.9, letterSpacing: "0.03em",
+                paddingLeft: "2rem",
               }}>
-                {item}
+                {item.sub}
               </p>
             </div>
           ))}
@@ -261,7 +307,7 @@ function Solution() {
 ══════════════════════════════════════ */
 function HowItWorks() {
   return (
-    <section id="how" style={{ background: "#FAF8F3", padding: "10rem 2.5rem" }}>
+    <section id="how" style={{ background: "#FAF8F3", padding: "10rem 2.5rem", borderTop: "2px solid #C8A96A" }}>
       <div style={{ maxWidth: "760px" }}>
         <p style={{
           fontFamily: "var(--font-inter)", fontSize: "0.7rem",
@@ -274,42 +320,49 @@ function HowItWorks() {
           fontFamily: "var(--font-playfair)",
           fontSize: "clamp(1.8rem, 4vw, 3rem)",
           fontWeight: 500, color: "#1A1A1A",
-          marginBottom: "2.5rem", lineHeight: 1.25,
+          marginBottom: "1.5rem", lineHeight: 1.25,
         }}>
           なぜ安心して使えるのか
         </h2>
         <p style={{
-          fontFamily: "var(--font-noto)", fontSize: "1rem",
-          lineHeight: 2, color: "rgba(0,0,0,0.6)",
+          fontFamily: "var(--font-noto)", fontSize: "0.95rem",
+          lineHeight: 2, color: "rgba(0,0,0,0.55)",
           fontWeight: 300, letterSpacing: "0.03em",
-          marginBottom: "2.5rem",
+          marginBottom: "3.5rem",
         }}>
           Silentは、通常のAIサービスとは異なる設計になっています。
+          「信頼してください」ではなく、「信頼できる構造になっています」と言えることを優先しました。
         </p>
         <div style={{ display: "flex", flexDirection: "column" }}>
           {[
-            "会話内容をデータベースに保存しません",
-            "セッション単位でのみ内容を保持します",
-            "保存する場合も、ユーザーが明示的に選択した時のみです",
+            { main: "会話内容をデータベースに保存しません", sub: "やりとりはサーバーに書き込まれません。記録として存在しないものは、漏洩しません。" },
+            { main: "セッション単位でのみ内容を保持します", sub: "ページを開いている間だけ、一時的にメモリ上に存在します。閉じれば消えます。" },
+            { main: "保存する場合も、ユーザーが明示的に選択した時のみです", sub: "デフォルトは「保存しない」。あなたが選んだ時だけ、あなたのデバイスに保存されます。" },
           ].map((item, i) => (
-            <div key={i} style={{
-              display: "flex", alignItems: "flex-start", gap: "1.25rem",
-              padding: "1.25rem 0",
-              borderBottom: "1px solid rgba(0,0,0,0.08)",
-            }}>
-              <span style={{
-                fontFamily: "var(--font-inter)", fontSize: "0.65rem",
-                letterSpacing: "0.2em", color: "#C8A96A",
-                minWidth: "2rem", paddingTop: "0.2rem",
-              }}>
-                {String(i + 1).padStart(2, "0")}
-              </span>
+            <div key={i} style={{ padding: "2rem 0", borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
+              <div style={{ display: "flex", alignItems: "flex-start", gap: "1.25rem", marginBottom: "0.65rem" }}>
+                <span style={{
+                  fontFamily: "var(--font-inter)", fontSize: "0.65rem",
+                  letterSpacing: "0.2em", color: "#C8A96A",
+                  minWidth: "2rem", paddingTop: "0.2rem", flexShrink: 0,
+                }}>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <p style={{
+                  fontFamily: "var(--font-noto)", fontSize: "1.05rem",
+                  fontWeight: 500, color: "#1A1A1A",
+                  lineHeight: 1.7, letterSpacing: "0.03em",
+                }}>
+                  {item.main}
+                </p>
+              </div>
               <p style={{
-                fontFamily: "var(--font-noto)", fontSize: "1rem",
-                fontWeight: 300, color: "rgba(0,0,0,0.7)",
-                lineHeight: 1.8, letterSpacing: "0.03em",
+                fontFamily: "var(--font-noto)", fontSize: "0.9rem",
+                fontWeight: 300, color: "rgba(0,0,0,0.55)",
+                lineHeight: 1.9, letterSpacing: "0.03em",
+                paddingLeft: "3.25rem",
               }}>
-                {item}
+                {item.sub}
               </p>
             </div>
           ))}
@@ -327,18 +380,21 @@ function UseCases() {
     {
       title: "誰にも言えない相談",
       quote: "「これ、人に話していい内容なのか分からない…」",
+      detail: "答えが欲しいけど、誰かに相談するのが憚られる。そういう時のために、Silentはある。",
     },
     {
       title: "仕事の判断・意思決定",
       quote: "「この判断、リスクないか整理したい」",
+      detail: "社内では言いにくい。でも一人で考えると詰まる。AIに壁打ちしながら、自分の考えを整理する。",
     },
     {
       title: "人に聞きづらいこと",
       quote: "「誰にも聞けないけど、答えが欲しい」",
+      detail: "「こんなこと聞いていいのか」という躊躇がなくなる。履歴が残らないから、本音で聞ける。",
     },
   ];
   return (
-    <section style={{ background: "#F7F4ED", padding: "10rem 2.5rem" }}>
+    <section style={{ background: "#F7F4ED", padding: "10rem 2.5rem", borderTop: "2px solid #C8A96A" }}>
       <div style={{ maxWidth: "760px" }}>
         <p style={{
           fontFamily: "var(--font-inter)", fontSize: "0.7rem",
@@ -351,36 +407,53 @@ function UseCases() {
           fontFamily: "var(--font-playfair)",
           fontSize: "clamp(1.8rem, 4vw, 3rem)",
           fontWeight: 500, color: "#1A1A1A",
-          marginBottom: "4rem", lineHeight: 1.25,
+          marginBottom: "1.5rem", lineHeight: 1.25,
         }}>
           こんな時に使われています
         </h2>
-        <div style={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
+        <p style={{
+          fontFamily: "var(--font-noto)", fontSize: "0.95rem",
+          lineHeight: 2, color: "rgba(0,0,0,0.55)",
+          fontWeight: 300, letterSpacing: "0.03em",
+          marginBottom: "4rem",
+        }}>
+          「整理したいけど、誰かに見られたくない」。そういう場面が、日常には思ったより多い。
+        </p>
+        <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
           {cases.map((c, i) => (
-            <div key={i} style={{ display: "flex", gap: "2rem", alignItems: "flex-start" }}>
-              <span style={{
-                fontFamily: "var(--font-inter)", fontSize: "0.65rem",
-                letterSpacing: "0.22em", color: "#C8A96A",
-                minWidth: "2rem", paddingTop: "0.3rem",
-              }}>
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <div>
-                <p style={{
-                  fontFamily: "var(--font-noto)", fontSize: "1.05rem",
-                  fontWeight: 500, color: "#1A1A1A",
-                  letterSpacing: "0.03em", marginBottom: "0.75rem",
+            <div key={i} style={{ padding: "2.5rem 0", borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
+              <div style={{ display: "flex", gap: "2rem", alignItems: "flex-start" }}>
+                <span style={{
+                  fontFamily: "var(--font-inter)", fontSize: "0.65rem",
+                  letterSpacing: "0.22em", color: "#C8A96A",
+                  minWidth: "2rem", paddingTop: "0.3rem", flexShrink: 0,
                 }}>
-                  {c.title}
-                </p>
-                <p style={{
-                  fontFamily: "var(--font-noto)", fontSize: "0.92rem",
-                  fontWeight: 300, color: "rgba(0,0,0,0.55)",
-                  lineHeight: 1.8, letterSpacing: "0.03em",
-                  fontStyle: "italic",
-                }}>
-                  {c.quote}
-                </p>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <p style={{
+                    fontFamily: "var(--font-noto)", fontSize: "1.05rem",
+                    fontWeight: 500, color: "#1A1A1A",
+                    letterSpacing: "0.03em", marginBottom: "0.6rem",
+                  }}>
+                    {c.title}
+                  </p>
+                  <p style={{
+                    fontFamily: "var(--font-noto)", fontSize: "0.92rem",
+                    fontWeight: 300, color: "rgba(0,0,0,0.5)",
+                    lineHeight: 1.8, letterSpacing: "0.03em",
+                    fontStyle: "italic", marginBottom: "0.75rem",
+                  }}>
+                    {c.quote}
+                  </p>
+                  <p style={{
+                    fontFamily: "var(--font-noto)", fontSize: "0.9rem",
+                    fontWeight: 300, color: "rgba(0,0,0,0.62)",
+                    lineHeight: 1.9, letterSpacing: "0.03em",
+                  }}>
+                    {c.detail}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
@@ -395,13 +468,25 @@ function UseCases() {
 ══════════════════════════════════════ */
 function Features() {
   const features = [
-    { title: "履歴なし", desc: "会話はその場で消えます。記録として残りません。" },
-    { title: "ログイン不要", desc: "アカウント作成なしで、すぐに使い始められます。" },
-    { title: "即使える", desc: "開いた瞬間から相談できます。準備は何もいりません。" },
+    {
+      title: "履歴なし",
+      story: "会話はその場で消える。",
+      detail: "「後から見られるかも」という不安がない。本音で書いても、記録として残らない。それだけで、使い方が変わる。",
+    },
+    {
+      title: "ログイン不要",
+      story: "アカウントを作らなくていい。",
+      detail: "名前もメールアドレスも必要ない。あなたが誰かを、Silentは知らない。知る必要がないから、聞かない。",
+    },
+    {
+      title: "即使える",
+      story: "開いた瞬間から相談できる。",
+      detail: "準備も設定も不要。思い立った瞬間に使い始められる。ハードルがないことが、一番の設計だと思っている。",
+    },
   ];
   return (
-    <section style={{ background: "#FAF8F3", padding: "10rem 2.5rem" }}>
-      <div style={{ maxWidth: "900px" }}>
+    <section style={{ background: "#FAF8F3", padding: "10rem 2.5rem", borderTop: "2px solid #C8A96A" }}>
+      <div style={{ maxWidth: "760px" }}>
         <p style={{
           fontFamily: "var(--font-inter)", fontSize: "0.7rem",
           letterSpacing: "0.28em", textTransform: "uppercase",
@@ -413,44 +498,64 @@ function Features() {
           fontFamily: "var(--font-playfair)",
           fontSize: "clamp(1.8rem, 4vw, 3rem)",
           fontWeight: 500, color: "#1A1A1A",
-          marginBottom: "4rem", lineHeight: 1.25,
+          marginBottom: "1.5rem", lineHeight: 1.25,
         }}>
           Silentが他と違う理由
         </h2>
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-          gap: "3rem",
-          marginBottom: "3.5rem",
+        <p style={{
+          fontFamily: "var(--font-noto)", fontSize: "0.95rem",
+          lineHeight: 2, color: "rgba(0,0,0,0.55)",
+          fontWeight: 300, letterSpacing: "0.03em",
+          marginBottom: "4rem",
         }}>
+          「使いやすさ」を優先したサービスは多い。<br />
+          Silentが優先したのは、「安心して使えるか」だ。
+        </p>
+        <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
           {features.map((f, i) => (
-            <div key={i} style={{ borderTop: "2px solid #C8A96A", paddingTop: "1.75rem" }}>
+            <div key={i} style={{
+              padding: "2.5rem 0",
+              borderBottom: "1px solid rgba(0,0,0,0.08)",
+              display: "grid",
+              gridTemplateColumns: "1fr 2fr",
+              gap: "2.5rem",
+              alignItems: "start",
+            }}>
+              <div>
+                <p style={{
+                  fontFamily: "var(--font-inter)", fontSize: "0.65rem",
+                  letterSpacing: "0.22em", color: "#C8A96A",
+                  marginBottom: "0.6rem",
+                }}>
+                  {String(i + 1).padStart(2, "0")}
+                </p>
+                <p style={{
+                  fontFamily: "var(--font-playfair)", fontSize: "1.2rem",
+                  fontWeight: 500, color: "#1A1A1A",
+                  lineHeight: 1.4,
+                }}>
+                  {f.title}
+                </p>
+                <p style={{
+                  fontFamily: "var(--font-noto)", fontSize: "0.88rem",
+                  fontWeight: 400, color: "#C8A96A",
+                  lineHeight: 1.7, marginTop: "0.4rem",
+                  letterSpacing: "0.02em",
+                }}>
+                  {f.story}
+                </p>
+              </div>
               <p style={{
-                fontFamily: "var(--font-noto)", fontSize: "1.05rem",
-                fontWeight: 500, color: "#1A1A1A",
-                letterSpacing: "0.03em", marginBottom: "0.85rem",
+                fontFamily: "var(--font-noto)", fontSize: "0.92rem",
+                fontWeight: 300, color: "rgba(0,0,0,0.62)",
+                lineHeight: 2, letterSpacing: "0.03em",
+                paddingTop: "0.2rem",
               }}>
-                {f.title}
-              </p>
-              <p style={{
-                fontFamily: "var(--font-noto)", fontSize: "0.88rem",
-                fontWeight: 300, color: "rgba(0,0,0,0.6)",
-                lineHeight: 1.9, letterSpacing: "0.02em",
-              }}>
-                {f.desc}
+                {f.detail}
               </p>
             </div>
           ))}
         </div>
-        <p style={{
-          fontFamily: "var(--font-noto)", fontSize: "0.95rem",
-          fontWeight: 300, color: "rgba(0,0,0,0.5)",
-          lineHeight: 2, letterSpacing: "0.03em",
-          borderLeft: "2px solid #C8A96A", paddingLeft: "1.5rem",
-        }}>
-          「使いやすさ」ではなく<br />
-          「安心して使えるか」を優先しています。
-        </p>
       </div>
     </section>
   );
@@ -461,7 +566,7 @@ function Features() {
 ══════════════════════════════════════ */
 function Trust() {
   return (
-    <section style={{ background: "#F7F4ED", padding: "10rem 2.5rem" }}>
+    <section style={{ background: "#F7F4ED", padding: "10rem 2.5rem", borderTop: "2px solid #C8A96A" }}>
       <div style={{ maxWidth: "760px" }}>
         <p style={{
           fontFamily: "var(--font-inter)", fontSize: "0.7rem",
@@ -474,28 +579,43 @@ function Trust() {
           fontFamily: "var(--font-playfair)",
           fontSize: "clamp(1.8rem, 4vw, 3rem)",
           fontWeight: 500, color: "#1A1A1A",
-          marginBottom: "3.5rem", lineHeight: 1.25,
+          marginBottom: "1.5rem", lineHeight: 1.25,
         }}>
           安全なAI設計
         </h2>
+        <p style={{
+          fontFamily: "var(--font-noto)", fontSize: "0.95rem",
+          lineHeight: 2, color: "rgba(0,0,0,0.55)",
+          fontWeight: 300, letterSpacing: "0.03em",
+          marginBottom: "3.5rem",
+        }}>
+          「誰にも残らない」ことと「安全であること」は、矛盾しません。
+          Silentは匿名性を悪用に使わせないために、以下の設計を採用しています。
+        </p>
         <div style={{ display: "flex", flexDirection: "column" }}>
           {[
-            "危険な内容をそのまま助長しません",
-            "より安全な選択肢に変換して返します",
-            "ユーザーを守る設計を優先しています",
+            { main: "危険な内容をそのまま助長しません", sub: "有害・違法・自傷に関わる内容は、そのまま答えるのではなく安全な方向に変換して返します。" },
+            { main: "より安全な選択肢に変換して返します", sub: "「それは危険です」で終わらせない。代わりに何ができるかを一緒に考えます。" },
+            { main: "ユーザーを守る設計を優先しています", sub: "「何でも言える場所」は、「何でも許す場所」ではない。その区別を大切にしています。" },
           ].map((item, i) => (
-            <div key={i} style={{
-              display: "flex", alignItems: "flex-start", gap: "1.25rem",
-              padding: "1.25rem 0",
-              borderBottom: "1px solid rgba(0,0,0,0.08)",
-            }}>
-              <span style={{ color: "#C8A96A", fontSize: "1rem", flexShrink: 0 }}>✓</span>
+            <div key={i} style={{ padding: "2rem 0", borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "1.25rem", marginBottom: "0.65rem" }}>
+                <span style={{ color: "#C8A96A", fontSize: "1rem", flexShrink: 0 }}>✓</span>
+                <p style={{
+                  fontFamily: "var(--font-noto)", fontSize: "1.05rem",
+                  fontWeight: 500, color: "#1A1A1A",
+                  lineHeight: 1.7, letterSpacing: "0.03em",
+                }}>
+                  {item.main}
+                </p>
+              </div>
               <p style={{
-                fontFamily: "var(--font-noto)", fontSize: "1rem",
-                fontWeight: 300, color: "rgba(0,0,0,0.7)",
-                lineHeight: 1.8, letterSpacing: "0.03em",
+                fontFamily: "var(--font-noto)", fontSize: "0.9rem",
+                fontWeight: 300, color: "rgba(0,0,0,0.55)",
+                lineHeight: 1.9, letterSpacing: "0.03em",
+                paddingLeft: "2rem",
               }}>
-                {item}
+                {item.sub}
               </p>
             </div>
           ))}
