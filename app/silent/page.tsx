@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 /* ─── Nav ─── */
 function Nav() {
@@ -237,6 +238,24 @@ function Problem() {
           だから多くの人は、<br />
           <strong style={{ fontWeight: 600, color: "#1A1A1A" }}>「本音を隠した使い方」しかできていない。</strong>
         </p>
+        <div style={{ marginTop: "3.5rem" }}>
+          <a
+            href="https://www.silent-ai.jp"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-block", padding: "0.85rem 2.2rem",
+              background: "#C8A96A", color: "#0B1C2C",
+              fontFamily: "var(--font-noto)", fontSize: "0.85rem",
+              fontWeight: 500, letterSpacing: "0.06em",
+              textDecoration: "none", transition: "opacity 0.25s",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+          >
+            誰にも残さず、試してみる
+          </a>
+        </div>
       </div>
     </section>
   );
@@ -466,6 +485,24 @@ function UseCases() {
             </div>
           ))}
         </div>
+        <div style={{ marginTop: "3.5rem" }}>
+          <a
+            href="https://www.silent-ai.jp"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-block", padding: "0.85rem 2.2rem",
+              background: "#C8A96A", color: "#0B1C2C",
+              fontFamily: "var(--font-noto)", fontSize: "0.85rem",
+              fontWeight: 500, letterSpacing: "0.06em",
+              textDecoration: "none", transition: "opacity 0.25s",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+          >
+            この状態で、一度使ってみる
+          </a>
+        </div>
       </div>
     </section>
   );
@@ -622,6 +659,25 @@ function Why() {
           }}>
             Silentは、その前提を壊した。
           </p>
+          <div style={{ marginTop: "1rem" }}>
+            <a
+              href="https://www.silent-ai.jp"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-block", padding: "0.85rem 2.2rem",
+                border: "1px solid rgba(200,169,106,0.5)",
+                color: "#C8A96A",
+                fontFamily: "var(--font-noto)", fontSize: "0.85rem",
+                fontWeight: 400, letterSpacing: "0.06em",
+                textDecoration: "none", transition: "border-color 0.25s",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.borderColor = "rgba(200,169,106,1)")}
+              onMouseLeave={(e) => (e.currentTarget.style.borderColor = "rgba(200,169,106,0.5)")}
+            >
+              制限のない状態で、話してみる
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -659,7 +715,7 @@ function Trust() {
           「誰にも残らない」ことと「安全であること」は、矛盾しません。
           Silentは匿名性を悪用に使わせないために、以下の設計を採用しています。
         </p>
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div style={{ display: "flex", flexDirection: "column", marginBottom: "3rem" }}>
           {[
             { main: "危険な内容をそのまま助長しません", sub: "有害・違法・自傷に関わる内容は、そのまま答えるのではなく安全な方向に変換して返します。" },
             { main: "より安全な選択肢に変換して返します", sub: "「それは危険です」で終わらせない。代わりに何ができるかを一緒に考えます。" },
@@ -686,6 +742,36 @@ function Trust() {
               </p>
             </div>
           ))}
+        </div>
+        {/* データを持たない明文化 */}
+        <div style={{
+          background: "rgba(200,169,106,0.08)",
+          border: "1px solid rgba(200,169,106,0.25)",
+          padding: "2rem 2.5rem",
+        }}>
+          <p style={{
+            fontFamily: "var(--font-inter)", fontSize: "0.65rem",
+            letterSpacing: "0.22em", textTransform: "uppercase",
+            color: "#C8A96A", marginBottom: "1rem",
+          }}>
+            Data Policy
+          </p>
+          <p style={{
+            fontFamily: "var(--font-noto)", fontSize: "0.95rem",
+            lineHeight: 2, color: "rgba(0,0,0,0.7)",
+            fontWeight: 400, letterSpacing: "0.03em",
+            marginBottom: "0.75rem",
+          }}>
+            Silentは、あなたのデータを持ちません。
+          </p>
+          <p style={{
+            fontFamily: "var(--font-noto)", fontSize: "0.88rem",
+            lineHeight: 1.9, color: "rgba(0,0,0,0.5)",
+            fontWeight: 300, letterSpacing: "0.03em",
+          }}>
+            会話はセッション終了とともに消去されます。メールアドレス・氏名・端末情報は収集しません。
+            広告目的でのデータ利用もありません。
+          </p>
         </div>
       </div>
     </section>
@@ -775,6 +861,19 @@ function FinalCTA() {
 
 /* ─── Page ─── */
 export default function SilentPage() {
+  const [scrolled80, setScrolled80] = useState(false);
+  const [showFixed, setShowFixed] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+      setScrolled80(scrollPercent >= 80);
+      setShowFixed(window.scrollY > 600);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
       <Nav />
@@ -790,6 +889,74 @@ export default function SilentPage() {
         <FinalCTA />
       </main>
       <Footer />
+
+      {/* ③ 固定CTA（スクロール600px以降） */}
+      {showFixed && (
+        <div style={{
+          position: "fixed", bottom: "2rem", right: "2rem",
+          zIndex: 100,
+          opacity: showFixed ? 1 : 0,
+          transition: "opacity 0.4s",
+        }}>
+          <a
+            href="https://www.silent-ai.jp"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "flex", alignItems: "center", gap: "0.6rem",
+              padding: "0.85rem 1.8rem",
+              background: "#C8A96A", color: "#0B1C2C",
+              fontFamily: "var(--font-noto)", fontSize: "0.82rem",
+              fontWeight: 500, letterSpacing: "0.05em",
+              textDecoration: "none",
+              boxShadow: "0 8px 32px rgba(0,0,0,0.35)",
+              transition: "opacity 0.25s",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.88")}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+          >
+            <span style={{ fontSize: "0.75rem" }}>▶</span>
+            Silentを試す
+          </a>
+        </div>
+      )}
+
+      {/* ④ スクロール80%で小CTA（上部バー） */}
+      {scrolled80 && (
+        <div style={{
+          position: "fixed", top: 0, left: 0, right: 0,
+          zIndex: 99,
+          background: "rgba(11,28,44,0.97)",
+          backdropFilter: "blur(8px)",
+          borderBottom: "1px solid rgba(200,169,106,0.3)",
+          padding: "0.75rem 2.5rem",
+          display: "flex", alignItems: "center", justifyContent: "space-between",
+          transition: "opacity 0.4s",
+        }}>
+          <p style={{
+            fontFamily: "var(--font-noto)", fontSize: "0.82rem",
+            color: "rgba(250,248,243,0.7)", letterSpacing: "0.03em",
+          }}>
+            履歴を残さずに、本音で使えるAI
+          </p>
+          <a
+            href="https://www.silent-ai.jp"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-block", padding: "0.5rem 1.5rem",
+              background: "#C8A96A", color: "#0B1C2C",
+              fontFamily: "var(--font-noto)", fontSize: "0.78rem",
+              fontWeight: 500, letterSpacing: "0.05em",
+              textDecoration: "none", transition: "opacity 0.25s",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+          >
+            今すぐ使う
+          </a>
+        </div>
+      )}
     </>
   );
 }
