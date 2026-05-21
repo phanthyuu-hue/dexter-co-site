@@ -147,6 +147,13 @@ function Hero() {
             どういう仕組み？
           </a>
         </div>
+        <p style={{
+          fontFamily: "var(--font-noto)", fontSize: "0.78rem",
+          color: "rgba(250,248,243,0.35)", marginTop: "1.25rem",
+          letterSpacing: "0.05em",
+        }}>
+          30秒で使えます　／　登録不要
+        </p>
       </div>
     </section>
   );
@@ -768,10 +775,27 @@ function Trust() {
             fontFamily: "var(--font-noto)", fontSize: "0.88rem",
             lineHeight: 1.9, color: "rgba(0,0,0,0.5)",
             fontWeight: 300, letterSpacing: "0.03em",
+            marginBottom: "1rem",
           }}>
             会話はセッション終了とともに消去されます。メールアドレス・氏名・端末情報は収集しません。
             広告目的でのデータ利用もありません。
           </p>
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+            {[
+              "会話内容はサーバーに保存されません",
+              "処理後すぐに破棄されます",
+              "ページを閉じると完全に消去されます",
+            ].map((item, i) => (
+              <p key={i} style={{
+                fontFamily: "var(--font-noto)", fontSize: "0.82rem",
+                color: "rgba(0,0,0,0.55)", letterSpacing: "0.02em",
+                display: "flex", alignItems: "center", gap: "0.5rem",
+              }}>
+                <span style={{ color: "#C8A96A", fontSize: "0.75rem" }}>▸</span>
+                {item}
+              </p>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -847,13 +871,16 @@ function FinalCTA() {
         >
           Silentを開く
         </a>
-        <p style={{
-          fontFamily: "var(--font-noto)", fontSize: "0.78rem",
-          color: "rgba(250,248,243,0.3)", marginTop: "1.5rem",
-          letterSpacing: "0.04em",
-        }}>
-          登録不要・無料で使えます
-        </p>
+        <div style={{ display: "flex", justifyContent: "center", gap: "1.5rem", marginTop: "1.5rem", flexWrap: "wrap" }}>
+          {["30秒で試せる", "登録不要", "このまま使えます"].map((chip) => (
+            <span key={chip} style={{
+              fontFamily: "var(--font-noto)", fontSize: "0.75rem",
+              color: "rgba(250,248,243,0.35)", letterSpacing: "0.05em",
+            }}>
+              ✓ {chip}
+            </span>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -915,8 +942,7 @@ export default function SilentPage() {
             onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.88")}
             onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
           >
-            <span style={{ fontSize: "0.75rem" }}>▶</span>
-            Silentを試す
+            履歴を残さず、使ってみる
           </a>
         </div>
       )}
