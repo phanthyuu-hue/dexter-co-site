@@ -287,57 +287,23 @@ function WhatWeDo() {
   );
 }
 
-/* ─── Who we work with ─── */
-function WhoWeWorkWith() {
-  const items = [
-    { label: "店舗オーナー・運営者", desc: "シフト管理・売上・予約対応など、現場業務をまとめて効率化します。" },
-    { label: "個人事業主・フリーランス", desc: "日常業務の自動化・AIツール活用・業務改善をサポートします。" },
-    { label: "効率化を求める個人", desc: "個人のワークフローをシンプルなツールとして形にします。" },
-    { label: "AI活用を検討している企業・チーム", desc: "実務に合わせたAIツールの設計・導入を支援します。" },
-  ];
-  return (
-    <section style={{ padding: "8.5rem 2.5rem", borderTop: "1px solid rgba(245,244,240,0.06)" }}>
-      <div style={{ maxWidth: "900px", margin: "0 auto" }}>
-        <SectionLabel>Who we work with</SectionLabel>
-        <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)", fontWeight: 500, color: "var(--offwhite)", marginBottom: "4.5rem" }}>
-          一緒に取り組む方々
-          <span style={{ display: "block", fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.18em", color: "rgba(200,164,110,0.45)", marginTop: "0.5rem", fontWeight: 300 }}>Who we work with</span>
-        </h2>
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          {items.map((item, i) => (
-            <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "1.5rem", padding: "1.75rem 0", borderBottom: "1px solid rgba(245,244,240,0.06)" }}>
-              <span style={{ fontFamily: "var(--font-inter)", fontSize: "0.65rem", letterSpacing: "0.2em", color: "var(--gold)", opacity: 0.5, minWidth: "2rem", paddingTop: "0.3rem" }}>
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem" }}>
-                <p style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(1rem, 2.5vw, 1.25rem)", fontWeight: 400, color: "rgba(245,244,240,0.75)", letterSpacing: "0.02em" }}>{item.label}</p>
-                <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.88rem", fontWeight: 300, color: "rgba(245,244,240,0.62)", lineHeight: 1.9, letterSpacing: "0.03em" }}>{item.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ─── For Whom ─── */
+/* ─── For Whom（3カード統合） ─── */
 function ForWhom() {
   const items = [
     {
       target: "店舗運営者の方へ",
       en: "For store operators",
-      desc: "シフト管理・売上管理・予約対応など、現場の煩雑な業務をまとめて効率化します。",
+      desc: "シフト管理・売上管理・予約対応など、現場の煩雑な業務をまとめて効率化します。Lily Seriesで、管理コストを大幅に削減できます。",
     },
     {
       target: "個人事業主・フリーランスの方へ",
       en: "For freelancers & small businesses",
-      desc: "日常業務の自動化・AI活用・業務ツールの設計・構築をサポートします。",
+      desc: "日常業務の自動化・AI活用・業務ツールの設計・構築をサポートします。小さな課題でも、すぐ使えるツールとして形にします。",
     },
     {
       target: "AI導入を検討している企業へ",
       en: "For teams exploring AI",
-      desc: "実際の業務フローに合わせたAIツールの設計・開発・導入を支援します。",
+      desc: "実際の業務フローに合わせたAIツールの設計・開発・導入を支援します。「どこから始めるか」の相談から受け付けています。",
     },
   ];
   return (
@@ -360,46 +326,30 @@ function ForWhom() {
             Who we help
           </span>
         </h2>
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "1.5rem" }}>
           {items.map((item, i) => (
-            <div key={i} style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 2fr",
-              gap: "2rem",
-              padding: "2rem 0",
-              borderBottom: "1px solid rgba(200,164,110,0.12)",
-              alignItems: "start",
-            }}>
-              <div>
-                <p style={{
-                  fontFamily: "var(--font-noto)",
-                  fontSize: "0.95rem",
-                  fontWeight: 400,
-                  color: "rgba(245,244,240,0.82)",
-                  letterSpacing: "0.04em",
-                  lineHeight: 1.6,
-                  marginBottom: "0.35rem",
-                }}>
-                  {item.target}
-                </p>
-                <p style={{
-                  fontFamily: "var(--font-inter)",
-                  fontSize: "0.7rem",
-                  color: "rgba(200,164,110,0.55)",
-                  letterSpacing: "0.08em",
-                  fontWeight: 300,
-                }}>
-                  {item.en}
-                </p>
-              </div>
-              <p style={{
-                fontFamily: "var(--font-noto)",
-                fontSize: "0.88rem",
-                fontWeight: 300,
-                color: "rgba(245,244,240,0.6)",
-                lineHeight: 1.9,
-                letterSpacing: "0.03em",
-              }}>
+            <div
+              key={i}
+              style={{
+                padding: "2.2rem 2rem",
+                border: "1px solid rgba(200,164,110,0.15)",
+                background: "rgba(255,255,255,0.02)",
+                display: "flex",
+                flexDirection: "column",
+                gap: "1rem",
+                transition: "border-color 0.25s, transform 0.25s",
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(200,164,110,0.4)"; e.currentTarget.style.transform = "translateY(-3px)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(200,164,110,0.15)"; e.currentTarget.style.transform = "translateY(0)"; }}
+            >
+              <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(200,164,110,0.55)", fontWeight: 300 }}>
+                {item.en}
+              </p>
+              <p style={{ fontFamily: "var(--font-noto)", fontSize: "1rem", fontWeight: 500, color: "rgba(245,244,240,0.85)", letterSpacing: "0.03em", lineHeight: 1.5 }}>
+                {item.target}
+              </p>
+              <span style={{ display: "block", width: "24px", height: "1px", backgroundColor: "var(--gold)", opacity: 0.4 }} />
+              <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.85rem", fontWeight: 300, color: "rgba(245,244,240,0.55)", lineHeight: 1.9, letterSpacing: "0.02em" }}>
                 {item.desc}
               </p>
             </div>
@@ -789,7 +739,6 @@ export default function Home() {
         <About />
         <HowWeBuild />
         <WhatWeDo />
-        <WhoWeWorkWith />
         <ForWhom />
         <UseCases />
         <BrandStructure />

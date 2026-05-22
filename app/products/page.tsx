@@ -96,7 +96,7 @@ function Hero() {
           これらのプロダクトは、Dexter & Co. が発見した課題をもとに、DexTech が開発しています。
         </p>
         <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.92rem", lineHeight: 1.9, color: "rgba(245,244,240,0.5)", fontWeight: 300, maxWidth: "560px", letterSpacing: "0.03em" }}>
-          アイデアからではなく、現場の課題から生まれたプロダクトです。
+          課題発見からプロダクト化までを一貫して行う、私たちの実績です。
         </p>
       </div>
     </section>

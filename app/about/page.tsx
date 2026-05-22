@@ -173,8 +173,11 @@ function HowWeBuildProducts() {
         </h2>
 
         {/* 説明文 */}
+        <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.95rem", lineHeight: 1.95, color: "rgba(245,244,240,0.62)", fontWeight: 300, maxWidth: "640px", marginBottom: "1.5rem", letterSpacing: "0.03em" }}>
+          Dexter & Co. は課題発見・戦略設計を担い、DexTech はAIツール・業務システム・アプリとして実装します。
+        </p>
         <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.95rem", lineHeight: 1.95, color: "rgba(245,244,240,0.62)", fontWeight: 300, maxWidth: "640px", marginBottom: "5rem", letterSpacing: "0.03em" }}>
-          Dexter & Co. が課題を見つけ、戦略として整理します。DexTech はその課題を、AIツール・業務システム・アプリとして実装します。この二つがあることで、相談だけで終わらず、実際に使われるプロダクトまで作ることができます。
+          この二層構造により、相談だけで終わらず、実際に使われるプロダクトまで作ることができます。
         </p>
 
         {/* フロー：4ステップ */}
