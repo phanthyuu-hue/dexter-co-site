@@ -435,8 +435,7 @@ function BrandStructure() {
           One Vision, Two Engines.
         </h2>
         <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.92rem", lineHeight: 1.9, color: "rgba(245,244,240,0.55)", fontWeight: 300, maxWidth: "560px", marginBottom: "4rem", letterSpacing: "0.03em" }}>
-          Dexter & Co. が課題を戦略として整理し、DexTech がそれを実際に使えるプロダクトとして実装します。
-          この二つがあることで、相談だけで終わらず、動くものを届けることができます。
+          Dexter & Co. と DexTech、二つのブランドで構成されています。
         </p>
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "2rem" }}>
