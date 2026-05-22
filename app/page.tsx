@@ -4,12 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-/* ─────────────────────────────────────────────
-   Dexter & Co. Brand Site — MVP
-   Sections: Nav / Hero / About / Brand Structure
-             / Products / Philosophy / Contact / Footer
-───────────────────────────────────────────── */
-
 /* ── Section label ── */
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
@@ -96,124 +90,37 @@ function Hero() {
         overflow: "hidden",
       }}
     >
-      {/* 背景画像 */}
-      <div
-        aria-hidden
-        style={{
-          position: "absolute",
-          inset: 0,
-          backgroundImage: "url('/hero-bg.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
-      />
-      {/* ダークオーバーレイ */}
-      <div
-        aria-hidden
-        style={{
-          position: "absolute",
-          inset: 0,
-          background: "rgba(5,12,22,0.68)",
-        }}
-      />
+      <div aria-hidden style={{ position: "absolute", inset: 0, backgroundImage: "url('/hero-bg.png')", backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" }} />
+      <div aria-hidden style={{ position: "absolute", inset: 0, background: "rgba(5,12,22,0.68)" }} />
 
-      {/* コンテンツ — テキスト中心・やや左寄せ */}
-      <div
-        style={{
-          position: "relative",
-          padding: "12rem 2.5rem 7rem",
-          maxWidth: "860px",
-        }}
-      >
-        {/* Brand name — small */}
-        <p
-          className="fade-up"
-          style={{
-            fontFamily: "var(--font-inter)",
-            fontSize: "0.72rem",
-            letterSpacing: "0.32em",
-            textTransform: "uppercase",
-            color: "var(--gold)",
-            opacity: 0.8,
-            marginBottom: "2rem",
-          }}
-        >
+      <div style={{ position: "relative", padding: "12rem 2.5rem 7rem", maxWidth: "860px" }}>
+        <p className="fade-up" style={{ fontFamily: "var(--font-inter)", fontSize: "0.72rem", letterSpacing: "0.32em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.8, marginBottom: "2rem" }}>
           DEXTER &amp; Co.
         </p>
 
-        {/* Main heading */}
-        <h1
-          className="fade-up delay-1"
-          style={{
-            fontFamily: "var(--font-playfair)",
-            fontSize: "clamp(2.8rem, 7vw, 6.5rem)",
-            fontWeight: 500,
-            lineHeight: 1.06,
-            color: "var(--offwhite)",
-            marginBottom: "2.5rem",
-            letterSpacing: "-0.01em",
-          }}
-        >
+        <h1 className="fade-up delay-1" style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(2.8rem, 7vw, 6.5rem)", fontWeight: 500, lineHeight: 1.06, color: "var(--offwhite)", marginBottom: "2.5rem", letterSpacing: "-0.01em" }}>
           From Problem
           <br />
           <em style={{ fontStyle: "italic", color: "var(--gold)" }}>to Product.</em>
         </h1>
 
-        {/* Divider */}
         <span className="gold-line fade-up delay-2" style={{ marginBottom: "2.5rem" }} />
 
-        {/* 事業内容タグ */}
-        <div className="fade-up delay-2" style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", marginBottom: "2rem" }}>
-          {["AIツール開発", "業務システム", "アプリ開発", "課題解決コンサル"].map((tag) => (
-            <span key={tag} style={{
-              fontFamily: "var(--font-noto)",
-              fontSize: "0.72rem",
-              letterSpacing: "0.06em",
-              color: "var(--gold)",
-              border: "1px solid rgba(200,164,110,0.3)",
-              padding: "0.25rem 0.8rem",
-              fontWeight: 300,
-            }}>{tag}</span>
-          ))}
-        </div>
-
-        {/* 日本語主役説明 */}
-        <p
-          className="fade-up delay-3"
-          style={{
-            maxWidth: "560px",
-            fontSize: "1.05rem",
-            lineHeight: 2,
-            color: "rgba(245,244,240,0.82)",
-            fontWeight: 300,
-            fontFamily: "var(--font-noto)",
-            letterSpacing: "0.04em",
-            marginBottom: "0.75rem",
-          }}
-        >
-          現場の課題から、AIツール・業務システム・デジタルプロダクトをつくる会社です。
+        {/* 日本語メイン説明 — 強化 */}
+        <p className="fade-up delay-3" style={{ maxWidth: "560px", fontSize: "1.1rem", lineHeight: 2, color: "rgba(245,244,240,0.88)", fontWeight: 300, fontFamily: "var(--font-noto)", letterSpacing: "0.04em", marginBottom: "0.5rem" }}>
+          現場や日常にある課題を見つけ、
         </p>
-        <p
-          className="fade-up delay-3"
-          style={{
-            maxWidth: "540px",
-            fontSize: "0.88rem",
-            lineHeight: 1.8,
-            color: "rgba(245,244,240,0.45)",
-            fontWeight: 300,
-            fontFamily: "var(--font-inter)",
-            letterSpacing: "0.02em",
-            marginBottom: "3.5rem",
-          }}
-        >
+        <p className="fade-up delay-3" style={{ maxWidth: "560px", fontSize: "1.1rem", lineHeight: 2, color: "rgba(245,244,240,0.88)", fontWeight: 300, fontFamily: "var(--font-noto)", letterSpacing: "0.04em", marginBottom: "1.5rem" }}>
+          AIツール・業務システム・アプリとして形にする会社です。
+        </p>
+
+        <p className="fade-up delay-3" style={{ maxWidth: "540px", fontSize: "0.88rem", lineHeight: 1.8, color: "rgba(245,244,240,0.4)", fontWeight: 300, fontFamily: "var(--font-inter)", letterSpacing: "0.02em", marginBottom: "3.5rem" }}>
           We design and build AI-powered tools, business systems, and digital products from real-world problems.
         </p>
 
-        {/* CTAs */}
         <div className="fade-up delay-4" style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-          <Link href="/products" className="btn-gold">Our Products</Link>
-          <Link href="/contact" className="btn-ghost">Contact</Link>
+          <Link href="/products" className="btn-gold">プロダクトを見る</Link>
+          <Link href="/contact" className="btn-ghost">相談する</Link>
         </div>
       </div>
     </section>
@@ -226,76 +133,120 @@ function About() {
     <section
       id="about"
       className="section-pad"
-      style={{
-        padding: "10rem 2.5rem",
-        borderTop: "1px solid rgba(200,164,110,0.15)",
-        background: "rgba(18,37,57,0.35)",
-      }}
+      style={{ padding: "10rem 2.5rem", borderTop: "1px solid rgba(200,164,110,0.15)", background: "rgba(18,37,57,0.35)" }}
     >
       <div style={{ maxWidth: "760px", margin: "0 auto" }}>
         <SectionLabel>About</SectionLabel>
-        <h2
-          style={{
-            fontFamily: "var(--font-playfair)",
-            fontSize: "clamp(1.8rem, 4vw, 3rem)",
-            fontWeight: 500,
-            color: "var(--offwhite)",
-            marginBottom: "2.5rem",
-            lineHeight: 1.2,
-          }}
-        >
+        <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(1.8rem, 4vw, 3rem)", fontWeight: 500, color: "var(--offwhite)", marginBottom: "2.5rem", lineHeight: 1.2 }}>
           つくる前に、<br />課題を見つける。
           <span style={{ display: "block", fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.18em", color: "rgba(200,164,110,0.5)", marginTop: "0.75rem", fontWeight: 300 }}>
             We solve before we build.
           </span>
         </h2>
         <span className="gold-line" style={{ marginBottom: "2.5rem" }} />
-        <div
-          className="font-jp"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "1.4rem",
-            fontSize: "0.97rem",
-            lineHeight: 2.1,
-            color: "rgba(245,244,240,0.6)",
-            fontWeight: 300,
-          }}
-        >
-          <p>
-            Dexter & Co. は、単なる開発会社ではありません。
-          </p>
+        <div className="font-jp" style={{ display: "flex", flexDirection: "column", gap: "1.4rem", fontSize: "0.97rem", lineHeight: 2.1, color: "rgba(245,244,240,0.6)", fontWeight: 300 }}>
+          <p>Dexter & Co. は、単なる開発会社ではありません。</p>
           <p>
             まず現場の課題を見つけ、構造を整理し、最も効果的な解決策を設計します。
             そのうえで、必要なものを <strong style={{ color: "rgba(245,244,240,0.85)", fontWeight: 500 }}>DexTech</strong> によって素早くプロダクト化します。
           </p>
-          <p>
-            コンサルティングの思考と、エンジニアリングの実行力。
-            その両輪で、本質的な価値を生み出します。
-          </p>
+          <p>コンサルティングの思考と、エンジニアリングの実行力。その両輪で、本質的な価値を生み出します。</p>
         </div>
-
-        {/* What we build chips */}
-        <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.78rem", color: "rgba(245,244,240,0.35)", letterSpacing: "0.05em", fontWeight: 300, marginTop: "2.5rem", marginBottom: "0.75rem" }}>
-          私たちがつくるもの
-        </p>
+        <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.78rem", color: "rgba(245,244,240,0.35)", letterSpacing: "0.05em", fontWeight: 300, marginTop: "2.5rem", marginBottom: "0.75rem" }}>私たちがつくるもの</p>
         <div style={{ display: "flex", flexWrap: "wrap", gap: "0.6rem" }}>
           {["AI tools", "Business systems", "Workflow automation", "Digital products"].map((item) => (
-            <span
-              key={item}
-              style={{
-                fontFamily: "var(--font-inter)",
-                fontSize: "0.68rem",
-                letterSpacing: "0.14em",
-                textTransform: "uppercase",
-                color: "var(--gold)",
-                border: "1px solid rgba(200,164,110,0.25)",
-                padding: "0.3rem 0.85rem",
-                opacity: 0.8,
-              }}
-            >
+            <span key={item} style={{ fontFamily: "var(--font-inter)", fontSize: "0.68rem", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--gold)", border: "1px solid rgba(200,164,110,0.25)", padding: "0.3rem 0.85rem", opacity: 0.8 }}>
               {item}
             </span>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─── How we build — NEW: Dexter/DexTech フロー ─── */
+function HowWeBuild() {
+  const steps = [
+    {
+      role: "Dexter & Co.",
+      roleEn: "The Company",
+      action: "課題を見つける",
+      desc: "現場・業務・日常の中にある本質的な課題を観察・発見し、解決すべき問いとして整理します。",
+      color: "rgba(200,164,110,0.12)",
+      border: "rgba(200,164,110,0.3)",
+    },
+    {
+      role: "DexTech",
+      roleEn: "The Dev Brand",
+      action: "プロダクト化する",
+      desc: "AIツール・業務システム・アプリとして実装します。相談だけで終わらず、実際に使えるものを届けます。",
+      color: "rgba(200,164,110,0.06)",
+      border: "rgba(200,164,110,0.18)",
+    },
+    {
+      role: "Products",
+      roleEn: "The Result",
+      action: "実際に使われる",
+      desc: "Lily Series・Silent・TabiLogとして、現場で動き続けるプロダクトになります。",
+      color: "rgba(18,37,57,0.5)",
+      border: "rgba(200,164,110,0.12)",
+    },
+  ];
+
+  return (
+    <section style={{ padding: "8.5rem 2.5rem", borderTop: "1px solid rgba(245,244,240,0.06)" }}>
+      <div style={{ maxWidth: "900px", margin: "0 auto" }}>
+        <SectionLabel>How we build</SectionLabel>
+        <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)", fontWeight: 500, color: "var(--offwhite)", marginBottom: "1rem" }}>
+          課題を見つけ、プロダクトにする。
+          <span style={{ display: "block", fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.18em", color: "rgba(200,164,110,0.45)", marginTop: "0.5rem", fontWeight: 300 }}>
+            From discovery to delivery.
+          </span>
+        </h2>
+        <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.9rem", lineHeight: 1.9, color: "rgba(245,244,240,0.55)", fontWeight: 300, maxWidth: "560px", marginBottom: "4rem", letterSpacing: "0.03em" }}>
+          課題を見つけるだけでは終わらせません。Dexter & Co.が発見した課題を、DexTechが実際に使えるプロダクトとして実装します。
+        </p>
+
+        {/* フロー：横並び（PC）/ 縦（SP） */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "0", position: "relative" }}>
+          {steps.map((step, i) => (
+            <div key={i} style={{ display: "flex", alignItems: "stretch" }}>
+              <div style={{
+                flex: 1,
+                padding: "2.5rem 2rem",
+                background: step.color,
+                borderTop: `1px solid ${step.border}`,
+                borderBottom: `1px solid ${step.border}`,
+                borderLeft: `1px solid ${step.border}`,
+                borderRight: i === steps.length - 1 ? `1px solid ${step.border}` : "none",
+                display: "flex",
+                flexDirection: "column",
+                gap: "1rem",
+              }}>
+                <div>
+                  <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.58rem", letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.6, marginBottom: "0.4rem" }}>
+                    {step.roleEn}
+                  </p>
+                  <p style={{ fontFamily: "var(--font-playfair)", fontSize: "1rem", fontWeight: 500, color: "var(--offwhite)", letterSpacing: "0.04em" }}>
+                    {step.role}
+                  </p>
+                </div>
+                <span style={{ display: "block", width: "28px", height: "1px", backgroundColor: "var(--gold)", opacity: 0.4 }} />
+                <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.95rem", fontWeight: 500, color: "rgba(245,244,240,0.85)", letterSpacing: "0.03em" }}>
+                  {step.action}
+                </p>
+                <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.8rem", lineHeight: 1.85, color: "rgba(245,244,240,0.5)", fontWeight: 300, letterSpacing: "0.02em" }}>
+                  {step.desc}
+                </p>
+              </div>
+              {/* 矢印（最後以外） */}
+              {i < steps.length - 1 && (
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "2rem", flexShrink: 0, color: "rgba(200,164,110,0.4)", fontSize: "1rem" }}>
+                  →
+                </div>
+              )}
+            </div>
           ))}
         </div>
       </div>
@@ -312,55 +263,22 @@ function WhatWeDo() {
     { num: "04", text: "Custom product development", desc: "現場の課題を解決するプロダクトを開発・リリースします。" },
   ];
   return (
-    <section
-      style={{
-        padding: "8.5rem 2.5rem",
-        borderTop: "1px solid rgba(245,244,240,0.06)",
-      }}
-    >
+    <section style={{ padding: "8.5rem 2.5rem", borderTop: "1px solid rgba(245,244,240,0.06)", background: "rgba(18,37,57,0.3)" }}>
       <div style={{ maxWidth: "900px", margin: "0 auto" }}>
         <SectionLabel>What we do</SectionLabel>
-        <h2
-          style={{
-            fontFamily: "var(--font-playfair)",
-            fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)",
-            fontWeight: 500,
-            color: "var(--offwhite)",
-            marginBottom: "1rem",
-          }}
-        >
+        <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)", fontWeight: 500, color: "var(--offwhite)", marginBottom: "1rem" }}>
           私たちがやっていること
-          <span style={{ display: "block", fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.18em", color: "rgba(200,164,110,0.45)", marginTop: "0.5rem", fontWeight: 300 }}>
-            What we do
-          </span>
+          <span style={{ display: "block", fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.18em", color: "rgba(200,164,110,0.45)", marginTop: "0.5rem", fontWeight: 300 }}>What we do</span>
         </h2>
-        <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.82rem", color: "rgba(245,244,240,0.55)", letterSpacing: "0.05em", fontWeight: 300, marginBottom: "1rem" }}>
-          私たちが提供すること
-        </p>
         <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.95rem", lineHeight: 1.9, color: "rgba(245,244,240,0.65)", fontWeight: 300, maxWidth: "560px", marginBottom: "3.5rem", letterSpacing: "0.04em" }}>
           業務や日常の課題を、実際に使えるツールとして形にします。
         </p>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "2rem" }}>
           {items.map((item) => (
-            <div
-              key={item.num}
-              style={{
-                borderTop: "1px solid rgba(200,164,110,0.2)",
-                paddingTop: "1.75rem",
-                display: "flex",
-                flexDirection: "column",
-                gap: "0.75rem",
-              }}
-            >
-              <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.65rem", letterSpacing: "0.25em", color: "var(--gold)", opacity: 0.6 }}>
-                {item.num}
-              </p>
-              <p style={{ fontFamily: "var(--font-playfair)", fontSize: "1.05rem", fontWeight: 500, color: "var(--offwhite)", lineHeight: 1.4 }}>
-                {item.text}
-              </p>
-              <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.8rem", fontWeight: 300, color: "rgba(245,244,240,0.55)", lineHeight: 1.8, letterSpacing: "0.03em" }}>
-                {item.desc}
-              </p>
+            <div key={item.num} style={{ borderTop: "1px solid rgba(200,164,110,0.2)", paddingTop: "1.75rem", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+              <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.65rem", letterSpacing: "0.25em", color: "var(--gold)", opacity: 0.6 }}>{item.num}</p>
+              <p style={{ fontFamily: "var(--font-playfair)", fontSize: "1.05rem", fontWeight: 500, color: "var(--offwhite)", lineHeight: 1.4 }}>{item.text}</p>
+              <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.8rem", fontWeight: 300, color: "rgba(245,244,240,0.55)", lineHeight: 1.8, letterSpacing: "0.03em" }}>{item.desc}</p>
             </div>
           ))}
         </div>
@@ -378,54 +296,22 @@ function WhoWeWorkWith() {
     { label: "AI活用を検討している企業・チーム", desc: "実務に合わせたAIツールの設計・導入を支援します。" },
   ];
   return (
-    <section
-      style={{
-        padding: "8.5rem 2.5rem",
-        borderTop: "1px solid rgba(245,244,240,0.06)",
-        background: "rgba(18,37,57,0.3)",
-      }}
-    >
+    <section style={{ padding: "8.5rem 2.5rem", borderTop: "1px solid rgba(245,244,240,0.06)" }}>
       <div style={{ maxWidth: "900px", margin: "0 auto" }}>
         <SectionLabel>Who we work with</SectionLabel>
-        <h2
-          style={{
-            fontFamily: "var(--font-playfair)",
-            fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)",
-            fontWeight: 500,
-            color: "var(--offwhite)",
-            marginBottom: "4.5rem",
-          }}
-        >
+        <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)", fontWeight: 500, color: "var(--offwhite)", marginBottom: "4.5rem" }}>
           一緒に取り組む方々
-          <span style={{ display: "block", fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.18em", color: "rgba(200,164,110,0.45)", marginTop: "0.5rem", fontWeight: 300 }}>
-            Who we work with
-          </span>
+          <span style={{ display: "block", fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.18em", color: "rgba(200,164,110,0.45)", marginTop: "0.5rem", fontWeight: 300 }}>Who we work with</span>
         </h2>
-        <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.82rem", color: "rgba(245,244,240,0.55)", letterSpacing: "0.05em", fontWeight: 300, marginTop: "-3rem", marginBottom: "3rem" }}>
-          私たちが支援する人たち
-        </p>
         <div style={{ display: "flex", flexDirection: "column" }}>
           {items.map((item, i) => (
-            <div
-              key={i}
-              style={{
-                display: "flex",
-                alignItems: "flex-start",
-                gap: "1.5rem",
-                padding: "1.75rem 0",
-                borderBottom: "1px solid rgba(245,244,240,0.06)",
-              }}
-            >
+            <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "1.5rem", padding: "1.75rem 0", borderBottom: "1px solid rgba(245,244,240,0.06)" }}>
               <span style={{ fontFamily: "var(--font-inter)", fontSize: "0.65rem", letterSpacing: "0.2em", color: "var(--gold)", opacity: 0.5, minWidth: "2rem", paddingTop: "0.3rem" }}>
                 {String(i + 1).padStart(2, "0")}
               </span>
               <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem" }}>
-                <p style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(1rem, 2.5vw, 1.25rem)", fontWeight: 400, color: "rgba(245,244,240,0.75)", letterSpacing: "0.02em" }}>
-                  {item.label}
-                </p>
-                <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.88rem", fontWeight: 300, color: "rgba(245,244,240,0.62)", lineHeight: 1.9, letterSpacing: "0.03em" }}>
-                  {item.desc}
-                </p>
+                <p style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(1rem, 2.5vw, 1.25rem)", fontWeight: 400, color: "rgba(245,244,240,0.75)", letterSpacing: "0.02em" }}>{item.label}</p>
+                <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.88rem", fontWeight: 300, color: "rgba(245,244,240,0.62)", lineHeight: 1.9, letterSpacing: "0.03em" }}>{item.desc}</p>
               </div>
             </div>
           ))}
@@ -546,103 +432,40 @@ function UseCases() {
       result: "生産性向上＋人件費削減",
     },
   ];
-
   return (
-    <section style={{
-      padding: "8.5rem 2.5rem",
-      borderTop: "1px solid rgba(200,164,110,0.12)",
-      background: "rgba(5,12,22,0.4)",
-    }}>
+    <section style={{ padding: "8.5rem 2.5rem", borderTop: "1px solid rgba(200,164,110,0.12)", background: "rgba(5,12,22,0.4)" }}>
       <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
         <SectionLabel>導入事例</SectionLabel>
-        <h2 style={{
-          fontFamily: "var(--font-playfair)",
-          fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)",
-          fontWeight: 500,
-          color: "var(--offwhite)",
-          marginBottom: "0.75rem",
-        }}>
+        <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)", fontWeight: 500, color: "var(--offwhite)", marginBottom: "0.75rem" }}>
           こんな課題を解決しています
         </h2>
-        <p style={{
-          fontFamily: "var(--font-noto)",
-          fontSize: "0.88rem",
-          color: "rgba(245,244,240,0.5)",
-          letterSpacing: "0.04em",
-          fontWeight: 300,
-          marginBottom: "4rem",
-          lineHeight: 1.8,
-        }}>
+        <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.88rem", color: "rgba(245,244,240,0.5)", letterSpacing: "0.04em", fontWeight: 300, marginBottom: "4rem", lineHeight: 1.8 }}>
           現場のリアルな課題に対して、実際にこういった形で解決しています。
         </p>
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-          gap: "1.5rem",
-        }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
           {cases.map((c, i) => (
             <div
               key={i}
-              style={{
-                border: "1px solid rgba(255,255,255,0.1)",
-                background: "rgba(255,255,255,0.02)",
-                padding: "2.5rem 2rem",
-                display: "flex",
-                flexDirection: "column",
-                gap: "1.5rem",
-                transition: "transform 0.25s, box-shadow 0.25s, border-color 0.25s",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-4px)";
-                e.currentTarget.style.boxShadow = "0 16px 40px rgba(0,0,0,0.3)";
-                e.currentTarget.style.borderColor = "rgba(200,164,110,0.3)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "none";
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
-              }}
+              style={{ border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.02)", padding: "2.5rem 2rem", display: "flex", flexDirection: "column", gap: "1.5rem", transition: "transform 0.25s, box-shadow 0.25s, border-color 0.25s" }}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 16px 40px rgba(0,0,0,0.3)"; e.currentTarget.style.borderColor = "rgba(200,164,110,0.3)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)"; }}
             >
-              <p style={{ fontFamily: "var(--font-noto)", fontSize: "1rem", fontWeight: 500, color: "var(--offwhite)", letterSpacing: "0.03em" }}>
-                {c.title}
-              </p>
-
-              {/* Before */}
+              <p style={{ fontFamily: "var(--font-noto)", fontSize: "1rem", fontWeight: 500, color: "var(--offwhite)", letterSpacing: "0.03em" }}>{c.title}</p>
               <div>
-                <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.62rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(245,244,240,0.3)", marginBottom: "0.6rem" }}>
-                  Before
-                </p>
+                <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.62rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(245,244,240,0.3)", marginBottom: "0.6rem" }}>Before</p>
                 <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem" }}>
-                  {c.before.map((b, j) => (
-                    <p key={j} style={{ fontFamily: "var(--font-noto)", fontSize: "0.82rem", color: "rgba(245,244,240,0.35)", fontWeight: 300, lineHeight: 1.6 }}>
-                      ・{b}
-                    </p>
-                  ))}
+                  {c.before.map((b, j) => (<p key={j} style={{ fontFamily: "var(--font-noto)", fontSize: "0.82rem", color: "rgba(245,244,240,0.35)", fontWeight: 300, lineHeight: 1.6 }}>・{b}</p>))}
                 </div>
               </div>
-
-              {/* Arrow */}
               <div style={{ borderTop: "1px solid rgba(200,164,110,0.15)" }} />
-
-              {/* After */}
               <div>
-                <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.62rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.7, marginBottom: "0.6rem" }}>
-                  After
-                </p>
+                <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.62rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.7, marginBottom: "0.6rem" }}>After</p>
                 <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem" }}>
-                  {c.after.map((a, j) => (
-                    <p key={j} style={{ fontFamily: "var(--font-noto)", fontSize: "0.85rem", color: "rgba(245,244,240,0.72)", fontWeight: 400, lineHeight: 1.6 }}>
-                      ✓ {a}
-                    </p>
-                  ))}
+                  {c.after.map((a, j) => (<p key={j} style={{ fontFamily: "var(--font-noto)", fontSize: "0.85rem", color: "rgba(245,244,240,0.72)", fontWeight: 400, lineHeight: 1.6 }}>✓ {a}</p>))}
                 </div>
               </div>
-
-              {/* Result */}
               <div style={{ borderTop: "1px solid rgba(200,164,110,0.2)", paddingTop: "1rem" }}>
-                <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.9rem", fontWeight: 500, color: "var(--gold)", letterSpacing: "0.04em" }}>
-                  → {c.result}
-                </p>
+                <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.9rem", fontWeight: 500, color: "var(--gold)", letterSpacing: "0.04em" }}>→ {c.result}</p>
               </div>
             </div>
           ))}
@@ -652,80 +475,66 @@ function UseCases() {
   );
 }
 
-/* ─── Brand Structure ─── */
+/* ─── Brand Structure (改) ─── */
 function BrandStructure() {
   return (
-    <section
-      className="section-pad"
-      style={{ padding: "10rem 2.5rem", borderTop: "1px solid rgba(245,244,240,0.06)" }}
-    >
+    <section className="section-pad" style={{ padding: "10rem 2.5rem", borderTop: "1px solid rgba(245,244,240,0.06)" }}>
       <div style={{ maxWidth: "900px", margin: "0 auto" }}>
         <SectionLabel>Brand Structure</SectionLabel>
-        <h2
-          style={{
-            fontFamily: "var(--font-playfair)",
-            fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)",
-            fontWeight: 500,
-            color: "var(--offwhite)",
-            marginBottom: "4.5rem",
-          }}
-        >
+        <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)", fontWeight: 500, color: "var(--offwhite)", marginBottom: "1rem" }}>
           One Vision, Two Engines.
         </h2>
+        <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.92rem", lineHeight: 1.9, color: "rgba(245,244,240,0.55)", fontWeight: 300, maxWidth: "560px", marginBottom: "4rem", letterSpacing: "0.03em" }}>
+          Dexter & Co. が課題を戦略として整理し、DexTech がそれを実際に使えるプロダクトとして実装します。
+          この二つがあることで、相談だけで終わらず、動くものを届けることができます。
+        </p>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-            gap: "2rem",
-          }}
-        >
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "2rem" }}>
           {/* Dexter & Co. */}
           <div className="brand-node" style={{ padding: "3rem 2.5rem", display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.65rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.7 }}>
-              The Company
-            </p>
+            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.65rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.7 }}>The Company</p>
             <p style={{ fontFamily: "var(--font-playfair)", fontSize: "1.4rem", color: "var(--offwhite)", fontWeight: 500, letterSpacing: "0.04em" }}>
               DEXTER <span style={{ color: "var(--gold)" }}>&</span> Co.
             </p>
             <span className="gold-line" />
-            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.82rem", color: "rgba(245,244,240,0.5)", lineHeight: 2, fontWeight: 300 }}>
-              → Problem Solving<br />
-              → Consulting<br />
-              → Strategy
+            <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.85rem", color: "rgba(245,244,240,0.72)", lineHeight: 1.9, fontWeight: 300, letterSpacing: "0.02em" }}>
+              課題を見つけ、戦略として整理します。
             </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+              {["課題発見", "ヒアリング・設計", "コンサルティング"].map((t) => (
+                <p key={t} style={{ fontFamily: "var(--font-noto)", fontSize: "0.8rem", color: "rgba(245,244,240,0.45)", fontWeight: 300, borderBottom: "1px solid rgba(200,164,110,0.08)", paddingBottom: "0.5rem" }}>→ {t}</p>
+              ))}
+            </div>
           </div>
 
           {/* DexTech */}
           <div className="brand-node" style={{ padding: "3rem 2.5rem", display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.65rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.7 }}>
-              The Dev Brand
-            </p>
+            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.65rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.7 }}>The Dev Brand</p>
             <p style={{ fontFamily: "var(--font-playfair)", fontSize: "1.4rem", color: "var(--offwhite)", fontWeight: 500, letterSpacing: "0.04em" }}>
               Dex<span style={{ color: "var(--gold)" }}>Tech</span>
             </p>
             <span className="gold-line" />
-            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.82rem", color: "rgba(245,244,240,0.5)", lineHeight: 2, fontWeight: 300 }}>
-              → Product Building<br />
-              → App Development<br />
-              → AI Tools
+            <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.85rem", color: "rgba(245,244,240,0.72)", lineHeight: 1.9, fontWeight: 300, letterSpacing: "0.02em" }}>
+              課題をプロダクトとして実装します。
             </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+              {["AIツール開発", "業務システム開発", "アプリ開発"].map((t) => (
+                <p key={t} style={{ fontFamily: "var(--font-noto)", fontSize: "0.8rem", color: "rgba(245,244,240,0.45)", fontWeight: 300, borderBottom: "1px solid rgba(200,164,110,0.08)", paddingBottom: "0.5rem" }}>→ {t}</p>
+              ))}
+            </div>
           </div>
 
           {/* Products */}
           <div className="brand-node" style={{ padding: "3rem 2.5rem", display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.65rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.7 }}>
-              Products
-            </p>
-            <p style={{ fontFamily: "var(--font-playfair)", fontSize: "1.4rem", color: "var(--offwhite)", fontWeight: 500 }}>
-              Our Work
-            </p>
+            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.65rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.7 }}>Products</p>
+            <p style={{ fontFamily: "var(--font-playfair)", fontSize: "1.4rem", color: "var(--offwhite)", fontWeight: 500 }}>Our Work</p>
             <span className="gold-line" />
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.7rem" }}>
+            <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.85rem", color: "rgba(245,244,240,0.72)", lineHeight: 1.9, fontWeight: 300, letterSpacing: "0.02em" }}>
+              実際に使われているプロダクト。
+            </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
               {["Lily Series", "Silent", "TabiLog"].map((p) => (
-                <p key={p} style={{ fontFamily: "var(--font-inter)", fontSize: "0.82rem", color: "rgba(245,244,240,0.5)", fontWeight: 300, borderBottom: "1px solid rgba(200,164,110,0.08)", paddingBottom: "0.65rem" }}>
-                  → {p}
-                </p>
+                <p key={p} style={{ fontFamily: "var(--font-inter)", fontSize: "0.8rem", color: "rgba(245,244,240,0.45)", fontWeight: 300, borderBottom: "1px solid rgba(200,164,110,0.08)", paddingBottom: "0.5rem" }}>→ {p}</p>
               ))}
             </div>
           </div>
@@ -735,12 +544,14 @@ function BrandStructure() {
   );
 }
 
-/* ─── Products ─── */
+/* ─── Products (改: why / for whom / change / CTA) ─── */
 const products = [
   {
     name: "Lily Series",
     tag: "Store Operations",
-    description: "店舗運営をスムーズにするオールインワン・プラットフォーム。シフト管理、売上管理、予約返信、AI文章生成など、現場の負担を軽減するツール群。",
+    why: "店舗現場では、シフト・売上・予約・LINE対応がバラバラで管理され、運営者の時間が消えていくという課題から生まれました。",
+    forWhom: "店舗オーナー・複数店舗の運営者・現場スタッフを抱えるチーム",
+    change: "管理業務を一元化し、AIが日常対応を自動化。現場の工数を大幅に削減できます。",
     index: "01",
     ctas: [
       { label: "デモを見る", href: "https://lily-os.vercel.app/", external: true, primary: true },
@@ -750,7 +561,9 @@ const products = [
   {
     name: "Silent",
     tag: "Privacy AI",
-    description: "履歴を残さず、安心して相談できるプライバシー重視のAIチャット。日常の相談から業務利用まで、静かに使えるAIアシスタント。",
+    why: "「AIに相談したいが、履歴が残るのが不安」という声から生まれた、プライバシー重視のAIチャットです。",
+    forWhom: "ビジネスの意思決定・日常の悩み・誰にも言えない相談を安心してしたい方",
+    change: "履歴を残さず、静かに使えるAIアシスタントとして、日常の判断をサポートします。",
     index: "02",
     ctas: [
       { label: "今すぐ使う", href: "/silent", external: false, primary: true },
@@ -759,7 +572,9 @@ const products = [
   {
     name: "TabiLog",
     tag: "Travel & Life",
-    description: "旅の支出、記録、思い出をまとめるトラベルログアプリ。支出管理、旅の記録、AIによる振り返りや提案を通じて、旅をより豊かにする。",
+    why: "旅の記録がSNS・メモ・家計簿に散らばってしまうという不便さを解決するために開発しました。",
+    forWhom: "旅行が好きな個人・支出管理をしたい方・旅の思い出を丁寧に残したい人",
+    change: "旅の支出・記録・思い出をひとつのアプリにまとめ、AIが振り返りをサポートします。",
     index: "03",
     ctas: [
       { label: "アプリを見る", href: "https://tabilog.app", external: true, primary: true },
@@ -769,104 +584,53 @@ const products = [
 
 function Products() {
   return (
-    <section
-      id="products"
-      className="section-pad"
-      style={{
-        padding: "10rem 2.5rem",
-        borderTop: "1px solid rgba(245,244,240,0.06)",
-        background: "rgba(18,37,57,0.25)",
-      }}
-    >
+    <section id="products" className="section-pad" style={{ padding: "10rem 2.5rem", borderTop: "1px solid rgba(245,244,240,0.06)", background: "rgba(18,37,57,0.25)" }}>
       <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
         <SectionLabel>Our Products</SectionLabel>
-        <h2
-          style={{
-            fontFamily: "var(--font-playfair)",
-            fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)",
-            fontWeight: 500,
-            color: "var(--offwhite)",
-            marginBottom: "4.5rem",
-          }}
-        >
+        <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)", fontWeight: 500, color: "var(--offwhite)", marginBottom: "1rem" }}>
           DexTechが開発したプロダクト
           <span style={{ display: "block", fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.18em", color: "rgba(200,164,110,0.45)", marginTop: "0.5rem", fontWeight: 300 }}>
             Products built by DexTech
           </span>
         </h2>
+        <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.9rem", lineHeight: 1.9, color: "rgba(245,244,240,0.5)", fontWeight: 300, maxWidth: "560px", marginBottom: "4rem", letterSpacing: "0.03em" }}>
+          いずれも、Dexter & Co. が発見した課題をもとに、DexTech が開発・リリースしたプロダクトです。
+        </p>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-            gap: "1.5rem",
-          }}
-        >
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
           {products.map((product) => (
             <div
               key={product.name}
               className="product-card"
-              style={{
-                padding: "2.5rem 2rem",
-                display: "flex",
-                flexDirection: "column",
-                gap: "1.2rem",
-              }}
+              style={{ padding: "2.5rem 2rem", display: "flex", flexDirection: "column", gap: "1.2rem" }}
             >
-              {/* Index */}
-              <p
-                style={{
-                  fontFamily: "var(--font-inter)",
-                  fontSize: "0.65rem",
-                  letterSpacing: "0.25em",
-                  color: "var(--gold)",
-                  opacity: 0.6,
-                }}
-              >
-                {product.index}
-              </p>
-              {/* Name */}
-              <h3
-                style={{
-                  fontFamily: "var(--font-playfair)",
-                  fontSize: "1.45rem",
-                  fontWeight: 500,
-                  color: "var(--offwhite)",
-                }}
-              >
-                {product.name}
-              </h3>
-              {/* Tag pill */}
-              <span
-                style={{
-                  display: "inline-block",
-                  alignSelf: "flex-start",
-                  padding: "0.2rem 0.8rem",
-                  border: "1px solid rgba(200,164,110,0.3)",
-                  fontSize: "0.65rem",
-                  letterSpacing: "0.18em",
-                  textTransform: "uppercase",
-                  color: "var(--gold)",
-                  fontFamily: "var(--font-inter)",
-                }}
-              >
+              <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.65rem", letterSpacing: "0.25em", color: "var(--gold)", opacity: 0.6 }}>{product.index}</p>
+              <h3 style={{ fontFamily: "var(--font-playfair)", fontSize: "1.45rem", fontWeight: 500, color: "var(--offwhite)" }}>{product.name}</h3>
+              <span style={{ display: "inline-block", alignSelf: "flex-start", padding: "0.2rem 0.8rem", border: "1px solid rgba(200,164,110,0.3)", fontSize: "0.65rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--gold)", fontFamily: "var(--font-inter)" }}>
                 {product.tag}
               </span>
               <span className="gold-line" />
-              {/* Description */}
-              <p
-                className="font-jp"
-                style={{
-                  fontSize: "0.88rem",
-                  lineHeight: 2,
-                  color: "rgba(245,244,240,0.5)",
-                  fontWeight: 300,
-                }}
-              >
-                {product.description}
-              </p>
-              {/* CTAs */}
-              <div style={{ display: "flex", gap: "0.65rem", flexWrap: "wrap", marginTop: "0.25rem" }}>
+
+              {/* なぜ */}
+              <div>
+                <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.6, marginBottom: "0.4rem" }}>なぜ</p>
+                <p className="font-jp" style={{ fontSize: "0.82rem", lineHeight: 1.85, color: "rgba(245,244,240,0.55)", fontWeight: 300 }}>{product.why}</p>
+              </div>
+
+              {/* 誰向け */}
+              <div>
+                <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.6, marginBottom: "0.4rem" }}>誰向け</p>
+                <p className="font-jp" style={{ fontSize: "0.82rem", lineHeight: 1.85, color: "rgba(245,244,240,0.55)", fontWeight: 300 }}>{product.forWhom}</p>
+              </div>
+
+              {/* 変化 */}
+              <div>
+                <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.6rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.6, marginBottom: "0.4rem" }}>変化</p>
+                <p className="font-jp" style={{ fontSize: "0.82rem", lineHeight: 1.85, color: "rgba(245,244,240,0.72)", fontWeight: 400 }}>{product.change}</p>
+              </div>
+
+              {/* CTAs — 最下部に固定 */}
+              <div style={{ display: "flex", gap: "0.65rem", flexWrap: "wrap", marginTop: "auto", paddingTop: "0.5rem" }}>
                 {product.ctas.map((btn, j) => (
                   <a
                     key={j}
@@ -881,6 +645,7 @@ function Products() {
                       fontWeight: 400,
                       letterSpacing: "0.04em",
                       textDecoration: "none",
+                      borderRadius: "8px",
                       transition: "all 0.25s",
                       ...(btn.primary
                         ? { backgroundColor: "var(--gold)", color: "var(--navy)" }
@@ -888,11 +653,11 @@ function Products() {
                       ),
                     }}
                     onMouseEnter={(e) => {
-                      if (btn.primary) e.currentTarget.style.opacity = "0.85";
+                      if (btn.primary) { e.currentTarget.style.opacity = "0.85"; e.currentTarget.style.transform = "translateY(-1px)"; }
                       else e.currentTarget.style.borderColor = "rgba(200,164,110,0.8)";
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.opacity = "1";
+                      e.currentTarget.style.opacity = "1"; e.currentTarget.style.transform = "translateY(0)";
                       if (!btn.primary) e.currentTarget.style.borderColor = "rgba(200,164,110,0.4)";
                     }}
                   >
@@ -911,48 +676,18 @@ function Products() {
 /* ─── Philosophy ─── */
 function Philosophy() {
   return (
-    <section
-      className="section-pad"
-      style={{
-        padding: "8rem 2.5rem",
-        borderTop: "1px solid rgba(245,244,240,0.06)",
-        textAlign: "center",
-      }}
-    >
+    <section className="section-pad" style={{ padding: "8rem 2.5rem", borderTop: "1px solid rgba(245,244,240,0.06)", textAlign: "center" }}>
       <div style={{ maxWidth: "680px", margin: "0 auto" }}>
         <SectionLabel>Philosophy</SectionLabel>
-        <h2
-          style={{
-            fontFamily: "var(--font-playfair)",
-            fontSize: "clamp(1.8rem, 4vw, 3rem)",
-            fontWeight: 500,
-            fontStyle: "italic",
-            color: "var(--offwhite)",
-            marginBottom: "2rem",
-            lineHeight: 1.25,
-          }}
-        >
+        <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(1.8rem, 4vw, 3rem)", fontWeight: 500, fontStyle: "italic", color: "var(--offwhite)", marginBottom: "2rem", lineHeight: 1.25 }}>
           静かに、深く、実用的に。
-          <span style={{ display: "block", fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.16em", color: "rgba(200,164,110,0.45)", marginTop: "0.5rem", fontWeight: 300 }}>
-            Quietly useful. Deeply practical.
-          </span>
+          <span style={{ display: "block", fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.16em", color: "rgba(200,164,110,0.45)", marginTop: "0.5rem", fontWeight: 300 }}>Quietly useful. Deeply practical.</span>
         </h2>
         <span className="gold-line" style={{ margin: "0 auto 2.5rem" }} />
-        <p
-          className="font-jp"
-          style={{
-            fontSize: "0.95rem",
-            lineHeight: 2.2,
-            color: "rgba(245,244,240,0.5)",
-            fontWeight: 300,
-          }}
-        >
-          私たちが目指すのは、目立つだけのサービスではありません。
-          <br />
-          使う人の仕事や生活に自然に溶け込み、
-          <br />
-          気づけば欠かせない存在になっている。
-          <br />
+        <p className="font-jp" style={{ fontSize: "0.95rem", lineHeight: 2.2, color: "rgba(245,244,240,0.5)", fontWeight: 300 }}>
+          私たちが目指すのは、目立つだけのサービスではありません。<br />
+          使う人の仕事や生活に自然に溶け込み、<br />
+          気づけば欠かせない存在になっている。<br />
           そんな静かで実用的なプロダクトを作ります。
         </p>
       </div>
@@ -960,57 +695,48 @@ function Philosophy() {
   );
 }
 
-/* ─── Contact ─── */
+/* ─── Contact (改) ─── */
 function Contact() {
   return (
-    <section
-      id="contact"
-      style={{
-        padding: "10rem 2.5rem",
-        borderTop: "1px solid rgba(245,244,240,0.06)",
-        background: "rgba(7,15,24,0.5)",
-      }}
-    >
+    <section id="contact" style={{ padding: "10rem 2.5rem", borderTop: "1px solid rgba(245,244,240,0.06)", background: "rgba(7,15,24,0.5)" }}>
       <div style={{ maxWidth: "680px", margin: "0 auto" }}>
         <SectionLabel>Contact</SectionLabel>
-        <h2
-          style={{
-            fontFamily: "var(--font-playfair)",
-            fontSize: "clamp(1.6rem, 3.5vw, 2.6rem)",
-            fontWeight: 500,
-            color: "var(--offwhite)",
-            marginBottom: "2rem",
-            lineHeight: 1.2,
-          }}
-        >
-          課題を、プロダクトへ。
+        <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(1.6rem, 3.5vw, 2.6rem)", fontWeight: 500, color: "var(--offwhite)", marginBottom: "2rem", lineHeight: 1.2 }}>
+          プロダクト開発・業務改善の<br />相談はこちら
           <span style={{ display: "block", fontFamily: "var(--font-inter)", fontSize: "0.7rem", letterSpacing: "0.16em", color: "rgba(200,164,110,0.45)", marginTop: "0.75rem", fontWeight: 300 }}>
             Let&apos;s turn problems into products.
           </span>
         </h2>
         <span className="gold-line" style={{ marginBottom: "2.5rem" }} />
-        <p
-          style={{
-            fontFamily: "var(--font-inter)",
-            fontSize: "0.95rem",
-            lineHeight: 1.9,
-            color: "rgba(245,244,240,0.45)",
-            fontWeight: 300,
-            letterSpacing: "0.02em",
-            marginBottom: "3.5rem",
-          }}
-        >
-          We help businesses and individuals identify real problems
-          <br />
-          業務改善、AI活用、アプリ開発など、お気軽にご相談ください。
-        </p>
+
+        {/* 相談内容リスト */}
+        <div style={{ marginBottom: "3rem" }}>
+          <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.82rem", color: "rgba(245,244,240,0.45)", letterSpacing: "0.04em", fontWeight: 300, marginBottom: "1.2rem" }}>
+            以下のようなご相談を受けています。
+          </p>
+          <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
+            {[
+              "AIツールを作りたい",
+              "業務を自動化したい",
+              "既存の運用を見直したい",
+              "プロダクト企画を相談したい",
+            ].map((item, i) => (
+              <div key={i} style={{ display: "flex", alignItems: "center", gap: "1rem", padding: "0.9rem 0", borderBottom: "1px solid rgba(245,244,240,0.05)" }}>
+                <span style={{ width: "4px", height: "4px", borderRadius: "50%", backgroundColor: "var(--gold)", opacity: 0.55, flexShrink: 0 }} />
+                <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.92rem", fontWeight: 300, color: "rgba(245,244,240,0.7)", letterSpacing: "0.03em" }}>
+                  {item}
+                </p>
+              </div>
+            ))}
+          </div>
+          <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.85rem", color: "rgba(245,244,240,0.4)", fontWeight: 300, letterSpacing: "0.03em", marginTop: "1.5rem", lineHeight: 1.8 }}>
+            まずは簡単にご相談ください。
+          </p>
+        </div>
+
         <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-          <a href="https://line.me/ti/p/~hello-dexter" target="_blank" rel="noopener noreferrer" className="btn-gold">
-            LINEで相談する
-          </a>
-          <a href="mailto:hello@dexter-co.jp" className="btn-ghost">
-            メールで相談する
-          </a>
+          <a href="https://line.me/ti/p/~hello-dexter" target="_blank" rel="noopener noreferrer" className="btn-gold">LINEで相談する</a>
+          <a href="mailto:hello@dexter-co.jp" className="btn-ghost">メールで相談する</a>
         </div>
       </div>
     </section>
@@ -1021,104 +747,33 @@ function Contact() {
 function Footer() {
   return (
     <footer style={{ padding: "2.5rem 2.5rem 2rem", borderTop: "1px solid rgba(200,164,110,0.12)" }}>
-      <div
-        style={{
-          maxWidth: "900px",
-          margin: "0 auto",
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-          gap: "3rem",
-          marginBottom: "2rem",
-          alignItems: "start",
-        }}
-      >
-        {/* Brand — B案：アイコン＋テキストで再構成 */}
+      <div style={{ maxWidth: "900px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "3rem", marginBottom: "2rem", alignItems: "start" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem", alignItems: "flex-start" }}>
-          {/* ロゴ行：logo-dark.png（小） + DEXTER & Co. */}
           <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", marginBottom: "0.25rem" }}>
-            <Image
-              src="/logo-dark.png"
-              alt="Dexter & Co."
-              width={28}
-              height={28}
-              style={{ width: "28px", height: "28px", objectFit: "contain", opacity: 0.75 }}
-            />
-            <span style={{
-              fontFamily: "var(--font-playfair)",
-              fontSize: "0.9rem",
-              fontWeight: 500,
-              color: "rgba(245,244,240,0.55)",
-              letterSpacing: "0.12em",
-            }}>
+            <Image src="/logo-dark.png" alt="Dexter & Co." width={28} height={28} style={{ width: "28px", height: "28px", objectFit: "contain", opacity: 0.75 }} />
+            <span style={{ fontFamily: "var(--font-playfair)", fontSize: "0.9rem", fontWeight: 500, color: "rgba(245,244,240,0.55)", letterSpacing: "0.12em" }}>
               DEXTER <span style={{ color: "var(--gold)", opacity: 0.7 }}>&</span> Co.
             </span>
           </div>
-          <p style={{
-            fontFamily: "var(--font-inter)",
-            fontSize: "0.72rem",
-            color: "rgba(245,244,240,0.35)",
-            letterSpacing: "0.08em",
-          }}>
-            Tokyo / Remote
-          </p>
-          <p style={{
-            fontFamily: "var(--font-playfair)",
-            fontSize: "0.7rem",
-            fontStyle: "italic",
-            color: "rgba(200,164,110,0.4)",
-            letterSpacing: "0.05em",
-          }}>
-            From Problem to Product.
-          </p>
+          <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.72rem", color: "rgba(245,244,240,0.35)", letterSpacing: "0.08em" }}>Tokyo / Remote</p>
+          <p style={{ fontFamily: "var(--font-playfair)", fontSize: "0.7rem", fontStyle: "italic", color: "rgba(200,164,110,0.4)", letterSpacing: "0.05em" }}>From Problem to Product.</p>
         </div>
-
-        {/* Contact */}
         <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-          <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.65rem", letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.65, marginBottom: "0.25rem" }}>
-            Contact
-          </p>
-          <a
-            href="mailto:hello@dexter-co.jp"
-            style={{ fontFamily: "var(--font-inter)", fontSize: "0.78rem", color: "rgba(245,244,240,0.45)", letterSpacing: "0.04em", textDecoration: "none", transition: "color 0.2s" }}
+          <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.65rem", letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.65, marginBottom: "0.25rem" }}>Contact</p>
+          <a href="mailto:hello@dexter-co.jp" style={{ fontFamily: "var(--font-inter)", fontSize: "0.78rem", color: "rgba(245,244,240,0.45)", letterSpacing: "0.04em", textDecoration: "none", transition: "color 0.2s" }}
             onMouseEnter={(e) => (e.currentTarget.style.color = "var(--gold)")}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(245,244,240,0.45)")}
-          >
+            onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(245,244,240,0.45)")}>
             hello@dexter-co.jp
           </a>
         </div>
-
-        {/* Products */}
         <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-          <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.65rem", letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.65, marginBottom: "0.25rem" }}>
-            Products
-          </p>
-          {["Lily Series", "Silent", "TabiLog"].map((p) => (
-            <p key={p} style={{ fontFamily: "var(--font-inter)", fontSize: "0.78rem", color: "rgba(245,244,240,0.4)", letterSpacing: "0.04em" }}>
-              {p}
-            </p>
-          ))}
+          <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.65rem", letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.65, marginBottom: "0.25rem" }}>Products</p>
+          {["Lily Series", "Silent", "TabiLog"].map((p) => (<p key={p} style={{ fontFamily: "var(--font-inter)", fontSize: "0.78rem", color: "rgba(245,244,240,0.4)", letterSpacing: "0.04em" }}>{p}</p>))}
         </div>
       </div>
-
-      {/* Bottom bar */}
-      <div
-        style={{
-          maxWidth: "900px",
-          margin: "0 auto",
-          borderTop: "1px solid rgba(245,244,240,0.05)",
-          paddingTop: "1rem",
-          display: "flex",
-          justifyContent: "space-between",
-          flexWrap: "wrap",
-          gap: "0.5rem",
-        }}
-      >
-        <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", color: "rgba(245,244,240,0.25)", letterSpacing: "0.04em" }}>
-          © Dexter & Co. All rights reserved.
-        </p>
-        <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", color: "rgba(245,244,240,0.25)", letterSpacing: "0.04em" }}>
-          Built by DexTech.
-        </p>
+      <div style={{ maxWidth: "900px", margin: "0 auto", borderTop: "1px solid rgba(245,244,240,0.05)", paddingTop: "1rem", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "0.5rem" }}>
+        <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", color: "rgba(245,244,240,0.25)", letterSpacing: "0.04em" }}>© Dexter & Co. All rights reserved.</p>
+        <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", color: "rgba(245,244,240,0.25)", letterSpacing: "0.04em" }}>Built by DexTech.</p>
       </div>
     </footer>
   );
@@ -1132,6 +787,7 @@ export default function Home() {
       <main>
         <Hero />
         <About />
+        <HowWeBuild />
         <WhatWeDo />
         <WhoWeWorkWith />
         <ForWhom />
