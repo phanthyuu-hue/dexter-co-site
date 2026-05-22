@@ -365,21 +365,15 @@ function UseCases() {
   const cases = [
     {
       title: "店舗運営者の業務改善",
-      before: ["シフト管理がバラバラ", "売上管理が手作業", "LINE対応が属人化"],
-      after: ["シフト／売上／顧客管理を一元化", "AIでLINE返信を自動化", "管理コストを大幅削減"],
+      before: ["管理ツールが分散している", "LINE対応が属人化している"],
+      after: ["シフト／売上／顧客管理を一元化", "AIでLINE返信を自動化"],
       result: "管理工数 約50%削減",
     },
     {
-      title: "業務の効率化・自動化",
-      before: ["請求書や顧客管理が手作業", "ツールが分散している"],
-      after: ["業務を一つのツールに集約", "自動化で手作業を削減"],
-      result: "作業時間を大幅短縮",
-    },
-    {
-      title: "AI活用による業務改善",
-      before: ["AIをどう使えばいいか分からない", "業務に組み込めていない"],
-      after: ["実務に合わせたAI設計", "日常業務に自然に組み込み"],
-      result: "生産性向上＋人件費削減",
+      title: "AI活用による業務効率化",
+      before: ["AIをどう業務に使えばいいか分からない"],
+      after: ["実務に合わせたAI設計・導入", "日常業務に自然に組み込み"],
+      result: "生産性向上＋作業時間を大幅短縮",
     },
   ];
   return (
@@ -425,73 +419,6 @@ function UseCases() {
   );
 }
 
-/* ─── Brand Structure (改) ─── */
-function BrandStructure() {
-  return (
-    <section className="section-pad" style={{ padding: "10rem 2.5rem", borderTop: "1px solid rgba(245,244,240,0.06)" }}>
-      <div style={{ maxWidth: "900px", margin: "0 auto" }}>
-        <SectionLabel>Brand Structure</SectionLabel>
-        <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)", fontWeight: 500, color: "var(--offwhite)", marginBottom: "1rem" }}>
-          One Vision, Two Engines.
-        </h2>
-        <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.92rem", lineHeight: 1.9, color: "rgba(245,244,240,0.55)", fontWeight: 300, maxWidth: "560px", marginBottom: "4rem", letterSpacing: "0.03em" }}>
-          Dexter & Co. と DexTech、二つのブランドで構成されています。
-        </p>
-
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "2rem" }}>
-          {/* Dexter & Co. */}
-          <div className="brand-node" style={{ padding: "3rem 2.5rem", display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.65rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.7 }}>The Company</p>
-            <p style={{ fontFamily: "var(--font-playfair)", fontSize: "1.4rem", color: "var(--offwhite)", fontWeight: 500, letterSpacing: "0.04em" }}>
-              DEXTER <span style={{ color: "var(--gold)" }}>&</span> Co.
-            </p>
-            <span className="gold-line" />
-            <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.85rem", color: "rgba(245,244,240,0.72)", lineHeight: 1.9, fontWeight: 300, letterSpacing: "0.02em" }}>
-              課題を見つけ、戦略として整理します。
-            </p>
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-              {["課題発見", "ヒアリング・設計", "コンサルティング"].map((t) => (
-                <p key={t} style={{ fontFamily: "var(--font-noto)", fontSize: "0.8rem", color: "rgba(245,244,240,0.45)", fontWeight: 300, borderBottom: "1px solid rgba(200,164,110,0.08)", paddingBottom: "0.5rem" }}>→ {t}</p>
-              ))}
-            </div>
-          </div>
-
-          {/* DexTech */}
-          <div className="brand-node" style={{ padding: "3rem 2.5rem", display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.65rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.7 }}>The Dev Brand</p>
-            <p style={{ fontFamily: "var(--font-playfair)", fontSize: "1.4rem", color: "var(--offwhite)", fontWeight: 500, letterSpacing: "0.04em" }}>
-              Dex<span style={{ color: "var(--gold)" }}>Tech</span>
-            </p>
-            <span className="gold-line" />
-            <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.85rem", color: "rgba(245,244,240,0.72)", lineHeight: 1.9, fontWeight: 300, letterSpacing: "0.02em" }}>
-              課題をプロダクトとして実装します。
-            </p>
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-              {["AIツール開発", "業務システム開発", "アプリ開発"].map((t) => (
-                <p key={t} style={{ fontFamily: "var(--font-noto)", fontSize: "0.8rem", color: "rgba(245,244,240,0.45)", fontWeight: 300, borderBottom: "1px solid rgba(200,164,110,0.08)", paddingBottom: "0.5rem" }}>→ {t}</p>
-              ))}
-            </div>
-          </div>
-
-          {/* Products */}
-          <div className="brand-node" style={{ padding: "3rem 2.5rem", display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-            <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.65rem", letterSpacing: "0.28em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.7 }}>Products</p>
-            <p style={{ fontFamily: "var(--font-playfair)", fontSize: "1.4rem", color: "var(--offwhite)", fontWeight: 500 }}>Our Work</p>
-            <span className="gold-line" />
-            <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.85rem", color: "rgba(245,244,240,0.72)", lineHeight: 1.9, fontWeight: 300, letterSpacing: "0.02em" }}>
-              実際に使われているプロダクト。
-            </p>
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-              {["Lily Series", "Silent", "TabiLog"].map((p) => (
-                <p key={p} style={{ fontFamily: "var(--font-inter)", fontSize: "0.8rem", color: "rgba(245,244,240,0.45)", fontWeight: 300, borderBottom: "1px solid rgba(200,164,110,0.08)", paddingBottom: "0.5rem" }}>→ {p}</p>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* ─── Products (改: why / for whom / change / CTA) ─── */
 const products = [
@@ -737,11 +664,10 @@ export default function Home() {
         <Hero />
         <About />
         <HowWeBuild />
+        <Products />
         <WhatWeDo />
         <ForWhom />
         <UseCases />
-        <BrandStructure />
-        <Products />
         <Philosophy />
         <Contact />
       </main>
