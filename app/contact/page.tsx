@@ -10,6 +10,7 @@ function Nav() {
   const links = [
     { label: "About", href: "/about" },
     { label: "Products", href: "/products" },
+    { label: "Support", href: "/support" },
     { label: "Contact", href: "/contact" },
   ];
   return (
@@ -21,11 +22,14 @@ function Nav() {
         </span>
       </Link>
       <div style={{ display: "flex", gap: "2.5rem" }}>
-        {links.map((link) => (
-          <Link key={link.href} href={link.href} className="nav-link" style={pathname === link.href ? { color: "var(--gold)", opacity: 1 } : {}}>
-            {link.label}
-          </Link>
-        ))}
+        {links.map((link) => {
+          const isActive = link.href === "/support" ? pathname?.startsWith("/support") : pathname === link.href;
+          return (
+            <Link key={link.href} href={link.href} className="nav-link" style={isActive ? { color: "var(--gold)", opacity: 1 } : {}}>
+              {link.label}
+            </Link>
+          );
+        })}
       </div>
     </nav>
   );
@@ -58,6 +62,21 @@ function Footer() {
           <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.65rem", letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.65, marginBottom: "0.25rem" }}>Products</p>
           {["Lily Series", "Silent", "TabiLog"].map((p) => (
             <p key={p} style={{ fontFamily: "var(--font-inter)", fontSize: "0.78rem", color: "rgba(245,244,240,0.4)", letterSpacing: "0.04em" }}>{p}</p>
+          ))}
+        </div>
+        <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+          <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.65rem", letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.65, marginBottom: "0.25rem" }}>Support</p>
+          {[
+            { label: "Support", href: "/support" },
+            { label: "FAQ", href: "/support/faq" },
+            { label: "Downloads", href: "/support/downloads" },
+            { label: "Status", href: "/support/status" },
+          ].map((l) => (
+            <Link key={l.href} href={l.href} style={{ fontFamily: "var(--font-inter)", fontSize: "0.78rem", color: "rgba(245,244,240,0.4)", letterSpacing: "0.04em", textDecoration: "none", transition: "color 0.2s" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--gold)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(245,244,240,0.4)")}>
+              {l.label}
+            </Link>
           ))}
         </div>
       </div>

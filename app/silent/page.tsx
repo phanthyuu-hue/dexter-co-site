@@ -11,6 +11,7 @@ function Nav() {
   const links = [
     { label: "About", href: "/about" },
     { label: "Products", href: "/products" },
+    { label: "Support", href: "/support" },
     { label: "Contact", href: "/contact" },
   ];
   return (
@@ -33,12 +34,15 @@ function Nav() {
         </span>
       </Link>
       <div style={{ display: "flex", gap: "2.5rem" }}>
-        {links.map((link) => (
-          <Link key={link.href} href={link.href} className="nav-link"
-            style={pathname === link.href ? { color: "var(--gold)", opacity: 1 } : {}}>
-            {link.label}
-          </Link>
-        ))}
+        {links.map((link) => {
+          const isActive = link.href === "/support" ? pathname?.startsWith("/support") : pathname === link.href;
+          return (
+            <Link key={link.href} href={link.href} className="nav-link"
+              style={isActive ? { color: "var(--gold)", opacity: 1 } : {}}>
+              {link.label}
+            </Link>
+          );
+        })}
       </div>
     </nav>
   );

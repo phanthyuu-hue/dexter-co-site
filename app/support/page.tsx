@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { getLiveProducts, getDevProducts, type Product } from "@/data/products";
+import { getLiveProducts, getDevProducts, groupProductsForDisplay, type Product, type GroupedEntry } from "@/data/products";
 import { SupportNav, SupportFooter, SectionLabel, StatusBadge } from "./_components";
 
 /* ─── Product card (Support一覧用) ─── */
@@ -68,6 +68,75 @@ function SupportProductCard({ product }: { product: Product }) {
   );
 }
 
+/* ─── Group card (Lily Seriesなど、複数プロダクトをまとめて表示) ─── */
+function SupportGroupCard({ groupLabel, products }: { groupLabel: string; products: Product[] }) {
+  // グループの代表ステータス：1件でも「公開中」があれば公開中、なければβ公開中扱いで表示
+  const representativeStatus = products.some((p) => p.status === "公開中") ? "公開中" : products[0].status;
+
+  return (
+    <div
+      style={{
+        border: "1px solid rgba(200,164,110,0.2)",
+        background: "rgba(30,35,41,0.4)",
+        padding: "2rem 2rem",
+      }}
+    >
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "1rem", gap: "1rem" }}>
+        <h3
+          style={{
+            fontFamily: "var(--font-playfair)",
+            fontSize: "1.3rem",
+            fontWeight: 500,
+            color: "var(--offwhite)",
+          }}
+        >
+          {groupLabel}
+        </h3>
+        <StatusBadge status={representativeStatus} />
+      </div>
+      <p
+        style={{
+          fontFamily: "var(--font-inter)",
+          fontSize: "0.65rem",
+          letterSpacing: "0.1em",
+          color: "var(--gold)",
+          opacity: 0.7,
+          marginBottom: "1.25rem",
+        }}
+      >
+        {products.length}件のプロダクト
+      </p>
+      <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
+        {products.map((p) => (
+          <Link
+            key={p.slug}
+            href={`/support/${p.slug}`}
+            style={{
+              fontFamily: "var(--font-inter)",
+              fontSize: "0.75rem",
+              color: "rgba(245,244,240,0.65)",
+              border: "1px solid rgba(200,164,110,0.25)",
+              padding: "0.4rem 0.9rem",
+              textDecoration: "none",
+              transition: "color 0.2s, border-color 0.2s",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = "var(--gold)";
+              e.currentTarget.style.borderColor = "rgba(200,164,110,0.6)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = "rgba(245,244,240,0.65)";
+              e.currentTarget.style.borderColor = "rgba(200,164,110,0.25)";
+            }}
+          >
+            {p.name}
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 /* ─── Hero ─── */
 function Hero() {
   return (
@@ -118,12 +187,12 @@ function Hero() {
 function ProductGridSection({
   label,
   title,
-  products,
+  entries,
   emptyText,
 }: {
   label: string;
   title: string;
-  products: Product[];
+  entries: GroupedEntry[];
   emptyText: string;
 }) {
   return (
@@ -141,7 +210,7 @@ function ProductGridSection({
         >
           {title}
         </h2>
-        {products.length === 0 ? (
+        {entries.length === 0 ? (
           <p
             style={{
               fontFamily: "var(--font-noto)",
@@ -160,9 +229,13 @@ function ProductGridSection({
               gap: "1.5rem",
             }}
           >
-            {products.map((p) => (
-              <SupportProductCard key={p.slug} product={p} />
-            ))}
+            {entries.map((entry) =>
+              entry.type === "group" ? (
+                <SupportGroupCard key={entry.groupKey} groupLabel={entry.groupLabel} products={entry.products} />
+              ) : (
+                <SupportProductCard key={entry.product.slug} product={entry.product} />
+              )
+            )}
           </div>
         )}
       </div>
@@ -246,8 +319,8 @@ function ContactCta() {
 
 /* ─── Page ─── */
 export default function SupportPage() {
-  const liveProducts = getLiveProducts();
-  const devProducts = getDevProducts();
+  const liveEntries = groupProductsForDisplay(getLiveProducts());
+  const devEntries = groupProductsForDisplay(getDevProducts());
 
   return (
     <>
@@ -257,13 +330,13 @@ export default function SupportPage() {
         <ProductGridSection
           label="Live Products"
           title="公開中プロダクト"
-          products={liveProducts}
+          entries={liveEntries}
           emptyText="現在公開中のプロダクトはありません。"
         />
         <ProductGridSection
           label="In Development"
           title="開発中プロダクト"
-          products={devProducts}
+          entries={devEntries}
           emptyText="現在開発中のプロダクトはありません。"
         />
         <FaqTeaser />

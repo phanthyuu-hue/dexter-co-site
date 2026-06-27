@@ -83,7 +83,7 @@ export const products: Product[] = [
     name: "AniStory",
     category: "Entertainment / Anime",
     description: "見たアニメを記録し、感想や視聴履歴を整理するアプリ。",
-    status: "β公開中",
+    status: "公開中",
     websiteUrl: null,
     appStoreUrl: null,
   },
@@ -101,7 +101,7 @@ export const products: Product[] = [
     name: "Lily",
     category: "Business Operations / Lily Series",
     description: "店舗運営を支えるLilyシリーズの統合入口。",
-    status: "β公開中",
+    status: "公開中",
     websiteUrl: "https://lily-os.vercel.app/",
     appStoreUrl: null,
     group: "lily-series",
@@ -112,7 +112,7 @@ export const products: Product[] = [
     name: "Lily Board",
     category: "Business Operations / Lily Series",
     description: "売上・利益・経費など店舗運営の数字を管理するツール。",
-    status: "β公開中",
+    status: "公開中",
     websiteUrl: "https://lily-os.vercel.app/",
     appStoreUrl: null,
     group: "lily-series",
@@ -123,7 +123,7 @@ export const products: Product[] = [
     name: "Lily Shift",
     category: "Business Operations / Lily Series",
     description: "店舗スタッフのシフト管理を効率化するツール。",
-    status: "β公開中",
+    status: "公開中",
     websiteUrl: "https://lily-os.vercel.app/",
     appStoreUrl: null,
     group: "lily-series",
@@ -145,21 +145,22 @@ export const products: Product[] = [
     name: "退職手帳",
     category: "Life / Web Service",
     description: "退職後の手続き・保険・税金・年金を整理するサポートツール。",
-    status: "β公開中",
+    status: "公開中",
     websiteUrl: null,
     appStoreUrl: null,
   },
-
-  // ── 開発中 ──────────────────────────────────
   {
     slug: "builddeck",
     name: "BuildDeck",
     category: "Developer Tools",
+    // Web版は公開中。iOS版は未公開のため appStoreUrl は null。
     description: "Vercelのデプロイやプロジェクト状況をスマホから確認する開発管理ツール。",
-    status: "開発中",
+    status: "公開中",
     websiteUrl: "https://builddeck-mu.vercel.app",
     appStoreUrl: null,
   },
+
+  // ── 開発中 ──────────────────────────────────
   {
     slug: "pochiwork",
     name: "PochiWork",
@@ -198,6 +199,45 @@ export function getDevProducts(): Product[] {
 /** 全slugを取得（generateStaticParams用） */
 export function getAllSlugs(): string[] {
   return products.map((p) => p.slug);
+}
+
+/**
+ * 表示用にグルーピングした結果の1行。
+ * group指定があるプロダクト群は1件のGroupedEntryにまとめられ、
+ * group指定がないプロダクトは単独でGroupedEntryになる。
+ */
+export type GroupedEntry =
+  | { type: "single"; product: Product }
+  | { type: "group"; groupKey: string; groupLabel: string; products: Product[] };
+
+/**
+ * Support Home表示用：同じgroupを持つプロダクトを1つのグループにまとめる。
+ * 例：Lily / Lily Board / Lily Shift / Lily Assist → 1件の "Lily Series" グループ
+ * グループのメンバーは、渡された list（公開中のみ／開発中のみ等）に
+ * 含まれるものだけに絞り込む。そのため、グループの一部だけが公開中の場合、
+ * 公開中タブには公開中メンバーだけが表示される。
+ */
+export function groupProductsForDisplay(list: Product[]): GroupedEntry[] {
+  const seenGroups = new Set<string>();
+  const entries: GroupedEntry[] = [];
+
+  for (const p of list) {
+    if (p.group) {
+      if (seenGroups.has(p.group)) continue;
+      seenGroups.add(p.group);
+      const groupMembers = list.filter((item) => item.group === p.group);
+      entries.push({
+        type: "group",
+        groupKey: p.group,
+        groupLabel: p.groupLabel ?? p.group,
+        products: groupMembers,
+      });
+    } else {
+      entries.push({ type: "single", product: p });
+    }
+  }
+
+  return entries;
 }
 
 /** 共通の問い合わせ先メールアドレス */
