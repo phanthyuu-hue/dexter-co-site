@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { getProductBySlug, type Product } from "@/data/products";
 
 /* ── Section label ── */
 function SectionLabel({ children }: { children: React.ReactNode }) {
@@ -110,9 +111,8 @@ function Hero() {
           </span>
         </h1>
         <span style={{ display: "block", width: "40px", height: "1px", backgroundColor: "var(--gold)", opacity: 0.7, marginBottom: "2.5rem" }} />
-        {/* リード文 — 追加 */}
         <p style={{ fontFamily: "var(--font-noto)", fontSize: "1.05rem", lineHeight: 2, color: "rgba(245,244,240,0.78)", fontWeight: 300, maxWidth: "580px", letterSpacing: "0.04em", marginBottom: "0.75rem" }}>
-          これらのプロダクトは、Dexter & Co. が発見した課題をもとに、DexTech が開発しています。
+          現在提供中のAIツール・業務システム・アプリをご紹介します。
         </p>
         <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.92rem", lineHeight: 1.9, color: "rgba(245,244,240,0.5)", fontWeight: 300, maxWidth: "560px", letterSpacing: "0.03em" }}>
           課題発見からプロダクト化までを一貫して行う、私たちの実績です。
@@ -122,122 +122,326 @@ function Hero() {
   );
 }
 
-/* ─── Product Cards (改: 統一フォーマット) ─── */
-const products = [
-  {
-    name: "Lily Series",
-    tags: ["Business Operations", "AI Tools"],
-    why: "店舗現場では、シフト・売上・予約・LINE対応がバラバラで管理され、運営者の時間が消えていくという課題から生まれました。",
-    forWhom: "店舗オーナー・複数店舗の運営者・現場スタッフを抱えるチーム",
-    problem: "管理ツールの分散・対応の属人化・業務コストの肥大化",
-    change: "管理業務を一元化し、AIが日常対応を自動化。現場の工数を大幅に削減できます。",
-    status: "Live",
-    ctas: [
-      { label: "デモを見る", href: "https://lily-os.vercel.app/", external: true, primary: true },
-      { label: "LINEで相談する", href: "https://line.me/ti/p/~hello-dexter", external: true, primary: false },
-    ],
-    featured: true,
-  },
-  {
-    name: "Silent",
-    tags: ["Privacy AI", "Communication"],
-    why: "「AIに相談したいが、履歴が残るのが不安」という声から生まれた、プライバシー重視のAIチャットです。",
-    forWhom: "ビジネスの意思決定・日常の悩み・誰にも言えない相談を安心してしたい方",
-    problem: "AIへの相談における履歴・プライバシーへの不安",
-    change: "履歴を残さず、静かに使えるAIアシスタントとして、日常の判断をサポートします。",
-    status: "Live",
-    ctas: [
-      { label: "今すぐ使う", href: "/silent", external: false, primary: true },
-    ],
-    featured: false,
-  },
-  {
-    name: "TabiLog",
-    tags: ["Travel", "Personal OS"],
-    why: "旅の記録がSNS・メモ・家計簿に散らばってしまうという不便さを解決するために開発しました。",
-    forWhom: "旅行が好きな個人・支出管理をしたい方・旅の思い出を丁寧に残したい人",
-    problem: "旅の記録・支出・思い出が複数ツールに分散してしまう",
-    change: "旅の支出・記録・思い出をひとつのアプリにまとめ、AIが振り返りをサポートします。",
-    status: "Live",
-    ctas: [
-      { label: "アプリを見る", href: "https://tabilog.app", external: true, primary: true },
-    ],
-    featured: false,
-  },
-];
-
-function ProductCards() {
+/* ─── Status badge ─── */
+function StatusBadge({ status, large }: { status: string; large?: boolean }) {
   return (
-    <section style={{ padding: "10rem 2.5rem", borderBottom: "1px solid rgba(245,244,240,0.06)" }}>
-      <div style={{ maxWidth: "900px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "2rem" }}>
-        {products.map((product, i) => (
-          <div
-            key={product.name}
-            style={{
-              border: product.featured ? "1px solid rgba(200,164,110,0.5)" : "1px solid rgba(200,164,110,0.15)",
-              background: product.featured ? "rgba(30,35,41,0.7)" : "rgba(30,35,41,0.3)",
-              padding: product.featured ? "3.5rem 3rem" : "3rem 2.5rem",
-              transition: "border-color 0.3s, transform 0.25s, box-shadow 0.25s",
-              boxShadow: product.featured ? "0 4px 32px rgba(200,164,110,0.08)" : "none",
-            }}
-            onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-3px)"; e.currentTarget.style.boxShadow = "0 12px 40px rgba(0,0,0,0.3)"; e.currentTarget.style.borderColor = "rgba(200,164,110,0.45)"; }}
-            onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = product.featured ? "0 4px 32px rgba(200,164,110,0.08)" : "none"; e.currentTarget.style.borderColor = product.featured ? "rgba(200,164,110,0.5)" : "rgba(200,164,110,0.15)"; }}
-          >
-            {/* 上部 */}
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1.5rem" }}>
-              <span style={{ fontFamily: "var(--font-inter)", fontSize: "0.65rem", letterSpacing: "0.25em", color: "var(--gold)", opacity: 0.5 }}>{String(i + 1).padStart(2, "0")}</span>
-              <span style={{ fontFamily: "var(--font-inter)", fontSize: "0.62rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(200,164,110,0.9)", border: "1px solid rgba(200,164,110,0.4)", padding: "0.2rem 0.75rem" }}>
-                {product.status}
-              </span>
-            </div>
+    <span
+      style={{
+        fontFamily: "var(--font-inter)",
+        fontSize: large ? "0.68rem" : "0.62rem",
+        letterSpacing: "0.18em",
+        textTransform: "uppercase",
+        color: "rgba(200,164,110,0.9)",
+        border: "1px solid rgba(200,164,110,0.4)",
+        padding: large ? "0.3rem 0.85rem" : "0.2rem 0.75rem",
+        whiteSpace: "nowrap",
+      }}
+    >
+      {status}
+    </span>
+  );
+}
 
-            {/* 名前 */}
-            <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(1.4rem, 3vw, 2rem)", fontWeight: 500, color: "var(--offwhite)", marginBottom: "1rem" }}>{product.name}</h2>
+/** 保有データから対応プラットフォームを動的に導出する（products.tsに新規フィールドを増やさない） */
+function getPlatforms(product: Product): string[] {
+  const platforms: string[] = [];
+  if (product.websiteUrl) platforms.push("Web");
+  if (product.appStoreUrl) platforms.push("iOS");
+  if (platforms.length === 0) platforms.push("準備中");
+  return platforms;
+}
 
-            {/* タグ */}
-            <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginBottom: "2rem" }}>
-              {product.tags.map((tag) => (
-                <span key={tag} style={{ fontFamily: "var(--font-inter)", fontSize: "0.62rem", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--gold)", border: "1px solid rgba(200,164,110,0.25)", padding: "0.18rem 0.65rem", opacity: 0.8 }}>{tag}</span>
-              ))}
-            </div>
+/* ─── CTA button ─── */
+function CtaButton({ href, label, primary }: { href: string | null; label: string; primary?: boolean }) {
+  if (!href) {
+    return (
+      <span
+        style={{
+          display: "inline-block",
+          padding: "0.75rem 1.8rem",
+          fontFamily: "var(--font-noto)",
+          fontSize: "0.82rem",
+          fontWeight: 400,
+          letterSpacing: "0.05em",
+          borderRadius: "8px",
+          border: "1px solid rgba(245,244,240,0.15)",
+          color: "rgba(245,244,240,0.3)",
+        }}
+      >
+        Coming Soon
+      </span>
+    );
+  }
+  const external = href.startsWith("http");
+  return (
+    <a
+      href={href}
+      target={external ? "_blank" : undefined}
+      rel={external ? "noopener noreferrer" : undefined}
+      style={{
+        display: "inline-block",
+        padding: "0.75rem 1.8rem",
+        fontFamily: "var(--font-noto)",
+        fontSize: "0.82rem",
+        fontWeight: 400,
+        letterSpacing: "0.05em",
+        textDecoration: "none",
+        transition: "all 0.25s",
+        borderRadius: "8px",
+        ...(primary
+          ? { backgroundColor: "var(--gold)", color: "var(--navy)" }
+          : { border: "1px solid rgba(200,164,110,0.4)", color: "var(--gold)" }),
+      }}
+      onMouseEnter={(e) => {
+        if (primary) {
+          e.currentTarget.style.opacity = "0.85";
+          e.currentTarget.style.transform = "translateY(-1px)";
+        } else {
+          e.currentTarget.style.borderColor = "rgba(200,164,110,0.8)";
+        }
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.opacity = "1";
+        e.currentTarget.style.transform = "translateY(0)";
+        if (!primary) e.currentTarget.style.borderColor = "rgba(200,164,110,0.4)";
+      }}
+    >
+      {label}
+    </a>
+  );
+}
 
-            {/* 統一フォーマット */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "1.4rem", marginBottom: "2rem" }}>
-              {/* なぜ */}
-              <div style={{ display: "grid", gridTemplateColumns: "5rem 1fr", gap: "1.5rem", paddingBottom: "1.4rem", borderBottom: "1px solid rgba(245,244,240,0.05)" }}>
-                <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.62rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.65, paddingTop: "0.2rem" }}>なぜ</p>
-                <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.88rem", lineHeight: 1.85, color: "rgba(245,244,240,0.62)", fontWeight: 300, letterSpacing: "0.02em" }}>{product.why}</p>
-              </div>
-              {/* 誰向け */}
-              <div style={{ display: "grid", gridTemplateColumns: "5rem 1fr", gap: "1.5rem", paddingBottom: "1.4rem", borderBottom: "1px solid rgba(245,244,240,0.05)" }}>
-                <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.62rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.65, paddingTop: "0.2rem" }}>誰向け</p>
-                <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.88rem", lineHeight: 1.85, color: "rgba(245,244,240,0.62)", fontWeight: 300, letterSpacing: "0.02em" }}>{product.forWhom}</p>
-              </div>
-              {/* 解決する課題 */}
-              <div style={{ display: "grid", gridTemplateColumns: "5rem 1fr", gap: "1.5rem", paddingBottom: "1.4rem", borderBottom: "1px solid rgba(245,244,240,0.05)" }}>
-                <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.62rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.65, paddingTop: "0.2rem" }}>課題</p>
-                <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.88rem", lineHeight: 1.85, color: "rgba(245,244,240,0.62)", fontWeight: 300, letterSpacing: "0.02em" }}>{product.problem}</p>
-              </div>
-              {/* 変化 */}
-              <div style={{ display: "grid", gridTemplateColumns: "5rem 1fr", gap: "1.5rem" }}>
-                <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.62rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.65, paddingTop: "0.2rem" }}>変化</p>
-                <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.9rem", lineHeight: 1.85, color: "rgba(245,244,240,0.82)", fontWeight: 400, letterSpacing: "0.02em" }}>{product.change}</p>
-              </div>
-            </div>
+/* ════════════════════════════════════════
+   Featured Products
+   会社の代表プロダクト：Lily Series / Silent / 巡帳 / AniStory
+════════════════════════════════════════ */
 
-            {/* CTAs */}
-            <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap", paddingTop: "0.5rem", borderTop: "1px solid rgba(200,164,110,0.12)" }}>
-              {product.ctas.map((btn, j) => (
-                <a key={j} href={btn.href} target={btn.external ? "_blank" : undefined} rel={btn.external ? "noopener noreferrer" : undefined}
-                  style={{ display: "inline-block", padding: "0.75rem 1.8rem", fontFamily: "var(--font-noto)", fontSize: "0.82rem", fontWeight: 400, letterSpacing: "0.05em", textDecoration: "none", transition: "all 0.25s", borderRadius: "8px", ...(btn.primary ? { backgroundColor: "var(--gold)", color: "var(--navy)" } : { border: "1px solid rgba(200,164,110,0.4)", color: "var(--gold)" }) }}
-                  onMouseEnter={(e) => { if (btn.primary) { e.currentTarget.style.opacity = "0.85"; e.currentTarget.style.transform = "translateY(-1px)"; } else e.currentTarget.style.borderColor = "rgba(200,164,110,0.8)"; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; e.currentTarget.style.transform = "translateY(0)"; if (!btn.primary) e.currentTarget.style.borderColor = "rgba(200,164,110,0.4)"; }}>
-                  {btn.label}
-                </a>
-              ))}
+interface FeaturedEntry {
+  icon: string;
+  name: string;
+  description: string;
+  status: string;
+  platforms: string[];
+  ctaLabel: string;
+  ctaHref: string | null;
+  ctaPrimary?: boolean;
+}
+
+function buildFeaturedEntries(): FeaturedEntry[] {
+  const lily = getProductBySlug("lily");
+  const silent = getProductBySlug("silent");
+  const juncho = getProductBySlug("juncho");
+  const anistory = getProductBySlug("anistory");
+
+  const entries: FeaturedEntry[] = [];
+
+  if (lily) {
+    entries.push({
+      icon: "🪷",
+      name: "Lily Series",
+      description: "店舗運営を支える、シフト・売上・AI対応をまとめた業務システム群。",
+      status: "公開中",
+      platforms: getPlatforms(lily),
+      ctaLabel: "詳しく見る",
+      ctaHref: lily.websiteUrl,
+      ctaPrimary: true,
+    });
+  }
+  if (silent) {
+    entries.push({
+      icon: "🤫",
+      name: silent.name,
+      description: silent.description,
+      status: silent.status,
+      platforms: getPlatforms(silent),
+      ctaLabel: "詳しく見る",
+      ctaHref: "/silent",
+      ctaPrimary: true,
+    });
+  }
+  if (juncho) {
+    entries.push({
+      icon: "⛩️",
+      name: juncho.name,
+      description: juncho.description,
+      status: juncho.status,
+      platforms: getPlatforms(juncho),
+      ctaLabel: "Webサイト",
+      ctaHref: juncho.websiteUrl,
+      ctaPrimary: true,
+    });
+  }
+  if (anistory) {
+    entries.push({
+      icon: "🎬",
+      name: anistory.name,
+      description: anistory.description,
+      status: anistory.status,
+      platforms: getPlatforms(anistory),
+      ctaLabel: "Webサイト",
+      ctaHref: anistory.websiteUrl,
+      ctaPrimary: true,
+    });
+  }
+
+  return entries;
+}
+
+function FeaturedProducts() {
+  const entries = buildFeaturedEntries();
+
+  return (
+    <section style={{ padding: "8rem 2.5rem", borderBottom: "1px solid rgba(245,244,240,0.06)" }}>
+      <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+        <SectionLabel>Featured</SectionLabel>
+        <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(1.8rem, 4vw, 2.6rem)", fontWeight: 500, color: "var(--offwhite)", marginBottom: "0.75rem" }}>
+          代表プロダクト
+        </h2>
+        <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.92rem", color: "rgba(245,244,240,0.5)", fontWeight: 300, marginBottom: "3rem", maxWidth: "560px" }}>
+          Dexter &amp; Co. が現在最も力を入れているプロダクトです。
+        </p>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "1.75rem" }}>
+          {entries.map((entry) => (
+            <div
+              key={entry.name}
+              style={{
+                border: "1px solid rgba(200,164,110,0.3)",
+                background: "rgba(30,35,41,0.55)",
+                padding: "3rem 2.5rem",
+                display: "flex",
+                flexDirection: "column",
+                boxShadow: "0 4px 32px rgba(200,164,110,0.06)",
+                transition: "transform 0.25s, box-shadow 0.25s, border-color 0.3s",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translateY(-3px)";
+                e.currentTarget.style.boxShadow = "0 12px 40px rgba(0,0,0,0.3)";
+                e.currentTarget.style.borderColor = "rgba(200,164,110,0.55)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "0 4px 32px rgba(200,164,110,0.06)";
+                e.currentTarget.style.borderColor = "rgba(200,164,110,0.3)";
+              }}
+            >
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "1.5rem" }}>
+                <span style={{ fontSize: "2.2rem", lineHeight: 1 }} aria-hidden>{entry.icon}</span>
+                <StatusBadge status={entry.status} large />
+              </div>
+              <h3 style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(1.5rem, 3vw, 1.9rem)", fontWeight: 500, color: "var(--offwhite)", marginBottom: "1rem" }}>
+                {entry.name}
+              </h3>
+              <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.92rem", lineHeight: 1.9, color: "rgba(245,244,240,0.65)", fontWeight: 300, marginBottom: "1.5rem", flexGrow: 1 }}>
+                {entry.description}
+              </p>
+              <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.65rem", letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.6, marginBottom: "1.75rem" }}>
+                {entry.platforms.join(" / ")}
+              </p>
+              <div>
+                <CtaButton href={entry.ctaHref} label={entry.ctaLabel} primary={entry.ctaPrimary} />
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ════════════════════════════════════════
+   通常カード（Public Products / Beta・In Development 共通）
+════════════════════════════════════════ */
+
+function ProductCard({ product, devOverride }: { product: Product; devOverride?: boolean }) {
+  const platforms = getPlatforms(product);
+  const displayStatus = devOverride ? "開発中" : product.status;
+  const hasLink = Boolean(product.websiteUrl);
+
+  return (
+    <div
+      style={{
+        border: "1px solid rgba(200,164,110,0.15)",
+        background: "rgba(30,35,41,0.35)",
+        padding: "2.25rem 2rem",
+        display: "flex",
+        flexDirection: "column",
+        transition: "border-color 0.25s, background 0.25s, transform 0.2s",
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.borderColor = "rgba(200,164,110,0.4)";
+        e.currentTarget.style.background = "rgba(30,35,41,0.55)";
+        e.currentTarget.style.transform = "translateY(-2px)";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.borderColor = "rgba(200,164,110,0.15)";
+        e.currentTarget.style.background = "rgba(30,35,41,0.35)";
+        e.currentTarget.style.transform = "translateY(0)";
+      }}
+    >
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "1rem", gap: "1rem" }}>
+        <h3 style={{ fontFamily: "var(--font-playfair)", fontSize: "1.25rem", fontWeight: 500, color: "var(--offwhite)" }}>
+          {product.name}
+        </h3>
+        <StatusBadge status={displayStatus} />
+      </div>
+      <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.62rem", letterSpacing: "0.1em", color: "var(--gold)", opacity: 0.65, marginBottom: "1rem" }}>
+        {product.category}
+      </p>
+      <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.85rem", lineHeight: 1.8, color: "rgba(245,244,240,0.6)", fontWeight: 300, marginBottom: "1.5rem", flexGrow: 1 }}>
+        {product.description}
+      </p>
+      <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.62rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.55, marginBottom: "1.5rem" }}>
+        {platforms.join(" / ")}
+      </p>
+      <div>
+        <CtaButton href={hasLink ? product.websiteUrl : null} label="Webサイト" primary={hasLink} />
+      </div>
+    </div>
+  );
+}
+
+/* ─── Public Products ─── */
+function PublicProducts() {
+  const slugs = ["tabilog", "taishoku-techo", "builddeck"];
+  const items = slugs.map((slug) => getProductBySlug(slug)).filter((p): p is Product => Boolean(p));
+
+  return (
+    <section style={{ padding: "8rem 2.5rem", borderBottom: "1px solid rgba(245,244,240,0.06)" }}>
+      <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+        <SectionLabel>Public Products</SectionLabel>
+        <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(1.6rem, 3.5vw, 2.2rem)", fontWeight: 500, color: "var(--offwhite)", marginBottom: "2.5rem" }}>
+          公開中のプロダクト
+        </h2>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.5rem" }}>
+          {items.map((p) => (
+            <ProductCard key={p.slug} product={p} devOverride={p.slug === "builddeck"} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─── Beta / In Development ─── */
+function BetaProducts() {
+  const slugs = ["lily-assist", "pochiwork", "chorus"];
+  const items = slugs.map((slug) => getProductBySlug(slug)).filter((p): p is Product => Boolean(p));
+
+  return (
+    <section style={{ padding: "8rem 2.5rem", borderBottom: "1px solid rgba(245,244,240,0.06)", background: "rgba(18,37,57,0.3)" }}>
+      <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+        <SectionLabel>Beta / In Development</SectionLabel>
+        <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(1.6rem, 3.5vw, 2.2rem)", fontWeight: 500, color: "var(--offwhite)", marginBottom: "1rem" }}>
+          β版・開発中のプロダクト
+        </h2>
+        <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.88rem", color: "rgba(245,244,240,0.5)", fontWeight: 300, marginBottom: "2.5rem", maxWidth: "560px" }}>
+          現在開発を進めているプロダクトです。公開時期は順次お知らせします。
+        </p>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.5rem" }}>
+          {items.map((p) => (
+            <ProductCard key={p.slug} product={p} />
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -246,7 +450,7 @@ function ProductCards() {
 /* ─── DexTech Section ─── */
 function DexTechSection() {
   return (
-    <section style={{ padding: "10rem 2.5rem", borderBottom: "1px solid rgba(245,244,240,0.06)", background: "rgba(18,37,57,0.3)" }}>
+    <section style={{ padding: "10rem 2.5rem", background: "rgba(18,37,57,0.3)" }}>
       <div style={{ maxWidth: "800px", margin: "0 auto" }}>
         <SectionLabel>DexTech</SectionLabel>
         <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "0.5rem" }}>
@@ -276,7 +480,9 @@ export default function ProductsPage() {
       <Nav />
       <main>
         <Hero />
-        <ProductCards />
+        <FeaturedProducts />
+        <PublicProducts />
+        <BetaProducts />
         <DexTechSection />
       </main>
       <Footer />
