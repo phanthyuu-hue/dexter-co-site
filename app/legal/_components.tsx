@@ -7,10 +7,11 @@ import { SUPPORT_EMAIL } from "@/data/products";
 
 /**
  * ─────────────────────────────────────────────
- * Support Center 共通UIパーツ
+ * Legal Center 共通UIパーツ
  * ─────────────────────────────────────────────
- * /support 以下の全ページから読み込まれます。
- * デザインは既存サイト（app/page.tsx 等）のトーンに合わせています。
+ * /legal 以下の全ページから読み込まれます。
+ * Legal文書ページなので、Support Centerより装飾を抑え
+ * 「読みやすさ優先」のレイアウトにしています。
  */
 
 /* ── Section label ── */
@@ -33,7 +34,7 @@ export function SectionLabel({ children }: { children: React.ReactNode }) {
 }
 
 /* ─── Nav ─── */
-export function SupportNav() {
+export function LegalNav() {
   const pathname = usePathname();
   const links = [
     { label: "About", href: "/about" },
@@ -82,7 +83,7 @@ export function SupportNav() {
       </Link>
       <div style={{ display: "flex", gap: "2.5rem" }}>
         {links.map((link) => {
-          const isActive = pathname === link.href || (link.href === "/support" && pathname?.startsWith("/support"));
+          const isActive = link.href === "/support" ? pathname?.startsWith("/support") : pathname === link.href;
           return (
             <Link
               key={link.href}
@@ -100,7 +101,7 @@ export function SupportNav() {
 }
 
 /* ─── Footer ─── */
-export function SupportFooter() {
+export function LegalFooter() {
   return (
     <footer style={{ padding: "2.5rem 2.5rem 2rem", borderTop: "1px solid rgba(200,164,110,0.12)" }}>
       <div
@@ -137,17 +138,6 @@ export function SupportFooter() {
           </div>
           <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.72rem", color: "rgba(245,244,240,0.35)", letterSpacing: "0.08em" }}>
             Tokyo / Remote
-          </p>
-          <p
-            style={{
-              fontFamily: "var(--font-playfair)",
-              fontSize: "0.7rem",
-              fontStyle: "italic",
-              color: "rgba(200,164,110,0.4)",
-              letterSpacing: "0.05em",
-            }}
-          >
-            From Problem to Product.
           </p>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
@@ -192,13 +182,11 @@ export function SupportFooter() {
               marginBottom: "0.25rem",
             }}
           >
-            Support Center
+            Legal
           </p>
           {[
-            { label: "FAQ", href: "/support/faq" },
-            { label: "お問い合わせ", href: "/support/contact" },
-            { label: "稼働状況", href: "/support/status" },
-            { label: "ダウンロード", href: "/support/downloads" },
+            { label: "Legal Center", href: "/legal" },
+            { label: "特定商取引法に基づく表記", href: "/legal/commercial-disclosure" },
           ].map((l) => (
             <Link
               key={l.href}
@@ -234,108 +222,130 @@ export function SupportFooter() {
         <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", color: "rgba(245,244,240,0.25)", letterSpacing: "0.04em" }}>
           © Dexter & Co. All rights reserved.
         </p>
-        <div style={{ display: "flex", gap: "1.25rem", alignItems: "center" }}>
-          <Link href="/legal" style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", color: "rgba(245,244,240,0.25)", letterSpacing: "0.04em", textDecoration: "none" }}>
-            Legal
-          </Link>
-          <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", color: "rgba(245,244,240,0.25)", letterSpacing: "0.04em" }}>
-            Built by DexTech.
-          </p>
-        </div>
+        <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.7rem", color: "rgba(245,244,240,0.25)", letterSpacing: "0.04em" }}>
+          Built by DexTech.
+        </p>
       </div>
     </footer>
   );
 }
 
-/* ─── Status badge (used across Support pages) ─── */
-export function StatusBadge({ status }: { status: string }) {
-  return (
-    <span
-      style={{
-        fontFamily: "var(--font-inter)",
-        fontSize: "0.62rem",
-        letterSpacing: "0.18em",
-        textTransform: "uppercase",
-        color: "rgba(200,164,110,0.9)",
-        border: "1px solid rgba(200,164,110,0.4)",
-        padding: "0.2rem 0.75rem",
-        whiteSpace: "nowrap",
-      }}
-    >
-      {status}
-    </span>
-  );
-}
-
-/* ─── Page header (shared hero pattern for Support sub-pages) ─── */
-export function SupportPageHeader({
+/* ─── Legal文書ページ共通ヘッダー ─── */
+export function LegalDocHeader({
   label,
   title,
-  subtitleEn,
-  lead,
+  productName,
+  updatedAt,
 }: {
   label: string;
   title: string;
-  subtitleEn?: string;
-  lead?: string;
+  productName: string;
+  updatedAt: string;
 }) {
   return (
     <section
       style={{
-        paddingTop: "16rem",
-        paddingBottom: "5rem",
+        paddingTop: "14rem",
+        paddingBottom: "3rem",
         paddingLeft: "2.5rem",
         paddingRight: "2.5rem",
-        borderBottom: "1px solid rgba(245,244,240,0.06)",
+        borderBottom: "1px solid rgba(245,244,240,0.08)",
       }}
     >
-      <div style={{ maxWidth: "800px" }}>
+      <div style={{ maxWidth: "680px", margin: "0 auto" }}>
         <SectionLabel>{label}</SectionLabel>
         <h1
           style={{
             fontFamily: "var(--font-playfair)",
-            fontSize: "clamp(2.2rem, 5.5vw, 4.5rem)",
+            fontSize: "clamp(1.8rem, 4vw, 2.6rem)",
             fontWeight: 500,
-            lineHeight: 1.1,
+            lineHeight: 1.3,
             color: "var(--offwhite)",
-            marginBottom: "1.5rem",
+            marginBottom: "0.75rem",
             letterSpacing: "-0.01em",
           }}
         >
           {title}
-          {subtitleEn && (
-            <span
-              style={{
-                display: "block",
-                fontFamily: "var(--font-inter)",
-                fontSize: "0.7rem",
-                letterSpacing: "0.18em",
-                color: "rgba(200,164,110,0.45)",
-                marginTop: "0.75rem",
-                fontWeight: 300,
-              }}
-            >
-              {subtitleEn}
-            </span>
-          )}
         </h1>
-        <span style={{ display: "block", width: "40px", height: "1px", backgroundColor: "var(--gold)", opacity: 0.7, marginBottom: "2.5rem" }} />
-        {lead && (
-          <p
-            style={{
-              fontFamily: "var(--font-noto)",
-              fontSize: "1.05rem",
-              lineHeight: 2,
-              color: "rgba(245,244,240,0.78)",
-              fontWeight: 300,
-              maxWidth: "580px",
-              letterSpacing: "0.04em",
-            }}
-          >
-            {lead}
-          </p>
-        )}
+        <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.92rem", color: "rgba(245,244,240,0.5)", marginBottom: "0.5rem" }}>
+          対象プロダクト：{productName}
+        </p>
+        <p style={{ fontFamily: "var(--font-inter)", fontSize: "0.75rem", color: "rgba(245,244,240,0.35)", letterSpacing: "0.04em" }}>
+          最終改定日：{updatedAt}
+        </p>
       </div>
+    </section>
+  );
+}
+
+/* ─── Legal文書の見出し ─── */
+export function LegalSectionHeading({ children }: { children: React.ReactNode }) {
+  return (
+    <h2
+      style={{
+        fontFamily: "var(--font-playfair)",
+        fontSize: "1.15rem",
+        fontWeight: 500,
+        color: "var(--offwhite)",
+        marginTop: "2.75rem",
+        marginBottom: "1rem",
+        paddingBottom: "0.6rem",
+        borderBottom: "1px solid rgba(200,164,110,0.2)",
+      }}
+    >
+      {children}
+    </h2>
+  );
+}
+
+/* ─── Legal文書の本文段落 ─── */
+export function LegalParagraph({ children }: { children: React.ReactNode }) {
+  return (
+    <p
+      style={{
+        fontFamily: "var(--font-noto)",
+        fontSize: "0.92rem",
+        lineHeight: 2,
+        color: "rgba(245,244,240,0.72)",
+        fontWeight: 300,
+        letterSpacing: "0.02em",
+        marginBottom: "1rem",
+      }}
+    >
+      {children}
+    </p>
+  );
+}
+
+/* ─── Legal文書の箇条書き ─── */
+export function LegalList({ items }: { items: string[] }) {
+  return (
+    <ul style={{ marginBottom: "1rem", paddingLeft: "1.4rem" }}>
+      {items.map((item, i) => (
+        <li
+          key={i}
+          style={{
+            fontFamily: "var(--font-noto)",
+            fontSize: "0.92rem",
+            lineHeight: 2,
+            color: "rgba(245,244,240,0.72)",
+            fontWeight: 300,
+            letterSpacing: "0.02em",
+            marginBottom: "0.3rem",
+          }}
+        >
+          {item}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+/* ─── Legal文書ページ全体のラッパー（本文幅を制限） ─── */
+export function LegalDocBody({ children }: { children: React.ReactNode }) {
+  return (
+    <section style={{ padding: "0 2.5rem 6rem" }}>
+      <div style={{ maxWidth: "680px", margin: "0 auto" }}>{children}</div>
     </section>
   );
 }
