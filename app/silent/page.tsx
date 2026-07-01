@@ -8,43 +8,57 @@ import { useState, useEffect } from "react";
 /* ─── Nav ─── */
 function Nav() {
   const pathname = usePathname();
+  const [menuOpen, setMenuOpen] = useState(false);
   const links = [
     { label: "About", href: "/about" },
     { label: "Products", href: "/products" },
     { label: "Support", href: "/support" },
     { label: "Contact", href: "/contact" },
   ];
+  const isActive = (href: string) =>
+    href === "/support" ? pathname?.startsWith("/support") : pathname === href;
   return (
-    <nav style={{
-      position: "fixed", top: 0, left: 0, right: 0, zIndex: 50,
-      display: "flex", alignItems: "center", justifyContent: "space-between",
-      padding: "1.25rem 2.5rem",
-      background: "rgba(11,29,45,0.92)",
-      backdropFilter: "blur(12px)",
-      borderBottom: "1px solid rgba(200,164,110,0.1)",
-    }}>
-      <Link href="/" style={{ display: "flex", alignItems: "center", gap: "0.75rem", textDecoration: "none" }}>
-        <Image src="/logo-dark.png" alt="Dexter & Co." width={160} height={36}
-          style={{ height: "36px", width: "auto", objectFit: "contain" }} />
-        <span className="nav-brand-text" style={{
-          fontFamily: "var(--font-playfair)", fontSize: "0.95rem", fontWeight: 500,
-          color: "rgba(245,244,240,0.82)", letterSpacing: "0.14em", whiteSpace: "nowrap",
-        }}>
-          DEXTER <span style={{ color: "var(--gold)" }}>&</span> Co.
-        </span>
-      </Link>
-      <div style={{ display: "flex", gap: "2.5rem" }}>
-        {links.map((link) => {
-          const isActive = link.href === "/support" ? pathname?.startsWith("/support") : pathname === link.href;
-          return (
+    <>
+      <nav style={{
+        position: "fixed", top: 0, left: 0, right: 0, zIndex: 50,
+        display: "flex", alignItems: "center", justifyContent: "space-between",
+        padding: "1.25rem 2.5rem",
+        background: "rgba(11,29,45,0.92)",
+        backdropFilter: "blur(12px)",
+        borderBottom: "1px solid rgba(200,164,110,0.1)",
+      }}>
+        <Link href="/" style={{ display: "flex", alignItems: "center", gap: "0.75rem", textDecoration: "none" }}>
+          <Image src="/logo-dark.png" alt="Dexter & Co." width={160} height={36}
+            style={{ height: "36px", width: "auto", objectFit: "contain" }} />
+          <span className="nav-brand-text" style={{
+            fontFamily: "var(--font-playfair)", fontSize: "0.95rem", fontWeight: 500,
+            color: "rgba(245,244,240,0.82)", letterSpacing: "0.14em", whiteSpace: "nowrap",
+          }}>
+            DEXTER <span style={{ color: "var(--gold)" }}>&</span> Co.
+          </span>
+        </Link>
+        <div className="nav-desktop-links">
+          {links.map((link) => (
             <Link key={link.href} href={link.href} className="nav-link"
-              style={isActive ? { color: "var(--gold)", opacity: 1 } : {}}>
+              style={isActive(link.href) ? { color: "var(--gold)", opacity: 1 } : {}}>
               {link.label}
             </Link>
-          );
-        })}
+          ))}
+        </div>
+        <button className={`nav-hamburger-btn${menuOpen ? " open" : ""}`} onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? "メニューを閉じる" : "メニューを開く"}>
+          <span /><span /><span />
+        </button>
+      </nav>
+      <div className={`nav-mobile-overlay${menuOpen ? " open" : ""}`} onClick={() => setMenuOpen(false)} />
+      <div className={`nav-mobile-drawer${menuOpen ? " open" : ""}`}>
+        {links.map((link) => (
+          <Link key={link.href} href={link.href} onClick={() => setMenuOpen(false)}
+            style={{ fontFamily: "var(--font-inter)", fontSize: "0.88rem", letterSpacing: "0.18em", textTransform: "uppercase", color: isActive(link.href) ? "var(--gold)" : "rgba(245,244,240,0.7)", textDecoration: "none", padding: "1.25rem 0", borderBottom: "1px solid rgba(245,244,240,0.06)", transition: "color 0.2s" }}>
+            {link.label}
+          </Link>
+        ))}
       </div>
-    </nav>
+    </>
   );
 }
 

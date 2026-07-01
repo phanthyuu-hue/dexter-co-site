@@ -7,17 +7,7 @@ import { SupportNav, SupportFooter, SupportPageHeader, StatusBadge } from "../_c
 function LinkChip({ href, label }: { href: string | null; label: string }) {
   if (!href) {
     return (
-      <span
-        style={{
-          fontFamily: "var(--font-inter)",
-          fontSize: "0.72rem",
-          color: "rgba(245,244,240,0.3)",
-          border: "1px solid rgba(245,244,240,0.1)",
-          padding: "0.4rem 0.9rem",
-        }}
-      >
-        {label}：準備中
-      </span>
+      <span className="badge-coming-soon">{label}</span>
     );
   }
   return (

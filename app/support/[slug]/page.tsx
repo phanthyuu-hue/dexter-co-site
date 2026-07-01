@@ -33,11 +33,11 @@ function QuickLinkCard({
 
   if (disabled || !href) {
     return (
-      <div style={{ ...baseStyle, opacity: 0.4 }}>
-        <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.92rem", color: "var(--offwhite)", marginBottom: "0.4rem" }}>
-          {label}（準備中）
+      <div style={{ ...baseStyle, borderStyle: "dashed", borderColor: "rgba(245,244,240,0.12)", background: "rgba(30,35,41,0.2)" }}>
+        <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.92rem", color: "rgba(245,244,240,0.5)", marginBottom: "0.75rem" }}>
+          {label}
         </p>
-        <p style={{ fontFamily: "var(--font-noto)", fontSize: "0.78rem", color: "rgba(245,244,240,0.45)" }}>{description}</p>
+        <span className="badge-coming-soon">近日公開</span>
       </div>
     );
   }
@@ -172,10 +172,10 @@ export default function ProductSupportPage() {
         {/* ── 1. Hero ── */}
         <section
           style={{
-            paddingTop: "16rem",
-            paddingBottom: "5rem",
-            paddingLeft: "2.5rem",
-            paddingRight: "2.5rem",
+            paddingTop: "clamp(8rem, 16vw, 16rem)",
+            paddingBottom: "clamp(3rem, 5vw, 5rem)",
+            paddingLeft: "clamp(1.25rem, 5vw, 2.5rem)",
+            paddingRight: "clamp(1.25rem, 5vw, 2.5rem)",
             borderBottom: "1px solid rgba(245,244,240,0.06)",
           }}
         >
@@ -262,7 +262,7 @@ export default function ProductSupportPage() {
         )}
 
         {/* ── 2. Quick Links ── */}
-        <section style={{ padding: "5rem 2.5rem", borderBottom: "1px solid rgba(245,244,240,0.06)" }}>
+        <section style={{ padding: "clamp(2.5rem, 5vw, 5rem) clamp(1.25rem, 5vw, 2.5rem)", borderBottom: "1px solid rgba(245,244,240,0.06)" }}>
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>
             <SectionLabel>Quick Links</SectionLabel>
             <h2 style={{ fontFamily: "var(--font-playfair)", fontSize: "1.6rem", fontWeight: 500, color: "var(--offwhite)", marginBottom: "2rem" }}>
